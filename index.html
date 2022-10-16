@@ -13,19 +13,31 @@
 </head>
 <body>
     
-    <div class="container text-center">
-        <div class="row">
-          <div class="col">
-            Column
-          </div>
-          <div class="col">
-            Column
-          </div>
-          <div class="col">
-            Column
-          </div>
-        </div>
-      </div>
+    <div class="login">
+
+        <h1 class="text-center">Bienvenido!</h1>
+
+        <form class="needs-validation" action="">
+            <div class="form-group was-validated">
+                <label class="form-label" for="email">Correo electronico</label>
+                <input class="form-control" type="email" id="email" required>
+                <div class="invalid-feedback">Porfavor ingrese una direccion valida</div>
+            </div>  
+            
+            <div class="form-group was-validated">
+                <label class="form-label" for="password">Contraseña</label>
+                <input class="form-control" type="password" id="password" required>
+                <div class="invalid-feedback">Ingrese su contraseña</div>
+            </div>    
+
+            <div class="form-group form-check">
+                <input class="form-check-input" type="checkbox" id="recordar_email">
+                <label class="form-check-label" for="recordar_email">Recordar Email</label>
+            </div>   
+            
+            <input class="btn btn-success w-100" type="submit" value="Iniciar sesion">
+        </form>
+    </div>
 
     <!--Connections-->
     <!-- JavaScript Bundle with Popper -->
