@@ -7,3 +7,53 @@ body{
     background: linear-gradient(0deg, rgba(216,171,255,1) 0%, rgba(142,64,255,1) 100%);
     background-attachment: fixed;
 }
+
+.btn-purple{
+    background-color: rgb(145, 59, 224);
+    color: aliceblue;
+}
+
+.btn-purple:hover{
+    background-color: rgb(124, 23, 219);
+    color: aliceblue;
+}
+
+.creation{
+    width: 360px;
+    height: min-content;
+    padding: 20px;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.login h1{
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+
+.login form{
+    font-size: 20px;
+}
+
+.login form .form-group{
+    margin-bottom: 12px;
+}
+
+.login form[type="submit"]{
+    font-size: 20px;
+    margin-top: 15px;
+
+}
+.form-a-tag{
+    text-decoration: none;
+    color: rgb(5, 150, 29);
+    font-size: 15px;
+}
+.form-a-tag:hover{
+    color: rgb(0, 119, 255);
+}
+
+.project-logo{
+    width: 650px;
+    height: 300px;
+}
