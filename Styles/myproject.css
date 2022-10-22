@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+
+body{  
+
+    background: rgb(216,171,255);
+    background: linear-gradient(0deg, rgba(216,171,255,1) 0%, rgba(142,64,255,1) 100%);
+    background-attachment: fixed;
+}

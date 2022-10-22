@@ -2,25 +2,16 @@
 
 
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
     font-family: 'Poppins', 'Lato', sans-serif;;
 }
 
 .notch-container{
     display: flex;
-    justify-content: top;
-    align-items: top;
-    min-height: 100vh;   
+    justify-content: center;
+    align-items: top; 
+    margin-top: 45px;
 }
 
-body{  
-
-    background: rgb(230,255,250);
-    background: linear-gradient(3deg, rgba(230,255,250,1) 42%, rgba(202,255,240,1) 100%);
-    background-attachment: fixed;
-}
 
 .notch{
     width: 400px;
