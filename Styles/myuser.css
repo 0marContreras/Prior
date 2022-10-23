@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+
+body{  
+
+    background: rgb(230,255,250);
+    background: linear-gradient(3deg, rgb(247, 204, 243) 42%, rgb(255, 154, 242) 100%);
+    background-attachment: fixed;
+}
+
+.edit-button{
+    text-decoration: none;
+    color: rgb(255, 0, 191);
+}
