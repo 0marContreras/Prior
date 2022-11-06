@@ -6,4 +6,47 @@ body{
 }
 
 
+.teamcode_field{
+    width: 200px;
+}
 
+
+.creation{
+    width: 360px;
+    height: min-content;
+    padding: 20px;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.login h1{
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+
+.login form{
+    font-size: 20px;
+}
+
+.login form .form-group{
+    margin-bottom: 12px;
+}
+
+.login form[type="submit"]{
+    font-size: 20px;
+    margin-top: 15px;
+
+}
+.form-a-tag{
+    text-decoration: none;
+    color: rgb(5, 150, 29);
+    font-size: 15px;
+}
+.form-a-tag:hover{
+    color: rgb(0, 119, 255);
+}
+
+.project-logo{
+    width: 650px;
+    height: 300px;
+}
