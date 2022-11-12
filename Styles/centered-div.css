@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+
+.cdiv{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Lato', sans-serif;;
+}
+
+
+.cdiv-body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
