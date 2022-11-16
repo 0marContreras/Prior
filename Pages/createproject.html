@@ -20,14 +20,18 @@
 
         <h1 class="text-center">Create project</h1>
 
+      <!--Input del nombre del proycto-->
         <form class="" action="../Pages/projectpage.html">
             <div class="form-group">
                 <label class="form-label" for="project-name">Project name</label>
-                <input class="form-control" type="text" id="project-name" >
+                <input class="form-control" type="text" id="project-name" > <!--devuelve string con el nombre del proyecto-->
             </div>  
-            
+      <!--Input del nombre del proycto-->
+
             <br>
 
+
+      <!--Boton de seleccion de grupo del proyecto / Se elegira un grupo como en el sing up, usar switch case o un if-->
             <div class="form-group btn-group" role="group">
                 <button type="button" class="btn btn-purple dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                   Select group
@@ -52,23 +56,32 @@
                   </li>
                 </ul>
               </div>
+      <!--Boton de seleccion de grupo del proyecto / Se elegira un grupo como en el sing up, usar switch case o un if-->
+
+
 
               <br><br>
 
+              <!--Descripcion  del proyecto  //   probablemente un texto extenso-->
               <div class="form-group mb-3">
                 <label for="project-description1" class="form-label">Description</label>
-                <textarea class="form-control" name="project-description" id="project-description" rows="3"></textarea>
+                <textarea class="form-control" name="project-description" id="project-description" rows="3"></textarea> <!--devuelve texto con la desc. del proyecto-->
               </div>
+               <!--Descripcion  del proyecto  //   probablemente un texto extenso-->
 
               <br>
 
+              <!--Seleccionar archivo de foto de proyecto o logo // se guarda en blob en la base de datos-->
               <div class="form-group mb-3">
                 <label for="project-logo" class="form-label">Logo</label>
-                <input class="form-control form-control-sm" name="project-logo" id="project-logo" type="file">
+                <input class="form-control form-control-sm" name="project-logo" id="project-logo" type="file"> <!--retorna el archivo-->
               </div>
+              <!--Seleccionar archivo de foto de proyecto o logo // se guarda en blob en la base de datos-->
+
 
               <br><br>
             
+              
             <input class="btn btn-purple w-100" type="submit" value="Create project">
 
         </form>
