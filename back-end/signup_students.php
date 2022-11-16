@@ -16,7 +16,7 @@
 
     $groupPIMBIS31M=$_POST['pimGroup1-register-check'];
 
-    $groupLIBIS31M=$_POST['ticGliGroup1roup1-register-check'];
+    $groupLIBIS31M=$_POST['liGroup1-register-check'];
     
     //encrypt password 
     $pass_cifrada = password_hash($password, PASSWORD_DEFAULT);
