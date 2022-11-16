@@ -19,77 +19,92 @@
 
         <form class="needs-validation" action="">
 
+          <!--nombre del usuario-->
             <div class="form-group">
                 <label class="form-label" for="fullname">Full name</label>
-                <input class="form-control" type="fullname" name="fullname" id="fullname" required>
+                <input class="form-control" type="fullname" name="fullname" id="fullname" required> <!--retorna el nombre del usuario-->
             </div>  
 
+            <!--correo del usuario-->
             <div class="form-group was-validated">
                 <label class="form-label" for="new_email">Email</label>
-                <input class="form-control" type="email" name="new-email" id="new-email" required>
+                <input class="form-control" type="email" name="new-email" id="new-email" required> <!--retorna el correo del usuario-->
                 <div class="invalid-feedback">Please insert an email</div>
             </div>  
             
+            <!--contraseña del usuario-->
             <div class="form-group was-validated">
                 <label class="form-label" for="new-password">Password</label>
-                <input class="form-control" type="password" name="new-password" id="new-password" required>
+                <input class="form-control" type="password" name="new-password" id="new-password" required> <!--retorna contraseña del usuario-->
                 <div class="invalid-feedback">Please insert your password</div>
             </div>    
 
+            <!--confirma contraseña del usuario//////////Comparar con if si coincide con la de arriba-->
             <div class="form-group was-validated">
                 <label class="form-label" for="new-password-confirm">Confirm password</label>
-                <input class="form-control" type="password" name="new-password-confirm" id="new-password-confirm" required>
+                <input class="form-control" type="password" name="new-password-confirm" id="new-password-confirm" required> <!--confirma contraseña del usuario-->
                 <div class="invalid-feedback">Check your password</div>
             </div>  
 
+            <!--Selecciona el grupo del alumno que se registra////// En un switch obtener que grupo se selecciono, Ej: Si selecciona tics insertar
+              en la variable un 1. <-- Corresponde al id de tics en la tabla de grupos
+            -->
             <div class="form-group btn-group" role="group">
-                <button type="button" class="btn btn-rainbow dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <button type="button" class="btn btn-rainbow dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> <!--esto lo ocupa el boton solo front-->
                   Select group
                 </button>
                 <ul class="dropdown-menu">
                   <li>
+                    <!--Boton tics-->
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="ticGroup1-register-check" id="ticGroup1-register-check">
-                        <label class="form-check-label" for="ticGroup1-register-check">
+                        <label class="form-check-label" for="ticGroup1-register-check"> <!--Este boton devuelve el grupo de tics-->
                         TIDBIS31M
                         </label>
                     </div>
                   </li>
-                    
+                  <!--Boton tics-->
+
+                  <!--Boton dn-->
                   <li>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="dnGroup1-register-check" id="dnGroup1-register-check">
                         <label class="form-check-label" for="dnGroup1-register-check">
-                        DNBIS31M
+                        DNBIS31M <!--Este boton devuelve el grupo de tics-->
                         </label>
                     </div>
                   </li>
+                  <!--Boton dn-->
 
+                  <!--Boton procesos-->
                   <li>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="pimGroup1-register-check" id="pimGroup1-register-check">
                         <label class="form-check-label" for="pimGroup1-register-check">
-                        PIMBIS31M
+                        PIMBIS31M <!--Este boton devuelve el grupo de tics-->
                         </label>
                     </div>
                   </li>
+                  <!--Boton procesos-->
 
+                  <!--Boton lengua inglesa-->
                   <li>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="liGroup1-register-check" id="liGroup1-register-check">
                         <label class="form-check-label" for="liGroup1-register-check">
-                        LIBIS31M
+                        LIBIS31M <!--Este boton devuelve el grupo de tics-->
                         </label>
                     </div>
                   </li>
+                  <!--Boton lengua inglesa-->
 
                 </ul>
-              </div>
+              </div> <!--Cierre del boton-->
 
             <input class="btn btn-rainbow w-100" type="submit" value="Register account">
 
             <div class="form-group">
-                <a class="form-a-tag" href="./login.html">¿Already registered? Log in</a>
+                <a class="form-a-tag" href="./login.html">¿Already registered? Log in</a> <!--este boton es para ir al login por si se equivoca el user-->
             </div>
         </form>
     </div>
