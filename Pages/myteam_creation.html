@@ -18,50 +18,46 @@
 
         <h1 class="text-center">Create Team</h1>
 
-        <form class="bg-black text-light"" action="../Pages/myteam_confirm.html">
+        <form class="bg-black text-light" action="../Pages/myteam_confirm.html"> <!--Aqui va el script php-->
+
+
+          <!--ingresa el nombre del equipo-->
             <div class="form-group">
                 <label class="form-label" for="project-name">Team name</label>
-                <input class="form-control" name="team-name" type="text" id="team-name" >
+                <input class="form-control" name="team-name" type="text" id="team-name" required > <!--retorna el nombre del equipo-->
             </div>  
             
+
             <br>
-            <div class="form-group btn-group" role="group">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                  Select group
-                </button>
-                <ul class="dropdown-menu">
-                  <li>
-                    <div class="form-check">
-                        <input class="form-check-input" name="tic1-team-check" type="radio" name="flexRadioDefault" id="tic1-team-check">
-                        <label class="form-check-label" for="tic1-team-check">
-                        TIDBIS31M
-                        </label>
-                    </div>
-                  </li>
-                    
-                  <li>
-                    <div class="form-check">
-                        <input class="form-check-input" name="dn1-team-check" type="radio" name="flexRadioDefault" id="dn1-team-check">
-                        <label class="form-check-label" for="dn1-team-check">
-                        DNBIS31M
-                        </label>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+             <!----------------------------------------Boton de seleccion de grupo registro equipo------------------------------------------->
+             <div class="form-group">
+              <!--Retorna en el name: team-group-reg el grupo que selecciona al crear un equipo. esto le da al equipo de que salon es-->
+              <select name="team-group-reg" id="team-group" class="btn btn-light dropdown-toggle prior-dropdown">
+
+                <option value="selectGroup">Select Group</option>
+                <option value="TIDBIS31M">TIDBIS31M</option> <!--Retorna grupo tics-->
+                <option value="DNBIS31M">DNBIS31M</option>  <!--Retorna grupo dn-->
+                <option value="PIMBIS31M">PIMBIS31M</option>  <!--Retorna grupo procesos-->
+                <option value="LIBIS31M">LIBIS31M</option>  <!--Retorna grupo lengua inglesa-->
+
+              </select>
+            </div>
+            <!----------------------------------------Boton de seleccion de grupo registro equipo------------------------------------------->
 
               <br><br>
 
+              <!--ingresa la descripcion del equipo-->
               <div class="form-group mb-3">
                 <label for="team-description" class="form-label">Description</label>
-                <textarea class="form-control" name="team-description" id="team-description" rows="3"></textarea>
+                <textarea class="form-control" name="team-description" id="team-description" rows="3" required></textarea> <!--retorna la descripcion del equipo-->
               </div>
 
               <br>
 
+              <!--ingresa el logo del equipo-->
               <div class="form-group mb-3">
                 <label for="formFileSm" class="form-label">Logo</label>
-                <input class="form-control form-control-sm" name="team-logo" id="team-logo" type="file">
+                <input class="form-control form-control-sm" name="team-logo" id="team-logo" type="file" required> <!--retorna el logo del equipo-->
               </div>
 
               <br><br>

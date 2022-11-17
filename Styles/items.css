@@ -37,3 +37,13 @@
 .rate > label:hover ~ input:checked ~ label {
     color: #c59b08;
 }
+
+
+.prior-dropdown{
+    transition: box-shadow .1s;
+    background-color: #fff;
+}
+
+.prior-dropdown:hover{
+    box-shadow: 0 0 11px rgb(255, 255, 255);
+}

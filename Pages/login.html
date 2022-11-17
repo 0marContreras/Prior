@@ -18,22 +18,26 @@
 
         <h1 class="text-center">Welcome!</h1>
 
-        <form class="needs-validation" action="../Pages/home.html">
+        <form class="needs-validation" action="../Pages/home.html"> <!--Aqui va el script php-->
+
+            <!--Aqui se inserta el email de inicio de sesion-->
             <div class="form-group was-validated">
                 <label class="form-label" for="email">Email</label>
-                <input class="form-control" type="email" name="email" id="email" required>
+                <input class="form-control" type="email" name="email" id="email" required> <!--Returns el email del que se loguea-->
                 <div class="invalid-feedback">Please insert an email</div>
             </div>  
             
+            <!--Aqui se inserta la contraseña de inicio de sesion-->
             <div class="form-group was-validated">
                 <label class="form-label" for="password">Password</label>
                 <input class="form-control" type="password" name="password" id="password" required>
-                <div class="invalid-feedback">Please insert your password</div>
+                <div class="invalid-feedback">Please insert your password</div> <!--Returns la contraseña del que ese loguea-->
             </div>    
 
+            <!--Aqui se verifica si se quiere guardar el correo-->
             <div class="form-group form-check">
                 <input class="form-check-input" type="checkbox" name="recordar-email" id="recordar-email">
-                <label class="form-check-label" for="recordar-email">Remember email</label>
+                <label class="form-check-label" for="recordar-email">Remember email</label> <!--Returns si se guarda el FUCKIIING emaillllll-->
             </div>
             
             <input class="btn btn-rainbow w-100" type="submit" value="Log in">

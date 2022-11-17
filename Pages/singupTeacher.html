@@ -17,74 +17,49 @@
 
         <h1 class="text-center">Welcome!</h1>
 
-        <form class="needs-validation" action="">
+        <form class="needs-validation" action=""> <!--Aqui va el script php-->
 
+            <!--nombre del usuario-->
             <div class="form-group">
                 <label class="form-label" for="fullname">Full name</label>
-                <input class="form-control" type="fullname" id="fullname" required>
+                <input class="form-control" type="text" id="fullname-teacher" required> <!--retorna el nombre del usuario-->
             </div>  
 
+            <!--correo del usuario-->
             <div class="form-group was-validated">
                 <label class="form-label" for="email">Email</label>
-                <input class="form-control" type="email" id="new_email" required>
+                <input class="form-control" type="text" id="new-email-teacher" required> <!--retorna el correo del usuario-->
                 <div class="invalid-feedback">Please insert an email</div>
             </div>  
             
+            <!--contraseña del usuario-->
             <div class="form-group was-validated">
                 <label class="form-label" for="password">Password</label>
-                <input class="form-control" type="password" id="new_password" required>
+                <input class="form-control" type="password" id="new-password-teacher" required> <!--confirma contraseña del usuario-->  
                 <div class="invalid-feedback">Please insert your password</div>
             </div>    
 
+            <!--confirma contraseña del usuario//////////Comparar con if si coincide con la de arriba-->
             <div class="form-group was-validated">
                 <label class="form-label" for="password">Confirm password</label>
-                <input class="form-control" type="password" id="new_password_confirm" required>
+                <input class="form-control" type="password" id="new-password-confirm-teacher" required>
                 <div class="invalid-feedback">Check your password</div>
             </div>  
 
-            <div class="form-group btn-group" role="group">
-                <button type="button" class="btn btn-rainbow dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                  Select career
-                </button>
-                <ul class="dropdown-menu">
-                  <li>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="tics-register-check" id="tics-register-check">
-                        <label class="form-check-label" for="tics-register-check">
-                        Information technologies
-                        </label>
-                    </div>
-                  </li>
-                    
-                  <li>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="dn-register-check" id="dn-register-check">
-                        <label class="form-check-label" for="dn-register-check">
-                        Business development
-                        </label>
-                    </div>
-                  </li>
+             <!----------------------------------------Boton de seleccion de grupo registro alumno------------------------------------------->
+             <div class="form-group">
+              <!--Retorna en el name: teacher-career-reg la carrera que selecciona el maestro que se registra-->
+              <select name="teacher-career-reg" id="teacher-career" class="btn btn-light dropdown-toggle prior-dropdown">
 
-                  <li>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pi-register-check" id="pi-register-check">
-                        <label class="form-check-label" for="pi-register-check">
-                        Industrial processes 
-                        </label>
-                    </div>
-                  </li>
+                <option value="selectCareer">Select career</option>
+                <option value="TI">Information technologies</option> <!--Retorna carrera tics-->
+                <option value="DN">Business development</option>  <!--Retorna carrera dn-->
+                <option value="PIM">Industrial procesess</option>  <!--Retorna carrera procesos-->
+                <option value="LI">English language</option>  <!--Retorna carrera lengua inglesa-->
 
-                  <li>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="li-register-check" id="li-register-check">
-                        <label class="form-check-label" for="li-register-check">
-                        English language
-                        </label>
-                    </div>
-                  </li>
-
-                </ul>
-              </div>
+              </select>
+            </div>
+            <!----------------------------------------Boton de seleccion de grupo registro alumno------------------------------------------->
 
 
             <input class="btn btn-rainbow w-100" type="submit" value="Register account">
