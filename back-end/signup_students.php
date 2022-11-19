@@ -9,6 +9,7 @@
     try{
         $conn=new PDO("mysql:host=$server;dbname=$db", $user, $password);
         
+        
         //config variables en caso de errores
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
