@@ -70,11 +70,3 @@ body{
     }
 }
 
-.btn-happy{
-    background-color: rgba(20, 251, 178, 1) ;
-    
-}
-
-.btn-happy:hover{
-    background-color: rgb(13, 163, 116) ;
-}
