@@ -19,7 +19,7 @@
         $email=$_POST["new-email"];        
         $pass_sign_student=$_POST["new-password"];
         $group=$_POST["student-group-reg"];
-        $type_user=0;
+        $type_user=1;
         $id_team=0;
         $active=1;
         $created_at=date("Y-m-d");
