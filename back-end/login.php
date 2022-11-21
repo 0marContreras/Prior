@@ -40,7 +40,7 @@
         
         // Check if $_SESSION or $_COOKIE already set
         if( isset($_SESSION['userid']) ){
-            header('Location: home.php');
+            header('Location:../Pages/home.html');
             exit;
         }else if( isset($_COOKIE['rememberme'] )){
         
@@ -48,8 +48,8 @@
             $userid = decryptCookie($_COOKIE['rememberme']);
         
             // Fetch records
-            $stmt = $conn->prepare("SELECT count(*) as cntUser FROM users WHERE id=:id");
-            $stmt->bindValue(':id', (int)$userid, PDO::PARAM_INT);
+            $stmt = $conn->prepare("SELECT count(*) as userid FROM users WHERE id_user=id");
+            $stmt->bindValue('id', (int)$userid, PDO::PARAM_INT);
             $stmt->execute(); 
             $count = $stmt->fetchColumn();
         
@@ -63,13 +63,15 @@
         // On submit
         if(isset($_POST['but_submit'])){
         
-            $username = $_POST['txt_uname'];
-            $password = $_POST['txt_pwd'];
-        
+            $username = $_POST['email'];
+            $password_ = $_POST['password'];
+            $password=password_hash($password_, PASSWORD_DEFAULT);
+
+
             if ($username != "" && $password != ""){
                
             // Fetch records
-            $stmt = $conn->prepare("SELECT count(*) as cntUser,id FROM usuarios WHERE username=:username and password=:password ");
+            $stmt = $conn->prepare("SELECT count(*) as cntUser,id FROM users WHERE email=:username and user_password=:password ");
             $stmt->bindValue(':username', $username, PDO::PARAM_STR);
             $stmt->bindValue(':password', $password, PDO::PARAM_STR);
             $stmt->execute(); 
