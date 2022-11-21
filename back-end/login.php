@@ -20,11 +20,13 @@
         $password_cifrada=password_hash($password_login, PASSWORD_DEFAULT);
 
         //seleccionar datos de la tabla
-        $query_compare->prepare("SELECT * FROM users WHERE user_email=$email_login AND user_password=$password_cifrada");
+        $query->prepare("SELECT * FROM users WHERE user_email=$email_login AND user_password=$password_cifrada");
 
+        $query_result = mysql_query($query);
+        
         //test
-        $query_compare->execute();
-        echo $query_compare;
+        $query->execute();
+        echo $query;
         
         //checar que se 
         
