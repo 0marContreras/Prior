@@ -61,3 +61,12 @@
 .btn-happy:hover{
     background-color: rgb(13, 163, 116) ;
 }
+
+.btn-orange{
+    background-color: rgb(251, 143, 20) ;
+    
+}
+
+.btn-orange:hover{
+    background-color: rgb(201, 110, 6) ;
+}
