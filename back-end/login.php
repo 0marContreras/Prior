@@ -40,7 +40,7 @@
         
         // Check if $_SESSION or $_COOKIE already set
         if( isset($_SESSION['userid']) ){
-            header('Location:../Pages/home.html');
+            header('location:../Pages/home.html');
             exit;
         }else if( isset($_COOKIE['rememberme'] )){
         
@@ -55,7 +55,7 @@
         
             if( $count > 0 ){
                 $_SESSION['userid'] = $userid; 
-                header('Location: main.php');
+                header('location: ../back-end/login.php');
                 exit;
             }
         }
@@ -93,7 +93,7 @@
                 }
         
                 $_SESSION['userid'] = $userid; 
-                header('Location: main.php');
+                header('location: ../back-end/login.php');
                 exit;
             }else{
                 echo "Invalid username and password";
