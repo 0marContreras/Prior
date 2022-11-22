@@ -12,6 +12,7 @@
         //conf variables en caso de erroreS
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
+        //echo "Conexion exitosa"
         //Crear una nueva sesion
         session_start(); 
 
