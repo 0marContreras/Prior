@@ -12,16 +12,12 @@
         //conf variables en caso de erroreS
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
+        
         //echo "Conexion exitosa";
         $email_login=$_POST["email"];
         $pass_login=$_POST["password"];
         $pass_login_encrypted=password_hash($pass_sign_teacher, PASSWORD_DEFAULT);
-        
-
-        
-
-
-        
+             
         //query 
         $sql="SELECT * FROM users WHERE user_email='$email_login' AND user_password='$pass_login_encrypted '";
         
@@ -30,16 +26,21 @@
         //query 2 
         $query=$conn->prepare($sql);
         $query->execute();
-        echo $query;
-        
-        if (mysqli_num_rows($query)==0){
-            echo $email_login."<br>";
+        $query->setFetchMode(PDO::FETCH_ASSOC);
+
+
+        /*
+        if (!$query){
+            echo "Error: No se ejecutó el query";
+            /*echo $email_login."<br>";
             echo $pass_login."<br>";
             echo $pass_login_encrypted."<br>";
         }
         else{
-            echo "Javi es gei";
-        }
+            var_dump($query);
+            
+
+        }*/
     }
     catch(PDOException $err){
         //mandar error
