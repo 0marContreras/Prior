@@ -15,58 +15,65 @@
         //Crear una nueva sesion
         session_start(); 
 
-
-        if (isset($_POST['uname']) && isset($_POST['password'])) {
+        //Comprobar que existen los datos 
+        if (isset($_POST['email']) && isset($_POST['password'])) {
+            //funcion pa limipiar los datos
             function validate($data){
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
-        }
-
-        $uname = validate($_POST['uname']);
-        $pass = validate($_POST['password']);
-        
-        if (empty($uname)) {
-            header("Location: index.php?error=User Name is required");
-            exit();
-        }
-
-        else if(empty($pass)){
-            header("Location: index.php?error=Password is required");
-            exit();
-        }
-
-        else{
-            $sql = "SELECT * FROM users WHERE user_name='$uname' AND password='$pass'";
-            $result = mysqli_query($conn, $sql);
+                $data = trim($data);
+                $data = stripslashes($data);
+                $data = htmlspecialchars($data);
+                return $data;
+            }
+            //declaramos las variables y las limpiamos 
+            $email = validate($_POST['email']);
+            $pass = validate($_POST['password']);
             
-            if (mysqli_num_rows($result) === 1) {
-                
-                $row = mysqli_fetch_assoc($result);
-                
-                if ($row['user_name'] === $uname && $row['password'] === $pass) {
-                    echo "Logged in!";
-                    $_SESSION['user_name'] = $row['user_name'];
-                    $_SESSION['name'] = $row['name'];
-                    $_SESSION['id'] = $row['id'];
-                    header("Location: home.php");
-                    exit();
-                
+            //En caso de que no haya email mandar error 
+            if (empty($email)) {
+                header("Location: ../Pages/login.html?error=Email is required");
+                exit();
+            }
+            //En caso de que no haya contraseña mandar error
+            else if(empty($pass)){
+                header("Location: ../Pages/login.html?error=Password is required");
+                exit();
+            }
+
+            //Ora si llamamos a la base de datos
+            else{
+                $query = "SELECT * FROM users WHERE user_name='$email' AND    password='$pass'";
+                $result = mysqli_query($conn, $query);
+
+                //checamos que si nos haya dado algo 
+                if (mysqli_num_rows($result) === 1) {
+
+                    $row = mysqli_fetch_assoc($result);
+                    
+                    //Checar que el email y la contraseña coincidan 
+                    if ($row['user_email'] === $email && $row['user_password'] ===    $pass) {
+                        echo "Logged in!";
+
+                        //Variables pal próximo login 
+                        $_SESSION['email'] = $row['user_email'];
+                        $_SESSION['name'] = $row['Username'];
+                        $_SESSION['id'] = $row['id_user'];
+                        header("Location: ../Pages/home.html");
+                        exit();
+                    
+                    }
+                    else{
+                        header("Location: ../Pages/login.html?error=Incorect User name or     password");
+                        exit();
+                    }   
                 }
                 else{
-                    header("Location: index.php?error=Incorect User name or password");
-                    exit();
-                }   
-            }
-            else{
-                header("Location: index.php?error=Incorect User name or password");
+                    header("Location: ../Pages/login.html?error=Incorect User name or password");
                 exit();
             }
         }
     }
     else{
-        header("Location: index.php");
+        header("Location: ../Pages/login.html");
         exit();
     }
     }
