@@ -12,7 +12,18 @@
         //conf variables en caso de erroreS
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
-        //echo "Conexion exitosa"
+        //echo "Conexion exitosa";
+        
+
+    }
+    catch(PDOException $err){
+        //mandar error
+        echo "Error: ".$err->getMessage();
+    }
+?>
+
+<!--
+/*
         //Crear una nueva sesion
         session_start(); 
 
@@ -29,6 +40,11 @@
             $email = validate($_POST['email']);
             $pass_ = validate($_POST['password']);
             $pass  = password_hash($pass_, PASSWORD_DEFAULT);
+            
+            echo $email."<br>";
+            echo $pass."<br>";
+            echo $pass_."<br>";
+            
 
             //En caso de que no haya email mandar error 
             if (empty($email)) {
@@ -41,9 +57,11 @@
                 exit();
             }
 
+
+
             //Ora si llamamos a la base de datos
             else{
-                $query = "SELECT * FROM users WHERE user_name='$email' AND    password='$pass'";
+                $query = "SELECT * FROM users WHERE user_email='$email'";
                 $result = mysqli_query($conn, $query);
 
                 //checamos que si nos haya dado algo 
@@ -75,12 +93,6 @@
         }
     }
     else{
-        header("Location: ../Pages/login.html");
+        header("Location: ../Pages/home.php");
         exit();
-    }
-    }
-    catch(PDOException $err){
-        //mandar error
-        echo "Error: ".$err->getMessage();
-    }
-?>
+    }*/ -->

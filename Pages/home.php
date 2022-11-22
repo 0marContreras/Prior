@@ -217,7 +217,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
 }else{
 
-     header("Location: ../Pages/login.html");
+     header("Location: ../Pages/login.phpf");
 
      exit();
 
