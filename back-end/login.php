@@ -12,97 +12,81 @@
         //conf variables en caso de errores
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
               
-        // Encrypt cookie
-        function encryptCookie( $userid ) {
-        
-            $key = hex2bin(openssl_random_pseudo_bytes(4));
-        
-            $cipher = "aes-256-cbc";
-            $ivlen = openssl_cipher_iv_length($cipher);
-            $iv = openssl_random_pseudo_bytes($ivlen);
-        
-            $ciphertext = openssl_encrypt($userid, $cipher, $key, 0, $iv);
-        
-        
-            return( base64_encode($ciphertext . '::' . $iv.'::'.$key) );
-        }
-        
-        // Decrypt cookie
-        function decryptCookie( $ciphertext ) {
-        
-            $cipher = "aes-256-cbc";
-        
-            list($encrypted_data, $iv,$key) = explode('::', base64_decode($ciphertext));
-            return openssl_decrypt($encrypted_data, $cipher, $key, 0, $iv);
-        
-        }
-        
-        
-        // Check if $_SESSION or $_COOKIE already set
-        if( isset($_SESSION['userid']) ){
-            header('location:../Pages/home.html');
-            exit;
-        }else if( isset($_COOKIE['rememberme'] )){
-        
-            // Decrypt cookie variable value
-            $userid = decryptCookie($_COOKIE['rememberme']);
-        
-            // Fetch records
-            $stmt = $conn->prepare("SELECT count(*) as userid FROM users WHERE id_user=id");
-            $stmt->bindValue('id', (int)$userid, PDO::PARAM_INT);
-            $stmt->execute(); 
-            $count = $stmt->fetchColumn();
-        
-            if( $count > 0 ){
-                $_SESSION['userid'] = $userid; 
-                header('location: ../back-end/login.php');
-                exit;
-            }
-        }
-        
-        // On submit
-        if(isset($_POST['but_submit'])){
-        
-            $username = $_POST['email'];
-            $password_ = $_POST['password'];
-            $password=password_hash($password_, PASSWORD_DEFAULT);
+        session_start(); 
 
+        if (isset($_POST['uname']) && isset($_POST['password'])) {
 
-            if ($username != "" && $password != ""){
-               
-            // Fetch records
-            $stmt = $conn->prepare("SELECT count(*) as cntUser,id FROM users WHERE email=:username and user_password=:password ");
-            $stmt->bindValue(':username', $username, PDO::PARAM_STR);
-            $stmt->bindValue(':password', $password, PDO::PARAM_STR);
-            $stmt->execute(); 
-            $record = $stmt->fetch(); 
-        
-            $count = $record['cntUser'];
-        
-            if($count > 0){
-                $userid = $record['id'];
-        
-                if( isset($_POST['rememberme']) ){
-        
-                    // Set cookie variables
-                    $days = 30;
-                    $value = encryptCookie($userid);
-        
-                    setcookie ("rememberme",$value,time()+ ($days * 24 * 60 * 60 * 1000));
-        
+            function validate($data){
+
+            $data = trim($data);
+
+            $data = stripslashes($data);
+
+            $data = htmlspecialchars($data);
+
+            return $data;
+
+        }
+
+        $uname = validate($_POST['uname']);
+
+        $pass = validate($_POST['password']);
+
+        if (empty($uname)) {
+
+            header("Location: index.php?error=User Name is required");
+
+            exit();
+
+        }else if(empty($pass)){
+
+            header("Location: index.php?error=Password is required");
+
+            exit();
+
+        }else{
+
+            $sql = "SELECT * FROM users WHERE user_name='$uname' AND password='$pass'";
+
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) === 1) {
+
+                $row = mysqli_fetch_assoc($result);
+
+                if ($row['user_name'] === $uname && $row['password'] === $pass) {
+
+                    echo "Logged in!";
+
+                    $_SESSION['user_name'] = $row['user_name'];
+
+                    $_SESSION['name'] = $row['name'];
+
+                    $_SESSION['id'] = $row['id'];
+
+                    header("Location: home.php");
+
+                    exit();
+
+                }else{
+
+                    header("Location: index.php?error=Incorect User name or password");
+
+                    exit();
+
                 }
-        
-                $_SESSION['userid'] = $userid; 
-                header('location: ../back-end/login.php');
-                exit;
-            }else{
-                echo "Invalid username and password";
-            }
-        
-            }   
-        
-        } 
 
+            }else{
+
+                header("Location: index.php?error=Incorect User name or password");
+                exit();
+
+            }
+        }
+    }else{
+        header("Location: index.php");
+        exit();
+    }
     }
     catch(PDOException $err){
         //mandar error
