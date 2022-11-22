@@ -26,8 +26,9 @@
             }
             //declaramos las variables y las limpiamos 
             $email = validate($_POST['email']);
-            $pass = validate($_POST['password']);
-            
+            $pass_ = validate($_POST['password']);
+            $pass  = password_hash($pass_, PASSWORD_DEFAULT);
+
             //En caso de que no haya email mandar error 
             if (empty($email)) {
                 header("Location: ../Pages/login.html?error=Email is required");
@@ -53,7 +54,7 @@
                     if ($row['user_email'] === $email && $row['user_password'] ===    $pass) {
                         echo "Logged in!";
 
-                        //Variables pal próximo login 
+                        //Mausquerramienta misteriosa que nos servira mas tarde
                         $_SESSION['email'] = $row['user_email'];
                         $_SESSION['name'] = $row['Username'];
                         $_SESSION['id'] = $row['id_user'];

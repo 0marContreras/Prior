@@ -21,6 +21,12 @@
 
         <form class="needs-validation" method="POST" action="../back-end/login.php"> <!--Aqui va el script php-->
 
+            <?php if (isset($_GET['error'])) { ?>
+
+                <p class="error"><?php echo $_GET['error']; ?></p>
+    
+            <?php } ?>
+
             <!--Aqui se inserta el email de inicio de sesion-->
             <div class="form-group was-validated">
                 <label class="form-label" for="email">Email</label>
