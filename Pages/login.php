@@ -19,21 +19,21 @@
 
         <h1 class="text-center">Welcome!</h1>
 
-        <form class="needs-validation" method="POST" action="../back-end/login3.php"> <!--Aqui va el script php-->
+        <form class="needs-validation" method="POST" action="../back-end/login2.php"> <!--Aqui va el script php-->
 
             <!--En caso de error aquí se imprime el error-->
 
             <!--Aqui se inserta el email de inicio de sesion-->
             <div class="form-group was-validated">
                 <label class="form-label" for="email">Email</label>
-                <input class="form-control" type="email" name="email" id="email" value="sam@gmail.com" required> <!--Returns el email del que se loguea-->
+                <input class="form-control" type="email" name="email" id="email" required> <!--Returns el email del que se loguea-->
                 <div class="invalid-feedback">Please insert an email</div>
             </div>  
             
             <!--Aqui se inserta la contraseña de inicio de sesion-->
             <div class="form-group was-validated">
                 <label class="form-label" for="password">Password</label>
-                <input class="form-control" type="password" name="password" id="password" value="1234567890" required>
+                <input class="form-control" type="password" name="password" id="password" required>
                 <div class="invalid-feedback">Please insert your password</div> <!--Returns la contraseña del que ese loguea-->
             </div>    
 
