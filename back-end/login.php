@@ -1,4 +1,7 @@
 <?php
+
+    //ESTE NO ES EL LOGIN BUENO
+    
     //Variables 
     $server='localhost';
     $user='root';

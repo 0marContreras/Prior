@@ -22,7 +22,8 @@
     
     $_SESSION['email']=$email_login;
 
-    $query="SELECT COUNT(*) FROM users WHERE user_email='$email_login' AND user_password='$pass_login_encrypted '";
+    $query="SELECT COUNT(*) FROM users WHERE user_email='$email_login'";
+    //AND user_password='$pass_login_encrypted '
     
     $query_result=$conn->query($query);
 
