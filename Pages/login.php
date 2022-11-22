@@ -21,6 +21,7 @@
 
         <form class="needs-validation" method="POST" action="../back-end/login.php"> <!--Aqui va el script php-->
 
+            <!--En caso de error aquí se imprime el error-->
             <?php if (isset($_GET['error'])) { ?>
 
                 <p class="error"><?php echo $_GET['error']; ?></p>

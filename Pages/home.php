@@ -1,3 +1,4 @@
+<!--Checa si el usuario esta logueado o no-->
 <?php 
 
 session_start();
@@ -211,11 +212,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 </body>
 </html>
 
+<!--Si no esta logueado pa atrás papa-->
 <?php 
 
 }else{
 
-     header("Location: index.php");
+     header("Location: ../Pages/login.html");
 
      exit();
 

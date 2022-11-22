@@ -64,7 +64,7 @@
                     
                     }
                     else{
-                        header("Location: ../Pages/login.html?error=Incorect User name or     password");
+                        header("Location: ../Pages/login.html?error=Incorect User name or password");
                         exit();
                     }   
                 }
