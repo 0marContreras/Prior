@@ -50,7 +50,13 @@
 
     }    
     else{
-        echo "Subete al EVA shinji";
+        //echo "Subete al EVA shinji";
+        ?>
+        <?php
+        include("../Pages/login.php");
+        ?>
+        <h1>Email O Contraseña incorrecta</h1>
+        <?php
     }
     }//Catch de toda la vida que nos manda error si valió todo 
     catch(PDOException $err){
