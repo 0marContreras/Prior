@@ -19,7 +19,7 @@
 
         session_destroy();
 
-        header("Location: ../Pages/login.html");
+        header("Location: ../Pages/login.php");
     }
     catch(PDOException $err){
         //mandar error

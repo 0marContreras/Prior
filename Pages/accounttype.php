@@ -20,13 +20,13 @@
 
             <div class="form-group text-center">
                 
-                <a name="" id="" class="btn btn-rainbow" href="./singup.html" role="button">Student</a>
+                <a name="" id="" class="btn btn-rainbow" href="./singup.php" role="button">Student</a>
 
             </div>  
 
             <div class="form-group text-center">
                 
-                <a name="" id="" class="btn btn-rainbow" href="./singupTeacher.html" role="button">Teacher</a>
+                <a name="" id="" class="btn btn-rainbow" href="./singupTeacher.php" role="button">Teacher</a>
 
             </div>  
             

@@ -117,7 +117,7 @@
         echo "Felicidades shinji";
 
         //redireccion
-        header('location:../Pages/login.html');
+        header('location:../Pages/login.php');
 
     }
     catch(PDOException $err){

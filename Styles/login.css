@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', 'Lato', sans-serif;;
+    font-family: 'Poppins', 'Lato', sans-serif;
 }
 
 
@@ -20,6 +20,7 @@ body{
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
     background-attachment: fixed;
+    font-family: 'Poppins', 'Lato', sans-serif;
 }
 
 

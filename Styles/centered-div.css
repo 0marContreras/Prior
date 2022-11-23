@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 
+*{
+    font-family: 'Poppins', 'Lato', sans-serif;
+}
+
 .cdiv{
     margin: 0;
     padding: 0;

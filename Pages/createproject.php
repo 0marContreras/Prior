@@ -21,7 +21,7 @@
         <h1 class="text-center">Create project</h1>
 
       <!--Input del nombre del proycto-->
-        <form class="" action="../Pages/projectpage.html"> <!--Aqui va el scripr PHP (pi eich pi)-->
+        <form class="" action="../Pages/projectpage.php"> <!--Aqui va el scripr PHP (pi eich pi)-->
             <div class="form-group">
                 <label class="form-label" for="project-name">Project name</label>
                 <input class="form-control" name="project-name" type="text" id="project-name" required > <!--devuelve string con el nombre del proyecto-->

@@ -28,14 +28,14 @@
             <!--correo del usuario-->
             <div class="form-group was-validated">
                 <label class="form-label" for="email">Email</label>
-                <input class="form-control" type="text" name="new-email-teacher" id="new-email-teacher" value="Almanza@cisco.com" required> <!--retorna el correo del usuario-->
+                <input class="form-control" type="email" name="new-email-teacher" id="new-email-teacher" value="Almanza@cisco.com" required> <!--retorna el correo del usuario-->
                 <div class="invalid-feedback">Please insert an email</div>
             </div>  
             
             <!--contraseña del usuario-->
             <div class="form-group was-validated">
                 <label class="form-label" for="password">Password</label>
-                <input class="form-control" type="password" name="new-email-teacher" id="new-password-teacher" value="Cisco" required> <!--confirma contraseña del usuario-->  
+                <input class="form-control" type="password" name="new-password-teacher" id="new-password-teacher" value="Cisco" required> <!--confirma contraseña del usuario-->  
                 <div class="invalid-feedback">Please insert your password</div>
             </div>    
 
@@ -65,7 +65,7 @@
             <input class="btn btn-rainbow w-100" type="submit" value="Register account">
 
             <div class="form-group">
-                <a class="form-a-tag" href="./login.html">¿Already registered? Log in</a>
+                <a class="form-a-tag" href="./login.php">¿Already registered? Log in</a>
             </div>
         </form>
     </div>

@@ -41,7 +41,7 @@
             <input class="btn btn-rainbow w-100" type="submit" value="Submit">
 
             <div class="form-group">
-                <a class="form-a-tag" href="./accounttype.html">¿New in Prior? Create an account</a>
+                <a class="form-a-tag" href="../Pages/accounttype.php">¿New in Prior? Create an account</a>
             </div>
         </form>
     </div>

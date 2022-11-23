@@ -18,7 +18,7 @@
 
         <h1 class="text-center">Create Team</h1>
 
-        <form class="bg-black text-light" action="../Pages/myteam_confirm.html"> <!--Aqui va el script php-->
+        <form class="bg-black text-light" action="../Pages/myteam_confirm.php"> <!--Aqui va el script php-->
 
 
           <!--ingresa el nombre del equipo-->
