@@ -34,9 +34,15 @@
     //contamos cuantas columnas nos da el query
     $count=$query_result->fetchColumn();
 
+    $query_password="SELECT user_password FROM users WHERE user_email='$email_login";
+
+    $query_password_execute=$query_password->execute();
+
+
     //Si nos regresa una columa pa adelante caminante, si no pa atrás papa de regreso al login 
     if ($count === 1) {
-        echo "Felicidades shinji";
+        echo "Felicidades shinji"."<br>";
+        echo $query_password_execute;
     }    
     else{
         echo "Subete al EVA shinji";
