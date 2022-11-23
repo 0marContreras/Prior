@@ -34,19 +34,19 @@ if (isset($_SESSION['email'])) {
                 <div class="notch">
                     <ul>
                         <li class="notch-list">
-                            <a href="../Pages/myproject.html">
+                            <a href="../Pages/myproject.php">
                                 <span class="notch-icon notch-myproject"><ion-icon name="hardware-chip-outline"></ion-icon></span>
                                 <span class="notch-text notch-myproject-text">My project</span>
                             </a>
                         </li>
                         <li class="notch-list">
-                            <a href="../Pages/ideas.html">
+                            <a href="../Pages/ideas.php">
                                 <span class="notch-icon notch-ideas"><ion-icon name="rainy-outline"></ion-icon></ion-icon></span>
                                 <span class="notch-text notch-ideas-text">Ideas</span>
                             </a>
                         </li>
                         <li class="notch-list">
-                            <a href="../Pages/home.html">
+                            <a href="../Pages/home.php">
                                 <span class="notch-icon notch-home"><ion-icon name="home-outline"></ion-icon></span>
                                 <span class="notch-text notch-home-text">Home</span>
                             </a>
@@ -58,7 +58,7 @@ if (isset($_SESSION['email'])) {
                             </a>
                         </li>
                         <li class="notch-list">
-                            <a href="../Pages/myuser.html">
+                            <a href="../Pages/myuser.php">
                                 <span class="notch-icon notch-myuser"><ion-icon name="person-circle-outline"></ion-icon></span>
                                 <span class="notch-text notch-myuser-text">My user</span>
                             </a>
@@ -129,7 +129,7 @@ if (isset($_SESSION['email'])) {
                         <input type="radio" id="star" name="rate" value="1" />
                         <label for="star3" title="text">star</label>
                       </div>
-                      <a href="./homeViewMore.html" class="btn btn-happy">View more</a>
+                      <a href="./homeViewMore.php" class="btn btn-happy">View more</a>
                     </div>
                   </div>
                 </div>

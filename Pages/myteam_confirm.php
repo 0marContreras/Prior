@@ -16,7 +16,7 @@
 
     <div class="creation bg-black text-light">
 
-        <form class="" action="../Pages/projectpage.html">
+        <form class="" action="../Pages/projectpage.php">
             <div class="form-group text-center">
                 <h4>Your team code is:</h4>
             </div>  

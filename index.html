@@ -65,11 +65,11 @@
             <div class="col-6 text-center">
                 <br><br><br>
                 <div class="row justify-content-center align-items-center g-2">
-                    <div class="col"><a name="" id="" class="btn btn-rainbow" href="./Pages/login.html" role="button">Login in Prior</a></div>
+                    <div class="col"><a name="" id="" class="btn btn-rainbow" href="./Pages/login.php" role="button">Login in Prior</a></div>
                 </div>
                 <br><br><br><br><br><br>
                 <div class="row justify-content-center align-items-center g-2">
-                    <div class="col"><a name="" id="" class="btn btn-rainbow" href="/Pages/accounttype.html" role="button">Create account</a></div>
+                    <div class="col"><a name="" id="" class="btn btn-rainbow" href="./Pages/accounttype.php" role="button">Create account</a></div>
                 </div>
                 
 

@@ -18,7 +18,7 @@
 
         <h1 class="text-center">Create Team</h1>
 
-        <form class="bg-black text-light" action="../Pages/myteam_confirm.html"> <!--Aqui va el script php-->
+        <form class="bg-black text-light" action="../Pages/myteam_confirm.php"> <!--Aqui va el script php-->
 
 
           <!--ingresa el nombre del equipo-->
@@ -44,7 +44,7 @@
             </div>
             <!----------------------------------------Boton de seleccion de grupo registro equipo------------------------------------------->
 
-              <br><br>
+              <br><br> <!--br-->
 
               <!--ingresa la descripcion del equipo-->
               <div class="form-group mb-3">
