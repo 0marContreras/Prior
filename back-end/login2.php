@@ -5,6 +5,7 @@
  $user='root';
  $password='';
  $db='Prior_php_tests_2';
+ $errmsg="";
  
  //conexion
  try{
@@ -54,9 +55,13 @@
         ?>
         <?php
         include("../Pages/login.php");
-        ?>
-        <h1>Email O Contraseña incorrecta</h1>
-        <?php
+    
+        echo'<script type="text/javascript">';
+        echo'alert("Incorrect email or password")';
+        echo'</script>';
+    
+    
+        
     }
     }//Catch de toda la vida que nos manda error si valió todo 
     catch(PDOException $err){

@@ -113,8 +113,10 @@ if (isset($_SESSION['email'])) {
                           </div>
                          </div>
                         </div>
-                        <form action="">
-                            <button type="button" class=" col-12 mb-3 btn btn-danger ">Log out</button>
+                        <!--Boton de logout, nos manda a logout.php-->
+                        <form class="needs-validation" method="POST" action="../back-end/logout.php">
+                            <input class="col-12 mb-3 btn btn-danger" type="submit" value="Log out">
+                            <!--<button type="button" class=" col-12 mb-3 btn btn-danger ">Log out</button>-->
                         </form>
 
                        </div>

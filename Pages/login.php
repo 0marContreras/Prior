@@ -43,6 +43,8 @@
             <div class="form-group">
                 <a class="form-a-tag" href="../Pages/accounttype.php">¿New in Prior? Create an account</a>
             </div>
+
+           
         </form>
     </div>
 
