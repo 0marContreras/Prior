@@ -44,7 +44,7 @@
             </div>
             <!----------------------------------------Boton de seleccion de grupo registro equipo------------------------------------------->
 
-              <br><br>
+              <br><br> <!--br-->
 
               <!--ingresa la descripcion del equipo-->
               <div class="form-group mb-3">
