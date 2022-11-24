@@ -17,7 +17,7 @@
         //traer variables
         $name=$_POST["fullname"];
         $email=$_POST["new-email"];        
-        $pass_sign_student=$_POST["new-password"];
+        $pass_sign_student=md5($_POST["new-password"]);
         $group=$_POST["student-group-reg"];
         $type_user=1;
         $id_team=0;
@@ -25,9 +25,10 @@
         $created_at=date("Y-m-d");
         $updated_at=date("Y-m-d H:i:s");
         
+        /*
         //cifrar $pass_sign_student
         $password_cifrada=password_hash($pass_sign_student, PASSWORD_DEFAULT);
-        
+        */
         /*
         //debugging
         echo $name."<br>";
@@ -45,7 +46,7 @@
         //Datos
         $query->bindParam(1,$name,PDO::PARAM_STR,255);
         $query->bindParam(2,$email,PDO::PARAM_STR,255);
-        $query->bindParam(3,$password_cifrada, PDO::PARAM_STR,255);
+        $query->bindParam(3,$pass_sign_student, PDO::PARAM_STR,255);
         $query->bindParam(4,$type_user,PDO::PARAM_INT);
         $query->bindParam(5,$group,PDO::PARAM_INT);
         $query->bindParam(6,$id_team,PDO::PARAM_INT);

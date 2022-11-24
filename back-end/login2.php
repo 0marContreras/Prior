@@ -5,6 +5,7 @@
  $user='root';
  $password='';
  $db='Prior_php_tests_2';
+ $errmsg="";
  
  //conexion
  try{
@@ -15,8 +16,7 @@
 
     //Traer variables de el front
      $email_login=$_POST["email"];
-     $pass_login=$_POST["password"];
-     $pass_login_encrypted=password_hash($pass_login, PASSWORD_DEFAULT);
+     $pass_login=md5($_POST["password"]);
     
     //Iniciamos una session
     session_start();
@@ -25,7 +25,7 @@
     $_SESSION['email']=$email_login;
 
     //query pa seleccionar email y password 
-    $query="SELECT COUNT(*) FROM users WHERE user_email='$email_login'";
+    $query="SELECT COUNT(*) FROM users WHERE user_email='$email_login' AND user_password='$pass_login'";
     //AND user_password='$pass_login_encrypted '
     
     //ejecutamos query
@@ -34,12 +34,34 @@
     //contamos cuantas columnas nos da el query
     $count=$query_result->fetchColumn();
 
-    //Si nos regresa una columa pa adelante caminante, si no pa atrás papa de regreso al login 
+    /*
+    $get_password=$conn->prepare("SELECT * FROM users WHERE user_email=?");
+    $get_password->bindParam(1, $email_login, PDO::PARAM_STR, 255);
+    $row = $count->fetch(PDO::FETCH_ASSOC);
+*/
+    /*
+    $query_password="SELECT user_password FROM users WHERE user_email='$email_login'";
+    $query_password_result=$conn->query($query_password);
+    $row=mysql_fetch_row($query_password_result);*/
+
+    //Si nos regresa una row pa adelante caminante, si no pa atrás papa de regreso al login 
     if ($count === 1) {
-        echo "Felicidades shinji";
+        //echo "Felicidades shinji"."<br>";
+        header("location: ../Pages/home.php");
+
     }    
     else{
-        echo "Subete al EVA shinji";
+        //echo "Subete al EVA shinji";
+        ?>
+        <?php
+        include("../Pages/login.php");
+    
+        echo'<script type="text/javascript">';
+        echo'alert("Incorrect email or password")';
+        echo'</script>';
+    
+    
+        
     }
     }//Catch de toda la vida que nos manda error si valió todo 
     catch(PDOException $err){

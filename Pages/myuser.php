@@ -1,3 +1,12 @@
+<!--Checa si el usuario esta logueado o no-->
+<?php 
+
+session_start();
+
+if (isset($_SESSION['email'])) {
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,8 +113,10 @@
                           </div>
                          </div>
                         </div>
-                        <form action="">
-                            <button type="button" class=" col-12 mb-3 btn btn-danger ">Log out</button>
+                        <!--Boton de logout, nos manda a logout.php-->
+                        <form class="needs-validation" method="POST" action="../back-end/logout.php">
+                            <input class="col-12 mb-3 btn btn-danger" type="submit" value="Log out">
+                            <!--<button type="button" class=" col-12 mb-3 btn btn-danger ">Log out</button>-->
                         </form>
 
                        </div>
@@ -130,3 +141,16 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+
+<!--Si no esta logueado pa atrás papa-->
+<?php 
+
+}else{
+
+     header("Location: ../Pages/login.php");
+
+     exit();
+
+}
+
+ ?>

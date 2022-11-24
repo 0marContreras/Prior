@@ -1,3 +1,12 @@
+<!--Checa si el usuario esta logueado o no-->
+<?php 
+
+session_start();
+
+if (isset($_SESSION['email'])) {
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,3 +67,16 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+
+<!--Si no esta logueado pa atrás papa-->
+<?php 
+
+}else{
+
+     header("Location: ../Pages/login.php");
+
+     exit();
+
+}
+
+ ?>
