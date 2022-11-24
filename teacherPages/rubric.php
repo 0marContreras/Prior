@@ -1,10 +1,11 @@
 <!--Checa si el usuario esta logueado o no-->
 <?php 
 
+/*
 session_start();
 
 if (isset($_SESSION['email'])) {
-
+*/
  ?>
 
 <!DOCTYPE html>
@@ -18,36 +19,111 @@ if (isset($_SESSION['email'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../Styles/navbar.css">
     <link rel="stylesheet" href="../Styles/items.css">
-    <link rel="stylesheet" href="../Styles/home.css">
+    <link rel="stylesheet" href="../Styles/evaluation.css">
 
 </head>
 <body>
 
-<div class="table-responsive-sm">
-        <table class="table table-dark">
-            <thead>
-                <tr>
-                    <th scope="col">Column 1</th>
-                    <th scope="col">Column 2</th>
-                    <th scope="col">Column 3</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="">
-                    <td scope="row">R1C1</td>
-                    <td>R1C2</td>
-                    <td>R1C3</td>
-                </tr>
-                <tr class="">
-                    <td scope="row">Item</td>
-                    <td>Item</td>
-                    <td>Item</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+
+    <div class="container mt-5">
+
+        <form action=""> <!--Aqui va el php-->
+            <div class="table-responsive-sm">
+                <!--Este es el titulo de las columans [no lleva back pa]-->
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">Aspect</th>
+                                <th scope="col">Value</th>
+                                <th scope="col">Check</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
 
+                        <!--Primera evaluacion-->
+                            <tr class="">
+                                
+                                <td scope="row">Dominio del tema</td>
+                                <td>40%</td>
+                                <td><input name="rubricOne" id="rubricOne" type="checkbox" value="40"></td>
+                                <!--Retorna la ponderacion de la primera evaluacion en el name-->
+                            </tr>
+
+                        <!--Segunda evaluacion-->
+                            <tr class="">
+                                
+                                <td scope="row">Secuencia y organización</td>
+                                <td>10%</td>
+                                <td><input name="rubricTwo" id="rubricTwo" type="checkbox" value="10"></td>
+                                <!--Retorna la ponderacion de la segunda evaluacion en el name-->
+
+                            </tr>
+
+
+                        <!--Tercera evaluacion-->
+                            <tr class="">
+                                
+                                <td scope="row">Uso del tiempo</td>
+                                <td>10%</td>
+                                <td><input name="rubricThree" id="rubricThree" type="checkbox" value="10"></td>
+                                <!--Retorna la ponderacion de la tercera evaluacion en el name-->
+                                
+                            </tr>
+
+                        <!--Cuarta evaluacion-->
+                            <tr class="">
+                                
+                                <td scope="row">Recursos Visuales</td>
+                                <td>10%</td>
+                                <td><input name="rubricFour" id="rubricFour" type="checkbox" value="10"></td>
+                                <!--Retorna la ponderacion de la cuarta evaluacion en el name-->
+                                
+                            </tr>
+
+                        <!--Quinta evaluacion-->
+                            <tr class="">
+                                
+                                <td scope="row">Postura y contacto visual</td>
+                                <td>10%</td>
+                                <td><input name="rubricFive" id="rubricFive" type="checkbox" value="10"></td>
+                                <!--Retorna la ponderacion de la quinta evaluacion en el name-->
+                                
+                            </tr>
+                            
+                        <!--Sexta evaluacion-->    
+                            <tr class="">
+                                
+                                <td scope="row">Trabajo en equipo</td>
+                                <td>10%</td>
+                                <td><input name="rubricSix" id="rubricSix" type="checkbox" value="10"></td>
+                                <!--Retorna la ponderacion de la sexta evaluacion en el name-->
+                                
+                            </tr>
+
+                        <!--Septima evaluacion y ultima-->                
+                            <tr class="">
+                                
+                                <td scope="row">Presentación personal (vestimenta)</td>
+                                <td>10%</td>
+                                <td><input name="rubricSeven" id="rubricSeven" type="checkbox" value="10"></td>
+                                <!--Retorna la ponderacion de la septima evaluacion en el name-->
+                                
+                            </tr>
+
+                            <tr class="">
+                                <td></td>   
+                                <td><button scope="row" class="btn btn-orange text-light" type="submit">Submit score</button></td> 
+                                <td></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+        </form>
+     </div>
+
+     
     <div class="prior-footer sticky-bottom">
           <div class="wave"></div>
           <div class="wave"></div>
@@ -69,7 +145,7 @@ if (isset($_SESSION['email'])) {
 
 <!--Si no esta logueado pa atrás papa-->
 <?php 
-
+/*
 }else{
 
      header("Location: ../Pages/login.php");
@@ -77,5 +153,5 @@ if (isset($_SESSION['email'])) {
      exit();
 
 }
-
+*/
  ?>
