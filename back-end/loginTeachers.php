@@ -54,7 +54,7 @@
         //echo "Subete al EVA shinji";
         ?>
         <?php
-        include("../Pages/login.php");
+        include("../teacherPages/loginTeachers.php");
     
         echo'<script type="text/javascript">';
         echo'alert("Incorrect email or password")';

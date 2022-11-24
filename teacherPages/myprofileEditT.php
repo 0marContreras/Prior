@@ -27,7 +27,7 @@ if (isset($_SESSION['email'])) {
 
         <h1 class="text-center">Edit profile</h1>
 
-        <form class="bg-black text-light" method="POST" action="../back-end/editProfile.php"> <!--Aqui va el script php-->
+        <form class="bg-black text-light" method="POST" action="../back-end/editProfileTeachers.php"> <!--Aqui va el script php-->
 
 
               <!--ingresa la nueva descripcion del usuario-->

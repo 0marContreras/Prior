@@ -77,7 +77,9 @@
         $active=1;
         $created_at=date("Y-m-d");
         $updated_at=date("Y-m-d H:i:s");
-        
+        $description="Not set yet";
+        $pictures="Not set yet";
+
         //cifrar $pass_sign_student
         //$password_cifrada=password_hash($pass_sign_teacher, PASSWORD_DEFAULT);
         
@@ -93,7 +95,7 @@
         
         
         //Insert en la tabla
-        $query=$conn->prepare("INSERT INTO users(Username, user_email, user_password, id_type_user, id_group, id_team, active, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?)");
+        $query=$conn->prepare("INSERT INTO users(Username, user_email, user_password, id_type_user, id_group, id_team, active, created_at, updated_at, descriptions, pictures) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
         
         //Datos
         $query->bindParam(1,$name,PDO::PARAM_STR,255);
@@ -105,6 +107,8 @@
         $query->bindParam(7,$active,PDO::PARAM_INT);
         $query->bindParam(8, $created_at, PDO::PARAM_STR, 255);
         $query->bindParam(9, $updated_at, PDO::PARAM_STR, 255);
+        $query->bindParam(10, $description, PDO::PARAM_STR, 255);
+        $query->bindParam(11, $pictures, PDO::PARAM_STR, 255);
         
     
         //ejecutar

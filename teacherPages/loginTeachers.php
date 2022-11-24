@@ -19,7 +19,7 @@
 
         <h1 class="text-center">Welcome!</h1>
 
-        <form class="needs-validation" method="POST" action="../back-end/login2.php"> <!--Aqui va el script php-->
+        <form class="needs-validation" method="POST" action="../back-end/loginTeachers.php"> <!--Aqui va el script php-->
 
             <!--En caso de error aquí se imprime el error-->
 
