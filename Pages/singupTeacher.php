@@ -65,7 +65,7 @@
             <input class="btn btn-rainbow w-100" type="submit" value="Register account">
 
             <div class="form-group">
-                <a class="form-a-tag" href="./login.php">¿Already registered? Log in</a>
+                <a class="form-a-tag" href="../teacherPages/loginTeachers.php">¿Already registered? Log in</a>
             </div>
         </form>
     </div>
