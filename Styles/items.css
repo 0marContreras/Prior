@@ -71,3 +71,19 @@
 .btn-orange:hover{
     background-color: rgb(201, 110, 6) ;
 }
+
+.centerItem{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Lato', sans-serif;
+
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.priorMT{
+    margin-top: 200px;
+}

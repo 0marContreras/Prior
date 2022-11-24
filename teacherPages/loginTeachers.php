@@ -17,7 +17,7 @@
     
     <div class="login text-light">
 
-        <h1 class="text-center">Welcome!</h1>
+        <h1 class="text-center">Welcome teacher!</h1>
 
         <form class="needs-validation" method="POST" action="../back-end/loginTeachers.php"> <!--Aqui va el script php-->
 
