@@ -1,22 +1,24 @@
 <?php
 
  //Variables 
- $server='localhost';
- $user='root';
- $password='';
- $db='Prior_php_tests_2';
- $errmsg="";
+ $server='localhost'; //Nombre del servidor, en este caso como estamos emulando un servidor en xampp usamos localhost 
+ $user='root'; //Usuario que se usara para modificar 
+ $db='Prior_php_tests_2'; //Base de datos que utilizaremos 
+ $password=""; //La contraseña de usuario que en este caso no hay
  
  //conexion
+ //Usamos un try and catch para hacernos la vida más fácil
  try{
-     $conn=new PDO("mysql:host=$server; dbname=$db", $user, $password);
+
+    //Declaramos la conexión como PDO y le damos todas la variables
+    $conn=new PDO("mysql:host=$server; dbname=$db", $user, $password);
      
-     //conf variables en caso de erroreS
+     //config variables en caso de errores
      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Traer variables de el front
      $email_login=$_POST["email"];
-     $pass_login=md5($_POST["password"]);
+     $pass_login=md5($_POST["password"]); //Aquí nos traemos la password de el login y lo encriptamos con md5 
     
     //Iniciamos una session
     session_start();
@@ -63,7 +65,7 @@
     
         
     }
-    }//Catch de toda la vida que nos manda error si valió todo 
+    }//Catch que nos manda el error si la conexión falla
     catch(PDOException $err){
         //mandar error
         echo "Error: ".$err->getMessage();

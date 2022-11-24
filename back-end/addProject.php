@@ -15,8 +15,8 @@ try{
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    
     $project_name=
-    $description=
-    $logotipos=
+    $description=sef
+    $logotipos=  igusiuefhi u
     $id_team=
     $score=
     $num_score=
