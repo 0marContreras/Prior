@@ -1,11 +1,11 @@
 <!--Checa si el usuario esta logueado o no-->
 <?php 
 
-/*
+
 session_start();
 
 if (isset($_SESSION['email'])) {
-*/
+
  ?>
 
 <!DOCTYPE html>
@@ -145,7 +145,7 @@ if (isset($_SESSION['email'])) {
 
 <!--Si no esta logueado pa atrás papa-->
 <?php 
-/*
+
 }else{
 
      header("Location: ../teacherPages/tMyuser.php");
@@ -153,5 +153,5 @@ if (isset($_SESSION['email'])) {
      exit();
 
 }
-*/
+
  ?>
