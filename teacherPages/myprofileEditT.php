@@ -73,7 +73,7 @@ if (isset($_SESSION['email'])) {
 
 }else{
 
-     header("Location: ../Pages/login.php");
+     header("Location: ../teacherPages/tMyuser.php");
 
      exit();
 
