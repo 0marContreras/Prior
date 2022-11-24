@@ -96,7 +96,7 @@ if (isset($_SESSION['email'])) {
                       <!--Contiene el id y name de la descripcion-->
                       <p class="card-text"   name="project-card-desc"  id="project-card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
                       
-                      <form action="">
+                      <form action="../techerPages/rubric.php">
                         <button type="submit" id="toEavluate" name="toEvaluate" class="btn btn-orange">Evaluate</button>
                       </form>
                     </div>
@@ -164,7 +164,7 @@ if (isset($_SESSION['email'])) {
                       <!--Contiene el id y name de la descripcion-->
                       <p class="card-text"   name="project-card-desc"  id="project-card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
                       
-                      <form action="">
+                      <form action="../techerPages/rubric.php">
                         <button type="submit" id="toEavluate" name="toEvaluate" class="btn btn-orange">Evaluate</button>
                       </form>
                     </div>
@@ -200,7 +200,7 @@ if (isset($_SESSION['email'])) {
                       <!--Contiene el id y name de la descripcion-->
                       <p class="card-text"   name="project-card-desc"  id="project-card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
                       
-                      <form action="">
+                      <form action="../techerPages/rubric.php">
                         <button type="submit" id="toEavluate" name="toEvaluate" class="btn btn-orange">Evaluate</button>
                       </form>
                     </div>
@@ -233,7 +233,7 @@ if (isset($_SESSION['email'])) {
                       <!--Contiene el id y name de la descripcion-->
                       <p class="card-text"   name="project-card-desc"  id="project-card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
                       
-                      <form action="">
+                      <form action="../techerPages/rubric.php">
                         <button type="submit" id="toEavluate" name="toEvaluate" class="btn btn-orange">Evaluate</button>
                       </form>
                     </div>
@@ -266,7 +266,7 @@ if (isset($_SESSION['email'])) {
                       <!--Contiene el id y name de la descripcion-->
                       <p class="card-text"   name="project-card-desc"  id="project-card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
                       
-                      <form action="">
+                      <form action="../techerPages/rubric.php">
                         <button type="submit" id="toEavluate" name="toEvaluate" class="btn btn-orange">Evaluate</button>
                       </form>
                     </div>
