@@ -1,3 +1,13 @@
+<!--Checa si el usuario esta logueado o no-->
+<?php 
+
+session_start();
+
+if (isset($_SESSION['email'])) {
+
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,26 +35,26 @@
                         
     
                         <li class="notch-list">
-                            <a href="../teacherPages/tideas.html">
+                            <a href="../teacherPages/tideas.php">
                                 <span class="notch-icon notch-ideas"><ion-icon name="rainy-outline"></ion-icon></ion-icon></span>
                                 <span class="notch-text notch-ideas-text">Ideas</span>
                             </a>
                         </li>
                         <li class="notch-list">
-                            <a href="../teacherPages/tHome.html">
+                            <a href="../teacherPages/tHome.php">
                                 <span class="notch-icon notch-home"><ion-icon name="home-outline"></ion-icon></span>
                                 <span class="notch-text notch-home-text">Home</span>
                             </a>
                         </li>
                         <li class="notch-list">
-                            <a href="../teacherPages/evaluation.html">
+                            <a href="../teacherPages/evaluation.php">
                                 <span class="notch-icon notch-evaluation"><ion-icon name="checkmark-circle-outline"></ion-icon></span>
                                 <span class="notch-text notch-evaluation-text">Evaluation</span>
                             </a>
                         </li>
                        
                         <li class="notch-list">
-                          <a href="../teacherPages/tMyuser.html">
+                          <a href="../teacherPages/tMyuser.php">
                               <span class="notch-icon notch-myuser"><ion-icon name="person-circle-outline"></ion-icon></span>
                               <span class="notch-text notch-myuser-text">My user</span>
                           </a>
@@ -286,3 +296,14 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+
+<?php
+}else{
+
+header("Location: ../Pages/login.php");
+
+exit();
+
+}
+
+?>

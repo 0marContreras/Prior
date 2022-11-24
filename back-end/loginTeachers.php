@@ -26,7 +26,7 @@
 
     //query pa seleccionar email y password 
     $query="SELECT COUNT(*) FROM users WHERE user_email='$email_login' AND user_password='$pass_login' AND id_type_user=2";
-    //AND user_password='$pass_login_encrypzted '
+    //AND user_password='$pass_login_encrypted '
     
     //ejecutamos query
     $query_result=$conn->query($query);
@@ -47,7 +47,7 @@
     //Si nos regresa una row pa adelante caminante, si no pa atrás papa de regreso al login 
     if ($count === 1) {
         //echo "Felicidades shinji"."<br>";
-        header("location: ../teacherPages/tHome.php");
+        header("location: ../Pages/home.php");
 
     }    
     else{
