@@ -99,7 +99,7 @@ if (isset($_SESSION['email'])) {
               <br> 
 
               <div class="d-grid gap-2 col-6 mx-auto">
-                <a class="btn btn-dark text-warning" href="../teacherPages/tCreateidea.html" type="button">I have an idea!</a>
+                <a class="btn btn-dark text-warning" href="../teacherPages/tCreateidea.php" type="button">I have an idea!</a>
                 
               </div>
 

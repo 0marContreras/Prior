@@ -89,9 +89,10 @@ if (isset($_SESSION['email'])) {
 
                         <div class="card-body">
                           <h5 class="card-title">Dafnis Cain Villagran</h5>
-                          <h6 class="fw-bold">Teacher: </h6> <h6>TI</h6>
+                          <h6 class="fw-bold">Teacher: </h6> 
+                          <h6>TI</h6>
                           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <a class="edit-button fw-bold" href="../Pages/myprfileEdit.html"><ion-icon name="create-outline"></ion-icon> Edit profile</a>
+                          <a class="edit-button fw-bold" href="../Pages/myprfileEdit.php"><ion-icon name="create-outline"></ion-icon> Edit profile</a>
                         
                         </div>
                        </div>

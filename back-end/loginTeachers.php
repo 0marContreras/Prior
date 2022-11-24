@@ -47,7 +47,7 @@
     //Si nos regresa una row pa adelante caminante, si no pa atrás papa de regreso al login 
     if ($count === 1) {
         //echo "Felicidades shinji"."<br>";
-        header("location: ../Pages/home.php");
+        header("location: ../teacherPages/tHome.php");
 
     }    
     else{
