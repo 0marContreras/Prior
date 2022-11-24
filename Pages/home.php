@@ -52,7 +52,7 @@ if (isset($_SESSION['email'])) {
                             </a>
                         </li>
                         <li class="notch-list">
-                            <a href="../Pages/myteam_join.html">
+                            <a href="../Pages/myteam_join.php">
                                 <span class="notch-icon notch-myteam"><ion-icon name="people-outline"></ion-icon></span>
                                 <span class="notch-text notch-myteam-text">My team</span>
                             </a>
