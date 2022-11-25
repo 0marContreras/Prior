@@ -13,11 +13,12 @@ try{
     
     //conf variables en caso de erroreS
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-   
+    
+    $id_team='pendiente';
+
     $project_name=$_POST['project-name'];
     $description=$_POST['project-description'];
     $logotipos=$_POST['project-logo'];
-    $id_team=rand(1000, 9999);
     $score='not set yet';
     $num_score=0;
     $stars=0;

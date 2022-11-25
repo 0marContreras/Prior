@@ -18,6 +18,7 @@ try{
 
     $email=$_SESSION['email'];
 
+    /*
     //TODO ESTO PARA OBTENER UN DATO DE LA BASE DE DATOS
     $getiduser="SELECT id_user FROM users WHERE user_email='$email'";
     $getiduser_ex=$conn->query($getiduser);
@@ -25,37 +26,40 @@ try{
     while ($row = $getiduser_ex->fetch()):
     $id_user=$row['id_user'];
     endwhile;
-
+    */
    
-    $comment='not set yet';
-    $title=$_POST['idea-title'];
-    $stars=0;
-    $active=1;
+    $name_team=$_POST['team-name'];
+    $description_team=$_POST['team-description'];
+    $id_project=0;
+    $id_career=$_POST['team-group-reg'];
+    $logo=$_POST['team-logo'];
+    $code=rand(1000,9999);
     $created_at=date("Y-m-d");
     $updated_at=date("Y-m-d H:i:s");
-    $description=$_POST['idea-description'];
+
 
 
 
     //Insert en la tabla
-    $query=$conn->prepare("INSERT INTO rain_ideas(comment, title, id_user, stars, active, created_at, updated_at, description) VALUES (?,?,?,?,?,?,?,?)");
+    $query=$conn->prepare("INSERT INTO team(name_team, description_team, id_project, id_Career, logo, code_, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)");
         
     //Datos
-    $query->bindParam(1,$comment,PDO::PARAM_STR,255);
-    $query->bindParam(2,$title,PDO::PARAM_STR,255);
-    $query->bindParam(3,$id_user, PDO::PARAM_STR,255);
-    $query->bindParam(4,$stars,PDO::PARAM_INT);
-    $query->bindParam(5,$active,PDO::PARAM_STR, 255);
-    $query->bindParam(6,$created_at, PDO::PARAM_STR, 255);
-    $query->bindParam(7,$updated_at, PDO::PARAM_STR, 255);
-    $query->bindParam(8,$description, PDO::PARAM_STR, 255);
+    $query->bindParam(1,$name_team,PDO::PARAM_STR,255);
+    $query->bindParam(2,$description_team,PDO::PARAM_STR,255);
+    $query->bindParam(3,$id_project, PDO::PARAM_INT);
+    $query->bindParam(4,$id_career,PDO::PARAM_INT);
+    $query->bindParam(5,$logo,PDO::PARAM_STR, 255);
+    $query->bindParam(6,$code,PDO::PARAM_INT);
+    $query->bindParam(7,$created_at, PDO::PARAM_STR, 255);
+    $query->bindParam(8,$updated_at, PDO::PARAM_STR, 255);
+
 
     
 
     //ejecutar
     $query->execute();
 
-    header("location: ../Pages/ideas.php");
+    header("location: ../Pages/myteam.php");
     
     
     }

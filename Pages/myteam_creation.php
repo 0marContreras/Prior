@@ -27,7 +27,7 @@ if (isset($_SESSION['email'])) {
 
         <h1 class="text-center">Create Team</h1>
 
-        <form class="bg-black text-light" action="../Pages/myteam_confirm.php"> <!--Aqui va el script php-->
+        <form class="bg-black text-light" method="POST" action="../back-end/addTeam.php"> <!--Aqui va el script php-->
 
 
           <!--ingresa el nombre del equipo-->
@@ -44,10 +44,10 @@ if (isset($_SESSION['email'])) {
               <select name="team-group-reg" id="team-group" class="btn btn-light dropdown-toggle prior-dropdown">
 
                 <option value="selectGroup">Select Group</option>
-                <option value="TIDBIS31M">TIDBIS31M</option> <!--Retorna grupo tics-->
-                <option value="DNBIS31M">DNBIS31M</option>  <!--Retorna grupo dn-->
-                <option value="PIMBIS31M">PIMBIS31M</option>  <!--Retorna grupo procesos-->
-                <option value="LIBIS31M">LIBIS31M</option>  <!--Retorna grupo lengua inglesa-->
+                <option value="1">TIDBIS31M</option> <!--Retorna grupo tics-->
+                <option value="2">DNBIS31M</option>  <!--Retorna grupo dn-->
+                <option value="3">PIMBIS31M</option>  <!--Retorna grupo procesos-->
+                <option value="4">LIBIS31M</option>  <!--Retorna grupo lengua inglesa-->
 
               </select>
             </div>
@@ -66,7 +66,7 @@ if (isset($_SESSION['email'])) {
               <!--ingresa el logo del equipo-->
               <div class="form-group mb-3">
                 <label for="formFileSm" class="form-label">Logo</label>
-                <input class="form-control form-control-sm" name="team-logo" id="team-logo" type="file" required> <!--retorna el logo del equipo-->
+                <input class="form-control form-control-sm" name="team-logo" id="team-logo" type="file"> <!--retorna el logo del equipo-->
               </div>
 
               <br><br>
