@@ -6,7 +6,7 @@
  $db='Prior_php_tests_2'; //Base de datos que utilizaremos 
  $password=""; //La contraseña de usuario que en este caso no hay
  
- //conexion
+ //conexion 
  //Usamos un try and catch para hacernos la vida más fácil
  try{
 
