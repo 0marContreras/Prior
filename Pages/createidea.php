@@ -78,7 +78,7 @@ if (isset($_SESSION['email'])) {
 <!-----container para publicar idea----->
       <div class="container ">
         <div class="card mb-3 bg-black text-light">
-            <form class="" action="../Pages/ideas.php"> <!--Aqui va el PHP-->
+            <form method="POST" action="../back-end/addIdea.php"> <!--Aqui va el PHP-->
 
 
                  <!--Titulo de la idea-->
