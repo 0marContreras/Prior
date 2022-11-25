@@ -98,7 +98,15 @@ if (isset($_SESSION['email'])) {
                     <label class="form-check-label stretched-link" for="li-radio">LI</label>
                   </li>
               </ul>
-
+              <br>
+              <div class="d-grid gap-2 col-6 mx-auto">
+                
+                <form method="POST" action="../back-end/filter.php">
+                  <input type="text" name="prior-keyword" placeholder="Insert search keyword">
+                  <button class="btn btn-happy" type="submit">Search</button>
+                </form>
+                
+              </div>
           </div>
           <div class="col-8">
 
