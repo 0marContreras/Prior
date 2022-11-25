@@ -30,7 +30,7 @@ if (isset($_SESSION['email'])) {
         <h1 class="text-center">Create project</h1>
 
       <!--Input del nombre del proycto-->
-        <form class="" action="../Pages/projectpage.php"> <!--Aqui va el scripr PHP (pi eich pi)-->
+        <form method="POST" action="../back-end/addProject.php"> <!--Aqui va el scripr PHP (pi eich pi)-->
             <div class="form-group">
                 <label class="form-label" for="project-name">Project name</label>
                 <input class="form-control" name="project-name" type="text" id="project-name" required > <!--devuelve string con el nombre del proyecto-->
@@ -71,7 +71,7 @@ if (isset($_SESSION['email'])) {
               <!--Seleccionar archivo de foto de proyecto o logo // se guarda en blob en la base de datos-->
               <div class="form-group mb-3">
                 <label for="project-logo" class="form-label">Logo</label>
-                <input class="form-control form-control-sm" name="project-logo" id="project-logo" type="file" required> <!--retorna el archivo-->
+                <input class="form-control form-control-sm" name="project-logo" id="project-logo" type="file" > <!--retorna el archivo-->
               </div>
               <!--Seleccionar archivo de foto de proyecto o logo // se guarda en blob en la base de datos-->
 
