@@ -18,15 +18,6 @@ try{
 
     $email=$_SESSION['email'];
 
-    /*
-    //TODO ESTO PARA OBTENER UN DATO DE LA BASE DE DATOS
-    $getiduser="SELECT id_user FROM users WHERE user_email='$email'";
-    $getiduser_ex=$conn->query($getiduser);
-    $getiduser_ex->setFetchMode(PDO::FETCH_ASSOC);
-    while ($row = $getiduser_ex->fetch()):
-    $id_user=$row['id_user'];
-    endwhile;
-    */
    
     $name_team=$_POST['team-name'];
     $description_team=$_POST['team-description'];
@@ -51,13 +42,20 @@ try{
     $query->bindParam(5,$logo,PDO::PARAM_STR, 255);
     $query->bindParam(6,$code,PDO::PARAM_INT);
     $query->bindParam(7,$created_at, PDO::PARAM_STR, 255);
-    $query->bindParam(8,$updated_at, PDO::PARAM_STR, 255);
-
-
-    
+    $query->bindParam(8,$updated_at, PDO::PARAM_STR, 255);  
 
     //ejecutar
     $query->execute();
+
+    
+    $last_id=$conn->lastInsertId();
+
+    $query_update_user="UPDATE users SET id_team=? WHERE user_email=?";
+
+    $query_update_user_prepare=$conn->prepare($query_update_user);
+
+    $query_update_user_prepare->execute([$last_id, $email]);
+
 
     header("location: ../Pages/myteam.php");
     
