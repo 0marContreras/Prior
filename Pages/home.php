@@ -99,12 +99,19 @@ if (isset($_SESSION['email'])) {
                   </li>
               </ul>
               <br>
-              <div class="d-grid gap-2 col-6 mx-auto">
+              <div class="d-grid gap-2  mx-auto">
                 
-                <form method="POST" action="../back-end/filter.php">
-                  <input type="text" name="prior-keyword" placeholder="Insert search keyword">
-                  <button class="btn btn-happy" type="submit">Search</button>
-                </form>
+              <form action="../back-end/filter.php" method="POST" class="row g-3">
+                <div class="row">
+                    <div class="col-10">
+                      <input type="text" class="form-control" name="prior-keyword" id="prior-keyword" placeholder="Search here">
+                    </div>
+                  
+                  <div class="col-2">
+                      <button type="submit" class="btn btn-dark mb-3">Search</button>
+                  </div>
+              </div>
+              </form>
                 
               </div>
           </div>
