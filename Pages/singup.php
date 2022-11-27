@@ -23,27 +23,27 @@
           <!--nombre del usuario-->
             <div class="form-group">
                 <label class="form-label" for="fullname">Full name</label>
-                <input class="form-control" type="fullname" name="fullname" id="fullname" value="Samuel" required> <!--retorna el nombre del usuario-->
+                <input class="form-control" type="fullname" name="fullname" id="fullname" required> <!--retorna el nombre del usuario-->
             </div>  
 
             <!--correo del usuario-->
             <div class="form-group was-validated">
                 <label class="form-label" for="new_email">Email</label>
-                <input class="form-control" type="email" name="new-email" id="new-email" value="sam@gmail.com" required> <!--retorna el correo del usuario-->
+                <input class="form-control" type="email" name="new-email" id="new-email" required> <!--retorna el correo del usuario-->
                 <div class="invalid-feedback">Please insert an email</div>
             </div>  
             
             <!--contraseña del usuario-->
             <div class="form-group was-validated">
                 <label class="form-label" for="new-password">Password</label>
-                <input class="form-control" type="password" name="new-password" id="new-password" value="1234567890" required> <!--retorna contraseña del usuario-->
+                <input class="form-control" type="password" name="new-password" id="new-password" required> <!--retorna contraseña del usuario-->
                 <div class="invalid-feedback">Please insert your password</div>
             </div>    
 
             <!--confirma contraseña del usuario//////////Comparar con if si coincide con la de arriba-->
             <div class="form-group was-validated">
                 <label class="form-label" for="new-password-confirm">Confirm password</label>
-                <input class="form-control" type="password" name="new-password-confirm" id="new-password-confirm" value="1234567890"required> <!--confirma contraseña del usuario-->
+                <input class="form-control" type="password" name="new-password-confirm" id="new-password-confirm" required> <!--confirma contraseña del usuario-->
                 <div class="invalid-feedback">Check your password</div>
             </div>  
 

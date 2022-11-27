@@ -83,30 +83,30 @@ if (isset($_SESSION['email'])) {
             <div class="col-sm-6">
             <div class="card bg-black text-light">
                 <div class="card-body">
-                    <form action="">
+                    
                     <div class="form-group">
                         <h5 class="card-title">Join a team</h5>
                         <label class="form-label" for="teamcode">Insert a TeamCode:</label>
                         <div class="container">
                             <div class="row">
 
-                                    <form action=""> <!--Aqui va el script PHP-->
+                                    <form method="POST" action="../back-end/joinTeam.php"> <!--Aqui va el script PHP-->
 
                                             <!--Textfield que retorna el codigo que se inserto para unirse al equipo a partir del
                                                 name: teamcode-->
                                             <div class="col-4">
                                                 <input class="form-control teamcode_field" name="teamcode" type="text" id="teamcode" required> 
                                             </div>
-
+                                            <br>
 
                                             <div class="col">
-                                                <button type="submit" class="btn btn-primary">Submit</button> <!--Submitea el form-->
+                                                <input type="submit" class="btn btn-primary" value="Submit" id="submit-code"> <!--Submitea el form-->
                                             </div>
                                     </form>
                               </div>
                         </div>
                     </div>
-                </form>    
+                
                 </div>
             </div>
             </div>
