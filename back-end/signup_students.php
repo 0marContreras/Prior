@@ -26,20 +26,8 @@
         $updated_at=date("Y-m-d H:i:s");
         $description="Not set yet";
         $pictures="Not set yet";
-        /*
-        //cifrar $pass_sign_student
-        $password_cifrada=password_hash($pass_sign_student, PASSWORD_DEFAULT);
-        */
-        /*
-        //debugging
-        echo $name."<br>";
-        echo $email."<br>";
-        echo $pass_sign_student."<br>";
-        echo $group."<br>";
-        echo $created_at."<br>";
-        echo $updated_at."<br>";
-        echo $password_cifrada."<br>";
-        */
+
+
         
         //Insert en la tabla
         $query=$conn->prepare("INSERT INTO users(Username, user_email, user_password, id_type_user, id_group, id_team, active, created_at, updated_at, descriptions, pictures) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
