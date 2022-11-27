@@ -68,127 +68,85 @@ if (isset($_SESSION['email'])) {
     </div>
   </div>
     
-      <div class="container">
+  <div class="container">
 
+<div class="row">
+  <div class="col-4 ">
+
+    <ul class="list-group ">
+        <li class="list-group-item bg-black text-light">
+          <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="all-radio" checked>
+          <label class="form-check-label stretched-link" for="all-radio">All</label>
+        </li>
+        <li class="list-group-item bg-black text-light">
+          <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="tic-radio">
+          <label class="form-check-label stretched-link" for="tic-radio">TIC</label>
+        </li>
+        <li class="list-group-item bg-black text-light">
+          <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="dn-radio">
+          <label class="form-check-label stretched-link" for="dn-radio">DN</label>
+        </li>
+        <li class="list-group-item bg-black text-light">
+            <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="pim-radio">
+            <label class="form-check-label stretched-link" for="pim-radio">PIM</label>
+          </li>
+          <li class="list-group-item bg-black text-light">
+            <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="li-radio">
+            <label class="form-check-label stretched-link" for="li-radio">LI</label>
+          </li>
+      </ul>
+      <br>
+      <div class="d-grid gap-2  mx-auto">
+        
+      <form action="../back-end/filter.php" method="POST" class="row g-3">
         <div class="row">
-          <div class="col-4 ">
-
-            <ul class="list-group ">
-                <li class="list-group-item bg-black text-light">
-                  <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="all-radio" checked>
-                  <label class="form-check-label stretched-link" for="all-radio">All</label>
-                </li>
-                <li class="list-group-item bg-black text-light">
-                  <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="tic-radio">
-                  <label class="form-check-label stretched-link" for="tic-radio">TIC</label>
-                </li>
-                <li class="list-group-item bg-black text-light">
-                  <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="dn-radio">
-                  <label class="form-check-label stretched-link" for="dn-radio">DN</label>
-                </li>
-                <li class="list-group-item bg-black text-light">
-                    <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="pim-radio">
-                    <label class="form-check-label stretched-link" for="pim-radio">PIM</label>
-                  </li>
-                  <li class="list-group-item bg-black text-light">
-                    <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="li-radio">
-                    <label class="form-check-label stretched-link" for="li-radio">LI</label>
-                  </li>
-              </ul>
-
+            <div class="col-10">
+              <input type="text" class="form-control" name="prior-keyword" id="prior-keyword" placeholder="Search here">
+            </div>
+          
+          <div class="col-2">
+              <button type="submit" class="btn btn-dark mb-3">Search</button>
           </div>
-          <div class="col-8">
+      </div>
+      </form>
+        
+      </div>
+  </div>
+  <div class="col-8">
 
-            <!--------------------------------------------Db selects---------------------------------------------->
-            <br>
-            <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="../images/book.jpg" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Infinite book</h5>
-                      <h6 class="card-title">Evangelion Girls</h6>
-                      <h6 class="card-title">TIDBIS21M</h6>
-                      <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
-                      <div class="rate">
-                        <input type="radio" id="star3" name="rate" value="3" />
-                        <label for="star3" title="text">3 stars</label>
-                        <input type="radio" id="star2" name="rate" value="2" />
-                        <label for="star2" title="text">2 stars</label>
-                        <input type="radio" id="star1" name="rate" value="1" />
-                        <label for="star1" title="text">1 star</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--------------------------------------------Db selects---------------------------------------------->
+    <!--------------------------------------------Db selects---------------------------------------------->
+    <br>
+    <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="../images/book.jpg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
 
-              <br>
-            <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="../images/book.jpg" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Infinite book</h5>
-                      <h6 class="card-title">Evangelion Girls</h6>
-                      <h6 class="card-title">TIDBIS21M</h6>
-                      <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
-                      <div class="rate">
-                        <input type="radio" id="star6" name="rate" value="3" />
-                        <label for="star6" title="text">3 stars</label>
-                        <input type="radio" id="star5" name="rate" value="2" />
-                        <label for="star5" title="text">2 stars</label>
-                        <input type="radio" id="star4" name="rate" value="1" />
-                        <label for="star4" title="text">1 star</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <!--Contiene el id y name del titulo-->
+              <h5 class="card-title" name="project-card-title" id="project-card-title">Infinite book</h5>
 
-              <br>
-            <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="../images/book.jpg" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Infinite book</h5>
-                      <h6 class="card-title">Evangelion Girls</h6>
-                      <h6 class="card-title">TIDBIS21M</h6>
-                      <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
-                      <div class="rate">
-                        <input type="radio" id="star9" name="rate" value="3" />
-                        <label for="star9" title="text">3 stars</label>
-                        <input type="radio" id="star8" name="rate" value="2" />
-                        <label for="star8" title="text">2 stars</label>
-                        <input type="radio" id="star7" name="rate" value="1" />
-                        <label for="star7" title="text">1 star</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <!--Contiene el id y name del equipo-->
+              <h6 class="card-title" name="project-card-team"  id="project-card-team">Evangelion Girls</h6>
 
+              <!--Contiene el id y name del grupo-->
+              <h6 class="card-title" name="project-card-group" id="project-card-group">TIDBIS21M</h6>
+
+              <!--Contiene el id y name de la descripcion-->
+              <p class="card-text"   name="project-card-desc"  id="project-card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
               
-
+              <div class="rate">
+                <!--Estrellas y values-->
+                <input type="radio" id="star" name="rate" value="1" />
+                <label for="star3" title="text">star</label>
+              </div>
+              <a href="./homeViewMore.php" class="btn btn-happy">View more</a>
+            </div>
           </div>
         </div>
       </div>
-    
-      <div class="prior-footer sticky-bottom">
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-       </div>
-    
-
+      <br>
 
 <!--Connections-->
     <!-- JavaScript Bundle with Popper -->

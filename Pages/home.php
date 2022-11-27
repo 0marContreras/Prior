@@ -144,7 +144,9 @@ if (isset($_SESSION['email'])) {
                         <input type="radio" id="star" name="rate" value="1" />
                         <label for="star3" title="text">star</label>
                       </div>
-                      <a href="./homeViewMore.php" class="btn btn-happy">View more</a>
+                      <form action="../Pages/homeViewMore">
+                        <button class="btn btn-happy">View More</button>
+                      </form>
                     </div>
                   </div>
                 </div>

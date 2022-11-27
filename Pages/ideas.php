@@ -72,7 +72,7 @@ if (isset($_SESSION['email'])) {
     
       <div class="container">
         <div class="row">
-          <div class="col-4">.
+          <div class="col-4">
 
             <ul class="list-group">
                 <li class="list-group-item bg-black text-light">
@@ -164,6 +164,9 @@ if (isset($_SESSION['email'])) {
                       <div class="rate">
                         <label for="star" title="text">star</label>
                       </div>
+                      <form action="../Pages/ideaViewMore">
+                        <button class="btn btn-warning">View More</button>
+                      </form>
                     </div>
                   </div>
                 </div>

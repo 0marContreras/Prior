@@ -81,12 +81,15 @@ if (isset($_SESSION['email'])) {
 
                       <div class="col-md-4">
                         <img src="../images/minmin.jpg" class="img-fluid rounded-start" alt="...">
-                        <br> <br>
+                        <br><br>
+                        
                       </div>
-
+                        
                       <div class="col-md-8">
 
                         <div class="card-body">
+                         
+
                           <h5 class="card-title">Javier Manuel Acosta Ortega</h5>
                           <h6 class="fw-bold">Group: </h6> <h6>TIDBIS31M</h6>
                           <h6 class="fw-bold">Team: </h6>  <h6>Equipo #1</h6>
@@ -112,13 +115,19 @@ if (isset($_SESSION['email'])) {
                            </div> 
                           </div>
                          </div>
+                         <div class="row">
+                         <div class="col-3">
+                                <!--Boton de logout, nos manda a logout.php-->
+                                <form class="needs-validation" method="POST" action="../back-end/logout.php">
+                                    <input class="col-12 mb-3 btn btn-danger" type="submit" value="Log out">
+                                    <!--<button type="button" class=" col-12 mb-3 btn btn-danger ">Log out</button>-->
+                                </form>
+                            </div>
+                            <div class="col-9"></div>
+                            
                         </div>
-                        <!--Boton de logout, nos manda a logout.php-->
-                        <form class="needs-validation" method="POST" action="../back-end/logout.php">
-                            <input class="col-12 mb-3 btn btn-danger" type="submit" value="Log out">
-                            <!--<button type="button" class=" col-12 mb-3 btn btn-danger ">Log out</button>-->
-                        </form>
-
+                        </div>
+                       
                        </div>
 
                       </div>
