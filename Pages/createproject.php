@@ -46,10 +46,10 @@ if (isset($_SESSION['email'])) {
         <select name="project-group-reg" id="project-group" class="btn btn-light dropdown-toggle prior-dropdown">
 
           <option value="selectGroup">Select Group</option>
-          <option value="TIDBIS31M">TIDBIS31M</option> <!--Retorna grupo tics-->
-          <option value="DNBIS31M">DNBIS31M</option>  <!--Retorna grupo dn-->
-          <option value="PIMBIS31M">PIMBIS31M</option>  <!--Retorna grupo procesos-->
-          <option value="LIBIS31M">LIBIS31M</option>  <!--Retorna grupo lengua inglesa-->
+          <option value="1">TIDBIS31M</option> <!--Retorna grupo tics-->
+          <option value="2">DNBIS31M</option>  <!--Retorna grupo dn-->
+          <option value="4">PIMBIS31M</option>  <!--Retorna grupo procesos-->
+          <option value="3">LIBIS31M</option>  <!--Retorna grupo lengua inglesa-->
 
         </select>
       </div>

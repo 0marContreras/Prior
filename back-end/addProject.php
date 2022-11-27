@@ -34,10 +34,11 @@ try{
     $stars=0;
     $created_at=date("Y-m-d");
     $updated_at=date("Y-m-d H:i:s");
+    $group=$_POST['project-group-reg'];
 
 
     //Insert en la tabla
-    $query=$conn->prepare("INSERT INTO project(project_name, Description, Logotipos, id_Team, Score, num_score, stars, Created_at, Updated_at) VALUES (?,?,?,?,?,?,?,?,?)");
+    $query=$conn->prepare("INSERT INTO project(project_name, Description, Logotipos, id_Team, Score, num_score, stars, Created_at, Updated_at, id_group) VALUES (?,?,?,?,?,?,?,?,?,?)");
         
     //Datos
     $query->bindParam(1,$project_name,PDO::PARAM_STR,255);
@@ -49,6 +50,7 @@ try{
     $query->bindParam(7,$stars,PDO::PARAM_INT);
     $query->bindParam(8, $created_at, PDO::PARAM_STR, 255);
     $query->bindParam(9, $updated_at, PDO::PARAM_STR, 255);
+    $query->bindParam(10,$group,PDO::PARAM_INT);
 
     //ejecutar
     $query->execute();
