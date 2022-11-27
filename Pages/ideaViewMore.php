@@ -19,7 +19,7 @@ if (isset($_SESSION['email'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../Styles/navbar.css">
     <link rel="stylesheet" href="../Styles/items.css">
-    <link rel="stylesheet" href="../Styles/home.css">
+    <link rel="stylesheet" href="../Styles/ideas.css">
 
 </head>
 <body>
@@ -80,11 +80,10 @@ if (isset($_SESSION['email'])) {
                 <br>
         
             <div class="container">
-                <div class="card mb-3 bg-black text-light">
-                  <img class="project-logo bg-light"  src="../images/TLogo.png" class="card-img-top" alt="...">
+            <div class="card mb-3 bg-black text-light">
                   <div class="card-body">
-                    <h4 class="card-title">TL Notes</h4>
-                    <h5 class="card-title">Mosquera Studios</h5>
+                    <h4 class="card-title">Time Machine</h4>
+                    <h5 class="card-title">Ash ketchup</h5>
 
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident odit atque vero officiis animi distinctio cumque iste eveniet nam, consequuntur labore rerum ipsa iusto rem quas laboriosam laborum nobis?
                     Reiciendis perferendis maiores enim doloribus facere veniam asperiores accusamus, tempore nam reprehenderit sed sunt sint dolorem quis libero, incidunt dolor labore officiis culpa, itaque possimus maxime necessitatibus? Eum, quia ea?
@@ -107,12 +106,12 @@ if (isset($_SESSION['email'])) {
                             <div class="card-body">
 
                                 <div class="form-floating text-dark">
-                                    <textarea class="form-control" placeholder="Leave a comment here" name="new-project-com" id="new-project-com"></textarea>
-                                    <label for="new-project-com">Comment</label>
+                                    <textarea class="form-control" placeholder="Leave a comment here" name="new-idea-com" id="new-idea-com"></textarea>
+                                    <label for="new-idea-com">Comment</label>
                                   </div>
                                   <br>
                                   
-                            <button class="btn btn-happy" type="submit">Publish</button>    
+                            <button class="btn btn-warning" type="submit">Publish</button>    
                             </div>
                         </div>
                     </form>
