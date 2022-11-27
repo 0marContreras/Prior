@@ -14,7 +14,17 @@ try{
     //conf variables en caso de erroreS
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    $id_team='pendiente';
+    session_start();
+
+    $email=$_SESSION['email'];
+
+    //Get id_team 
+    $getidteam="SELECT id_team FROM users WHERE user_email='$email'";
+    $getidteam_ex=$conn->query($getidteam);
+    $getidteam_ex->setFetchMode(PDO::FETCH_ASSOC);
+    while ($row = $getidteam_ex->fetch()):
+    $id_team=$row['id_team'];
+    endwhile;    
 
     $project_name=$_POST['project-name'];
     $description=$_POST['project-description'];
@@ -27,7 +37,7 @@ try{
 
 
     //Insert en la tabla
-    $query=$conn->prepare("INSERT INTO project(project_name, Description, Logotipos, id_team, Score, num_score, stars, Created_at, Updated_at) VALUES (?,?,?,?,?,?,?,?,?)");
+    $query=$conn->prepare("INSERT INTO project(project_name, Description, Logotipos, id_Team, Score, num_score, stars, Created_at, Updated_at) VALUES (?,?,?,?,?,?,?,?,?)");
         
     //Datos
     $query->bindParam(1,$project_name,PDO::PARAM_STR,255);
@@ -40,10 +50,17 @@ try{
     $query->bindParam(8, $created_at, PDO::PARAM_STR, 255);
     $query->bindParam(9, $updated_at, PDO::PARAM_STR, 255);
 
-    
-
     //ejecutar
     $query->execute();
+
+    $last_id=$conn->lastInsertId();
+
+    $query_update_team="UPDATE team SET id_project=? WHERE id_team=?";
+
+    $query_update_team_prepare=$conn->prepare($query_update_team);
+
+    $query_update_team_prepare->execute([$last_id, $id_team]);
+
 
     header("location: ../Pages/myproject.php");
     
