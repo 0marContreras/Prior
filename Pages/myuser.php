@@ -3,6 +3,9 @@
 
 session_start();
 
+$email=$_SESSION['email'];
+
+
 if (isset($_SESSION['email'])) {
 
  ?>
@@ -66,39 +69,78 @@ if (isset($_SESSION['email'])) {
 
           </div>
         </div>
-      </div>
+     
     
       <div class="container">
 
         <div class="row">
           <div class="col-3">
-          </div>
+          </div><?php
+            
+                        include('../back-end/PDO.php');
+            
+                        $query_show_all_project="SELECT users.Username,
+                        groups.group_name,
+                        team.name_team,
+                        users.descriptions
+                        FROM users
+                        JOIN groups
+                        ON groups.id_group=users.id_group
+                        JOIN team
+                        ON team.id_Team=users.id_team
+                        WHERE users.user_email='$email'";
+                        $query_show_all_project_ex=$conn->query($query_show_all_project);
+                        $query_show_all_project_ex->setFetchMode(PDO::FETCH_ASSOC);
+
+                        while ($row=$query_show_all_project_ex->fetch()):
+                            $team=$row['name_team'];
+                        
+                    ?>
           <div class="col-8">
                 <br> 
+                
             <div class="card mb-3 bg-black" style="max-width: 600px;">
                 <div class="card mb-8 bg-black text-light" style="max-width: 600px;">
                     <div class="row g-0">
 
                       <div class="col-md-4">
-                        <img src="../images/minmin.jpg" class="img-fluid rounded-start" alt="...">
+                        <img src="../images/not-found.jpg" class="img-fluid rounded-start" alt="...">
                         <br><br>
                         
                       </div>
-                        
+                      
                       <div class="col-md-8">
 
                         <div class="card-body">
                          
 
-                          <h5 class="card-title">Javier Manuel Acosta Ortega</h5>
-                          <h6 class="fw-bold">Group: </h6> <h6>TIDBIS31M</h6>
-                          <h6 class="fw-bold">Team: </h6>  <h6>Equipo #1</h6>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <h5 class="card-title"><?php echo $row['Username']; ?></h5>
+                          <h6 class="fw-bold">Group: </h6> <h6><?php echo $row['group_name']; ?></h6>
+                          <h6 class="fw-bold">Team: </h6>  <h6><?php echo $row['name_team']; ?></h6>
+                          <p class="card-text"><?php echo $row['descriptions']; ?></p>
                           <a class="edit-button fw-bold" href="../Pages/myprfileEdit.php"><ion-icon name="create-outline"></ion-icon> Edit profile</a>
                           <div class="card mb-3" style="max-width: 540px;">
                           <div class="row g-0">
+                            <?php endwhile; ?>
+                            <?php
+                                $query_show_all_projec="SELECT project.project_name, 
+                                project.Description, 
+                                project.Logotipos,
+                                team.name_team,
+                                groups.group_name
+                                FROM project
+                                JOIN team
+                                ON project.id_Team=team.id_Team
+                                JOIN groups
+                                ON groups.id_group=project.id_group
+                                WHERE team.name_team='$team'";
+                                $query_show_all_projec_ex=$conn->query($query_show_all_projec);
+                                $query_show_all_projec_ex->setFetchMode(PDO::FETCH_ASSOC);
+
+                                while ($row1=$query_show_all_projec_ex->fetch()):
+                            ?>
                           <div class="col-md-4">
-                            <img src="../images/book.jpg" class="img-fluid rounded-start" alt="...">
+                            <img src="../images/not-found.jpg" class="img-fluid rounded-start" alt="...">
                             <br>
                             <br>
                             <div class="row text-dark">
@@ -108,11 +150,12 @@ if (isset($_SESSION['email'])) {
                             </div>
                             <div class="col-md-8 text-dark">
                             <div class="card-body">
-                            <h5 class="fw-bold" >Prior</h5>
-                            <h6 class="fw-bold">Team: </h6>  <h6>Equipo #1</h6>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h5 class="fw-bold" ><?php echo $row1['project_name']; ?></h5>
+                            <h6 class="fw-bold">Team: </h6><?php echo $row1['name_team']; ?>  <h6></h6>
+                            <p class="card-text"><?php echo $row1['Description']; ?></p>
                             </div>
-                           </div> 
+                           </div> <?php endwhile; ?>
+                           
                           </div>
                          </div>
                          <div class="row">
@@ -128,13 +171,16 @@ if (isset($_SESSION['email'])) {
                         </div>
                         </div>
                        
-                       </div>
+                       </div> 
 
                       </div>
                       
                      </div>
                     </div>
-            </div>   
+                    </div>
+                </div>
+        </div>
+                
             
             <div class="prior-footer sticky-bottom">
                 <div class="wave"></div>
