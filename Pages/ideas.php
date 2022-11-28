@@ -153,14 +153,29 @@ if (isset($_SESSION['email'])) {
                
             -->
             <br>
+            <?php
+            
+            include('../back-end/PDO.php');
+            
+            $query_show_all_project="SELECT rain_ideas.title,
+            rain_ideas.description,
+            users.Username
+            FROM rain_ideas
+            JOIN users
+            ON rain_ideas.id_user=users.id_user;";
+            $query_show_all_project_ex=$conn->query($query_show_all_project);
+            $query_show_all_project_ex->setFetchMode(PDO::FETCH_ASSOC);
+
+            while ($row=$query_show_all_project_ex->fetch()):
+
+            ?>
             <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col-md-12">
                     <div class="card-body">
-                      <h5 class="card-title" name="idea-title" id="idea-title">Time machine</h5>
-                      <h6 class="card-title" name="idea-user" id="idea-user">Ash ketchup</h6>
-                      <h6 class="card-title" name="idea-group" id="idea-group">LIBIS31M</h6>
-                      <p class="card-text" name="idea-group" id="idea-group">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
+                      <h5 class="card-title" name="idea-title" id="idea-title"><?php echo $row['title'];?></h5>
+                      <h6 class="card-title" name="idea-user" id="idea-user"><?php echo $row['Username'];?></h6>
+                      <p class="card-text" name="idea-group" id="idea-group"><?php echo $row['description'];?></p>
                       <div class="rate">
                         <label for="star" title="text">star</label>
                       </div>
@@ -171,7 +186,7 @@ if (isset($_SESSION['email'])) {
                   </div>
                 </div>
               </div>
-              
+              <?php endwhile;?>
               
 
           </div>
