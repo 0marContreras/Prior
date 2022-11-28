@@ -93,7 +93,6 @@ if (isset($_SESSION['email'])) {
                         $query_show_all_project_ex->setFetchMode(PDO::FETCH_ASSOC);
 
                         while ($row=$query_show_all_project_ex->fetch()):
-                            $team=$row['name_team'];
                         
                     ?>
           <div class="col-8">
@@ -118,7 +117,11 @@ if (isset($_SESSION['email'])) {
                             <h6 class="fw-bold">Group: </h6> 
                             <h6><?php echo $row['group_name']; ?></h6>
                             <h6 class="fw-bold">Team: </h6>  
-                            <h6><?php echo $row['name_team']; ?></h6>
+                            <h6><?php try {
+                                echo $row['name_team'];}
+                                catch (Exception $w) {
+                                    echo "Not in a team yet";
+                                } ?></h6>
                             <p class="card-text"><?php echo $row['descriptions']; ?></p>
                             <a class="edit-button fw-bold" href="../Pages/myprfileEdit.php">
                                 <ion-icon name="create-outline"></ion-icon> Edit profile
@@ -126,6 +129,25 @@ if (isset($_SESSION['email'])) {
                           <div class="card mb-3" style="max-width: 540px;">
                           <div class="row g-0">
                             <?php endwhile; ?>
+
+                            <?php
+                                $query_select_team_user="SELECT id_team FROM users WHERE user_email='$email'";
+                                $query_select_team_user_ex=$conn->query($query_select_team_user);
+                                $query_select_team_user_ex->setFetchMode(PDO::FETCH_ASSOC);
+
+                                while ($row8=$query_select_team_user_ex->fetch()):   
+                                    $id_team=$row8['id_team'];
+                                endwhile;
+                            
+                                $query_select_team="SELECT name_team FROM team WHERE id_Team='$id_team'";
+                                $query_select_team_ex=$conn->query($query_select_team);
+                                $query_select_team_ex->setFetchMode(PDO::FETCH_ASSOC);
+
+                                while ($row9=$query_select_team_ex->fetch()):   
+                                    $team=$row9['name_team'];
+                                endwhile;
+                            ?>
+
                             <?php
                                 $query_show_all_projec="SELECT project.project_name, 
                                 project.Description, 
