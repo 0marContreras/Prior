@@ -114,11 +114,15 @@ if (isset($_SESSION['email'])) {
                         <div class="card-body">
                          
 
-                          <h5 class="card-title"><?php echo $row['Username']; ?></h5>
-                          <h6 class="fw-bold">Group: </h6> <h6><?php echo $row['group_name']; ?></h6>
-                          <h6 class="fw-bold">Team: </h6>  <h6><?php echo $row['name_team']; ?></h6>
-                          <p class="card-text"><?php echo $row['descriptions']; ?></p>
-                          <a class="edit-button fw-bold" href="../Pages/myprfileEdit.php"><ion-icon name="create-outline"></ion-icon> Edit profile</a>
+                            <h5 class="card-title"><?php echo $row['Username']; ?></h5>
+                            <h6 class="fw-bold">Group: </h6> 
+                            <h6><?php echo $row['group_name']; ?></h6>
+                            <h6 class="fw-bold">Team: </h6>  
+                            <h6><?php echo $row['name_team']; ?></h6>
+                            <p class="card-text"><?php echo $row['descriptions']; ?></p>
+                            <a class="edit-button fw-bold" href="../Pages/myprfileEdit.php">
+                                <ion-icon name="create-outline"></ion-icon> Edit profile
+                            </a>
                           <div class="card mb-3" style="max-width: 540px;">
                           <div class="row g-0">
                             <?php endwhile; ?>
