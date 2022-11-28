@@ -73,7 +73,7 @@
         $pass_sign_teacher=md5($_POST["new-password-teacher"]);
         $group=$_POST["teacher-career-reg"];
         $type_user=2;
-        $id_team=0;
+        $id_team=7;
         $active=1;
         $created_at=date("Y-m-d");
         $updated_at=date("Y-m-d H:i:s");

@@ -20,7 +20,7 @@
         $pass_sign_student=md5($_POST["new-password"]);
         $group=$_POST["student-group-reg"];
         $type_user=1;
-        $id_team=0;
+        $id_team=7;
         $active=1;
         $created_at=date("Y-m-d");
         $updated_at=date("Y-m-d H:i:s");
