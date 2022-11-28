@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 25-11-2022 a las 16:35:53
+-- Tiempo de generación: 28-11-2022 a las 14:14:25
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -90,6 +90,15 @@ CREATE TABLE `log_project` (
   `updated_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `log_project`
+--
+
+INSERT INTO `log_project` (`id_Log_Project`, `id_project`, `Project_name`, `Project_description`, `Log_Logo`, `Log_Score`, `created_at`, `updated_at`) VALUES
+(1, 6, 'Projecto Mango ', 'Hola y Adiós', '', 'no', '2022-11-27', '2022-11-27'),
+(2, 4, 'Projecto Hola', 'Hola Como estas', '', 'no', '2022-11-27', '2022-11-27'),
+(3, 6, 'Projecto Mango ', 'Hola y Adiós', '', 'no', '2022-11-27', '2022-11-27');
+
 -- --------------------------------------------------------
 
 --
@@ -102,6 +111,7 @@ CREATE TABLE `project` (
   `Description` text NOT NULL,
   `Logotipos` blob NOT NULL,
   `id_Team` int(11) NOT NULL,
+  `id_group` int(11) DEFAULT NULL,
   `Score` varchar(50) NOT NULL,
   `num_score` int(11) NOT NULL,
   `stars` int(11) NOT NULL,
@@ -113,9 +123,12 @@ CREATE TABLE `project` (
 -- Volcado de datos para la tabla `project`
 --
 
-INSERT INTO `project` (`id_project`, `project_name`, `Description`, `Logotipos`, `id_Team`, `Score`, `num_score`, `stars`, `Created_at`, `Updated_at`) VALUES
-(1, 'El primero', 'DESCRIPCION', '', 6481, 'not set yet', 0, 0, '2022-11-25', '2022-11-25'),
-(2, 'EL segundo ', 'Si', '', 5987, 'not set yet', 0, 0, '2022-11-25', '2022-11-25');
+INSERT INTO `project` (`id_project`, `project_name`, `Description`, `Logotipos`, `id_Team`, `id_group`, `Score`, `num_score`, `stars`, `Created_at`, `Updated_at`) VALUES
+(4, 'Projecto Hola', 'Hola Como estas', '', 3, 1, 'not set yet', 0, 0, '2022-11-26', '2022-11-26'),
+(6, 'Projecto Mango ', 'Hola y Adiós', '', 4, 3, 'not set yet', 0, 0, '2022-11-27', '2022-11-27'),
+(7, 'Mangadex', 'Plataforma para manga, manwha y manhua', '', 5, 3, 'not set yet', 0, 0, '2022-11-28', '2022-11-28'),
+(8, 'Gol', 'Golazoooo', '', 6, 1, 'not set yet', 0, 0, '2022-11-28', '2022-11-28'),
+(9, '4ta transformación', 'Si furula \r\n', '', 7, 2, 'not set yet', 0, 0, '2022-11-28', '2022-11-28');
 
 --
 -- Disparadores `project`
@@ -204,7 +217,8 @@ CREATE TABLE `rain_ideas` (
 --
 
 INSERT INTO `rain_ideas` (`id_rainideas`, `comment`, `title`, `id_user`, `stars`, `active`, `created_at`, `updated_at`, `description`) VALUES
-(1, 'not set yet', 'Idea 2 ', 14, 0, 1, '2022-11-25 00:00:00', '2022-11-25 06:35:07', 'Idea 2 ');
+(1, 'not set yet', 'Idea 2 ', 14, 0, 1, '2022-11-25 00:00:00', '2022-11-25 06:35:07', 'Idea 2 '),
+(2, 'not set yet', 'Computadora Cuantica ', 20, 0, 1, '2022-11-28 00:00:00', '2022-11-28 00:57:56', 'Si, es lo que parece\r\n');
 
 -- --------------------------------------------------------
 
@@ -230,7 +244,13 @@ CREATE TABLE `team` (
 
 INSERT INTO `team` (`id_Team`, `name_team`, `description_team`, `id_project`, `id_Career`, `logo`, `code_`, `created_at`, `updated_at`) VALUES
 (1, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL),
-(2, 'Team 1', 'Team 1', 0, 3, '', 8989, '2022-11-25', '2022-11-25 07:13:25');
+(2, 'Team 1', 'Team 1', 0, 3, '', 8989, '2022-11-25', '2022-11-25 07:13:25'),
+(3, 'Team 2 ', 'This is a test', 4, 3, '', 5245, '2022-11-26', '2022-11-26 23:17:28'),
+(4, 'febreration', 'Pues un equipillo ahí nomás', 6, 4, '', 2662, '2022-11-27', '2022-11-27 22:43:25'),
+(5, 'Esos 4', 'Esos 4 son la neta', 7, 3, '', 4191, '2022-11-28', '2022-11-28 00:24:28'),
+(6, 'EL TOLUCAAAA', 'Mejor equipo ', 8, 4, '', 3965, '2022-11-28', '2022-11-28 03:21:05'),
+(7, 'No team', 'No team', 9, 0, '', 0, '2022-11-27', '2022-11-27 20:27:52'),
+(8, 'La cuarta', 'Si', 0, 2, '', 2408, '2022-11-28', '2022-11-28 03:59:47');
 
 -- --------------------------------------------------------
 
@@ -305,10 +325,16 @@ INSERT INTO `users` (`id_user`, `Username`, `user_email`, `user_password`, `id_t
 (6, 'Almanza', 'Cisco', '$2y$10$qaun9b62kqwQQXxGwCnCDeMRFuGw.CTSmti30ftzc.4eztpqJLUb2', 2, 3, 0, 1, '2022-11-20 06:00:00', '2022-11-20 01:42:56', NULL, NULL),
 (12, 'Juan Perez que le va al toluca ', 'perez@gmail.com', '$2y$10$3WwxJDRXesNKbPYS/UshtOkvJRj/C/B6O7hsgGYXtfWx0fuKKai0a', 1, 3, 0, 1, '2022-11-22 06:00:00', '2022-11-22 23:56:07', NULL, NULL),
 (13, 'lolo', 'lolo@lolo.com', '$2y$10$yNnJZvXkO9wmwc5cqQuknOjETdLBsVdpSHzH5mkFQE01r/TdhKvXC', 1, 4, 0, 1, '2022-11-23 06:00:00', '2022-11-23 03:55:33', NULL, NULL),
-(14, 'Fedora', 'fedora@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 1, 3, 0, 1, '2022-11-24 03:55:52', '2022-11-23 05:39:49', 'fzseffzefzs', ''),
+(14, 'Fedora', 'fedora@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 1, 3, 3, 1, '2022-11-28 01:34:24', '2022-11-23 05:39:49', 'Fedora Linux is a Linux distribution developed by the Fedora Project. Fedora contains software distributed under various free and open-source licenses and aims to be on the leading edge of open-source technologies. ', ''),
 (15, 'Dafnis', 'dafnis@gmail.com', 'f4486284eea94f15507fcfe583ff6901', 2, 1, 0, 1, '2022-11-24 13:25:49', '2022-11-23 05:52:15', '', ''),
 (16, 'Almanza', 'Almanza@cisco.com', '81dc9bdb52d04dc20036dbd8313ed055', 2, 2, 0, 1, '2022-11-24 06:00:00', '2022-11-24 05:03:51', 'Not set yet', 'Not set yet'),
-(17, 'Ojitos ', 'ojitos@gmail.com', 'd806e99289fcd33c2bd3f70fa152592f', 1, 4, 0, 1, '2022-11-24 06:00:00', '2022-11-24 14:08:19', 'Not set yet', 'Not set yet');
+(17, 'Ojitos ', 'ojitos@gmail.com', 'd806e99289fcd33c2bd3f70fa152592f', 1, 4, 0, 1, '2022-11-24 06:00:00', '2022-11-24 14:08:19', 'Not set yet', 'Not set yet'),
+(18, 'Enero ', 'enero@gmail.com', 'e59abcbf368e95ff31f1f28dc4fa5fe2', 1, 3, 3, 1, '2022-11-27 02:05:25', '2022-11-27 02:41:20', 'Not set yet', 'Not set yet'),
+(19, 'febrero', 'febrero@gmail.com', 'ab85f491d0bc4fbdfa552f1082844234', 1, 4, 4, 1, '2022-11-27 21:43:25', '2022-11-27 22:38:51', 'Not set yet', 'Not set yet'),
+(20, 'mayo ', 'mayo@gmail.com', '8980773d4785a8bdec7235f58934d60b', 1, 2, 5, 1, '2022-11-28 01:16:31', '2022-11-28 00:08:24', 'Yo soy una mayonesa, esto lleva a la pregunta, soy un instrumento??', ''),
+(21, 'Juan Perez que le va al toluca', 'toluca@gmail.com', '592d6b3eb781b805c585d4ecc99eb8f2', 1, 2, 6, 1, '2022-11-28 02:21:05', '2022-11-28 03:20:24', 'Not set yet', 'Not set yet'),
+(22, 'Javi', 'Javi@gmail.com', '38696558dc98494c08d951c052900a2a', 1, 1, 7, 1, '2022-11-28 02:29:22', '2022-11-28 03:25:39', 'Not set yet', 'Not set yet'),
+(23, 'Amlo', 'amlo@gmail.com', '3047af7fec35eaee2a7832dfa4823d7e', 1, 4, 8, 1, '2022-11-28 02:59:47', '2022-11-28 03:31:12', 'Not set yet', 'Not set yet');
 
 --
 -- Índices para tablas volcadas
@@ -404,13 +430,13 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT de la tabla `log_project`
 --
 ALTER TABLE `log_project`
-  MODIFY `id_Log_Project` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_Log_Project` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `project`
 --
 ALTER TABLE `project`
-  MODIFY `id_project` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_project` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `project_comment`
@@ -434,13 +460,13 @@ ALTER TABLE `rainidea_rainideacomment`
 -- AUTO_INCREMENT de la tabla `rain_ideas`
 --
 ALTER TABLE `rain_ideas`
-  MODIFY `id_rainideas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_rainideas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `team`
 --
 ALTER TABLE `team`
-  MODIFY `id_Team` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_Team` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `types_users`
@@ -452,7 +478,7 @@ ALTER TABLE `types_users`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
