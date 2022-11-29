@@ -24,108 +24,68 @@ if (isset($_SESSION['email'])) {
 </head>
 <body>
 
-<!--Notch/navbar-->
+<?php
+            
+            include('../back-end/PDO.php');
+            
+            $pid = $_POST["view-more-btn-value"];
 
-    <!--esto hace que se fije arriba-->
-    <div class="container-sm text-center sticky-top">
-        <div class="row">  <!--Lo acomoda en la parte de ariba de la pag-->
-          <div class="col-12">
-<!--esto hace que se fije arriba-->
+            $query_show_all_project="SELECT project.id_project,
+              project.project_name, 
+              project.Description, 
+              project.Logotipos,
+              team.name_team,
+              groups.group_name
+            FROM project
+            JOIN team
+            ON project.id_Team=team.id_Team
+            JOIN groups
+            ON groups.id_group=project.id_group
+            WHERE project.id_project = $pid;";
+            $query_show_all_project_ex=$conn->query($query_show_all_project);
+            $query_show_all_project_ex->setFetchMode(PDO::FETCH_ASSOC);
 
-            <!--Div Del navbar da forma-->
-            <div class="notch-container">
-                <div class="notch">
-                    <ul>
-                        <li class="notch-list">
-                            <a href="../Pages/myproject.php">
-                                <span class="notch-icon notch-myproject"><ion-icon name="hardware-chip-outline"></ion-icon></span>
-                                <span class="notch-text notch-myproject-text">My project</span>
-                            </a>
-                        </li>
-                        <li class="notch-list">
-                            <a href="../Pages/ideas.php">
-                                <span class="notch-icon notch-ideas"><ion-icon name="rainy-outline"></ion-icon></ion-icon></span>
-                                <span class="notch-text notch-ideas-text">Ideas</span>
-                            </a>
-                        </li>
-                        <li class="notch-list">
-                            <a href="../Pages/home.php">
-                                <span class="notch-icon notch-home"><ion-icon name="home-outline"></ion-icon></span>
-                                <span class="notch-text notch-home-text">Home</span>
-                            </a>
-                        </li>
-                        <li class="notch-list">
-                            <a href="../Pages/myteam_join.php">
-                                <span class="notch-icon notch-myteam"><ion-icon name="people-outline"></ion-icon></span>
-                                <span class="notch-text notch-myteam-text">My team</span>
-                            </a>
-                        </li>
-                        <li class="notch-list">
-                            <a href="../Pages/myuser.php">
-                                <span class="notch-icon notch-myuser"><ion-icon name="person-circle-outline"></ion-icon></span>
-                                <span class="notch-text notch-myuser-text">My user</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            ?>
 
-          </div>
-        </div>
-      </div>
-<!--Notch/navbar-->
-    
-        <div class="col-12 ">
-
-            <div class="container">
-                <div class="card mb-3 bg-black text-light">
-                  <img class="project-logo bg-light"  src="../images/pic.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h4 class="card-title">TL Notes</h4>
-                    <h5 class="card-title">Mosquera Studios</h5>
-
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident odit atque vero officiis animi distinctio cumque iste eveniet nam, consequuntur labore rerum ipsa iusto rem quas laboriosam laborum nobis?
-                    Reiciendis perferendis maiores enim doloribus facere veniam asperiores accusamus, tempore nam reprehenderit sed sunt sint dolorem quis libero, incidunt dolor labore officiis culpa, itaque possimus maxime necessitatibus? Eum, quia ea?
-                    Neque optio natus, explicabo temporibus suscipit amet! Eius quisquam ipsa consequuntur pariatur facere quod deserunt, fugiat nostrum? Velit illum consequatur quibusdam! Tempore voluptates voluptatem aliquam architecto consequatur? Modi, et iste.
-                    Maiores, quis? Accusantium tempora ab est consequuntur, nam doloremque itaque voluptatibus modi ullam sequi corrupti voluptate iste et laudantium illo minima animi saepe, voluptatum fugiat dignissimos voluptas commodi molestiae. Illo?
-                    Quam tempora autem repellat repellendus quo expedita corrupti tempore voluptate ea, itaque assumenda voluptates praesentium sunt eius inventore quis quos maxime ex laudantium laboriosam aliquam? Eligendi ex repellat vero harum?
-                    Odio fugit nostrum ipsa. Cumque, dolorum, voluptatibus mollitia consectetur similique odit accusamus libero harum iusto impedit earum, nam tempore fugiat dolorem iste! Odio esse architecto perferendis libero numquam unde eaque?
-                    Accusamus impedit magni vero molestiae saepe, eveniet nisi perferendis nulla doloribus eum nam cumque. Dolores, dignissimos ratione commodi fugit, consequuntur quam aspernatur a rerum tenetur delectus eaque ipsum maxime in.
-                    Eligendi animi minus doloribus illo tenetur, qui neque quibusdam at deserunt quidem aliquam temporibus optio id eius vel nemo impedit voluptatibus, rem soluta rerum! Nam nihil consectetur id natus corrupti.
-                    Ducimus perspiciatis provident vel, dignissimos quod repellat tempore saepe, rerum fuga nihil tenetur fugit eos corrupti at quibusdam aliquid eligendi assumenda culpa distinctio illum id quis cumque? Fugit, odit ipsum?
-                    Sunt fuga sit earum nisi, minima, quis a nam quod iste quidem maxime accusamus non eos voluptatem voluptatum animi consequatur alias amet perferendis id odit obcaecati illo numquam sapiente. Nemo?.</p>
+<?php 
+                    while ($row = $query_show_all_project_ex->fetch()):?>
+              <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
                     
-                    <h3>Comments:</h3>
+                    <img src="../images/not-found.jpg" class="img-fluid rounded-start" alt="...">
+                    
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
 
+                    
 
-                     <form action=""> <!--Aqui va el script php-->
+                      <!--Contiene el id y name del titulo-->
+                      <h5 class="card-title" name="project-card-title" id="project-card-title"><?php echo $row['project_name']; ?></h5>
 
-                        <div class="card bg-dark text-light">
-                            <h5 class="card-header"><label name="project-comment-title">Comment:</label></h5>
-                            <div class="card-body">
+                      <!--Contiene el id y name del equipo-->
+                      <h6 class="card-title" name="project-card-team"  id="project-card-team"><?php echo $row['name_team'];?></h6>
 
-                                <div class="form-floating text-dark">
-                                    <textarea class="form-control" placeholder="Leave a comment here" name="new-project-com" id="new-project-com"></textarea>
-                                    <label for="new-project-com">Comment</label>
-                                  </div>
-                                  <br>
-                                  
-                            <button class="btn btn-happy" type="submit">Publish</button>    
-                            </div>
-                        </div>
-                    </form>
-                    <br>
+                      <!--Contiene el id y name del grupo-->
+                      <h6 class="card-title" name="project-card-group" id="project-card-group"><?php echo $row['group_name'];?></h6>
 
-
-                    <div class="card bg-dark text-light">
-                        <h5 class="card-header"><label name="project-comment-title">TIDBIS31M</label></h5>
-                        <div class="card-body">
-                          <h5 class="card-title"><label name="project-comment-name">Javier tokyo</label></h5>
-                          <p class="card-text"><label name="project-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quia fugit molestias placeat consequuntur amet deleniti, mollitia cumque sequi inventore consequatur ullam ad nesciunt! Neque mollitia cum iusto obcaecati eius..</label></p>
-                        </div>
+                      <!--Contiene el id y name de la descripcion-->
+                      <p class="card-text"   name="project-card-desc"  id="project-card-desc"><?php echo $row['Description']; ?></p>
+                      
+                      <div class="rate">
+                        <!--Estrellas y values-->
+                        <input type="radio" id="star" name="rate" value="1" />
+                        <label for="star3" title="text">star</label>
                       </div>
-       </div>
-       
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+              </div><?php
+              endwhile;?>
+
        <br><br><br><br>
        <div class="prior-footer sticky-bottom">
         <div class="wave"></div>

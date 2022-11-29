@@ -137,6 +137,8 @@ if (isset($_SESSION['email'])) {
             ON groups.id_group=project.id_group;";
             $query_show_all_project_ex=$conn->query($query_show_all_project);
             $query_show_all_project_ex->setFetchMode(PDO::FETCH_ASSOC);
+
+            
             /*while ($row = $query_show_all_project_ex->fetch()):
               $id_team=$row['id_Team'];
             endwhile;
