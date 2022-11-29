@@ -77,11 +77,9 @@ if (isset($_SESSION['email'])) {
     
         <div class="col-12 ">
 
-                <br>
-        
             <div class="container">
                 <div class="card mb-3 bg-black text-light">
-                  <img class="project-logo bg-light"  src="../images/TLogo.png" class="card-img-top" alt="...">
+                  <img class="project-logo bg-light"  src="../images/pic.png" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h4 class="card-title">TL Notes</h4>
                     <h5 class="card-title">Mosquera Studios</h5>

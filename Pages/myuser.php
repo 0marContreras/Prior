@@ -95,7 +95,7 @@ if (isset($_SESSION['email'])) {
                         while ($row=$query_show_all_project_ex->fetch()):
                         
                     ?>
-          <div class="col-8">
+          <div class="col-8 text-start">
                 <br> 
                 
             <div class="card mb-3 bg-black" style="max-width: 600px;">
