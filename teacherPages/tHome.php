@@ -113,75 +113,174 @@ if (isset($_SESSION['email'])) {
       </div>
   </div>
   <div class="col-8">
+ <!--------------------------------------------Db selects---------------------------------------------->
+ <?php
+            
+            include('../back-end/PDO.php');
+            
+            $query_show_all_project="SELECT project.id_project,
+              project.project_name, 
+              project.Description, 
+              project.Logotipos,
+              team.name_team,
+              groups.group_name
+            FROM project
+            JOIN team
+            ON project.id_Team=team.id_Team
+            JOIN groups
+            ON groups.id_group=project.id_group;";
+            $query_show_all_project_ex=$conn->query($query_show_all_project);
+            $query_show_all_project_ex->setFetchMode(PDO::FETCH_ASSOC);
 
-<!--------------------------------------------Db selects---------------------------------------------->
-<?php
+            
+            /*while ($row = $query_show_all_project_ex->fetch()):
+              $id_team=$row['id_Team'];
+            endwhile;
 
-include('../back-end/PDO.php');
+            $query_get_team="SELECT name_team FROM team WHERE id_Team='$id_team'";
+            $query_get_team_ex=$conn->query($query_get_team);
+            $query_get_team_ex->setFetchMode(PDO::FETCH_ASSOC);
+            */
+            ?>
 
-$query_show_all_project="SELECT project.id_project,
-  project.project_name, 
-  project.Description, 
-  project.Logotipos,
-  team.name_team,
-  groups.group_name
-FROM project
-JOIN team
-ON project.id_Team=team.id_Team
-JOIN groups
-ON groups.id_group=project.id_group;";
-$query_show_all_project_ex=$conn->query($query_show_all_project);
-$query_show_all_project_ex->setFetchMode(PDO::FETCH_ASSOC);
-/*while ($row = $query_show_all_project_ex->fetch()):
-  $id_team=$row['id_Team'];
-endwhile;
+            <br>
+            <?php 
+                    while ($row = $query_show_all_project_ex->fetch()):?>
+              <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    
+                    <img src="../images/not-found.jpg" class="img-fluid rounded-start" alt="...">
+                    
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
 
-$query_get_team="SELECT name_team FROM team WHERE id_Team='$id_team'";
-$query_get_team_ex=$conn->query($query_get_team);
-$query_get_team_ex->setFetchMode(PDO::FETCH_ASSOC);
-*/
-?>
+                    
 
-<br>
-<?php 
-        while ($row = $query_show_all_project_ex->fetch()):?>
-  <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="../images/not-found.jpg" class="img-fluid rounded-start" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
+                      <!--Contiene el id y name del titulo-->
+                      <h5 class="card-title" name="project-card-title" id="project-card-title"><?php echo $row['project_name']; ?></h5>
 
-        
+                      <!--Contiene el id y name del equipo-->
+                      <h6 class="card-title" name="project-card-team"  id="project-card-team"><?php echo $row['name_team'];?></h6>
 
-          <!--Contiene el id y name del titulo-->
-          <h5 class="card-title" name="project-card-title" id="project-card-title"><?php echo $row['project_name']; ?></h5>
+                      <!--Contiene el id y name del grupo-->
+                      <h6 class="card-title" name="project-card-group" id="project-card-group"><?php echo $row['group_name'];?></h6>
 
-          <!--Contiene el id y name del equipo-->
-          <h6 class="card-title" name="project-card-team"  id="project-card-team"><?php echo $row['name_team'];?></h6>
+                      <!--Contiene el id y name de la descripcion-->
+                      <p class="card-text"   name="project-card-desc"  id="project-card-desc"><?php echo $row['Description']; ?></p>
+                      
+                      <div class="rate">
+                        <!--Estrellas y values-->
+                        <input type="radio" id="star" name="rate" value="1" />
+                        <label for="star3" title="text">star</label>
+                      </div>
+                      <div>
+                        <button class="btn btn-happy" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">View More</button>
+                    </div>
+                      
+                      <div class="collapse" id="collapseExample">
+                        <br>
+                          
+                        <form action=""> <!--Aqui va el script php-->
+                        <div class="card bg-dark text-light">
+                            <h5 class="card-header"><label name="project-comment-title">Comment:</label></h5>
+                            <div class="card-body">
 
-          <!--Contiene el id y name del grupo-->
-          <h6 class="card-title" name="project-card-group" id="project-card-group"><?php echo $row['group_name'];?></h6>
+                                <div class="form-floating text-dark">
+                                    <textarea class="form-control" placeholder="Leave a comment here" name="new-idea-com" id="new-idea-com"></textarea>
+                                    <label for="new-idea-com">Comment</label>
+                                  </div>
+                                  <br>
+                                  
+                            <button class="btn btn-happy" type="submit">Publish</button>    
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                      <!--Esta card se va a loopear con los comments-->
+                    <div class="card bg-dark text-light">
+                        <h5 class="card-header"><label name="project-comment-title">TIDBIS31M</label></h5>
+                        <div class="card-body">
+                          <h5 class="card-title"><label name="project-comment-name">Javier tokyo</label></h5>
+                          <p class="card-text"><label name="project-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quia fugit molestias placeat consequuntur amet deleniti, mollitia cumque sequi inventore consequatur ullam ad nesciunt! Neque mollitia cum iusto obcaecati eius..</label></p>
+                        </div>
+                      </div>
 
-          <!--Contiene el id y name de la descripcion-->
-          <p class="card-text"   name="project-card-desc"  id="project-card-desc"><?php echo $row['Description']; ?></p>
-          
-          <div class="rate">
-            <!--Estrellas y values-->
-            <input type="radio" id="star" name="rate" value="1" />
-            <label for="star3" title="text">star</label>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div><?php
+              endwhile;?>
+              <br>
+              <!--------------------------------------------Db selects---------------------------------------------->
+
+              <!--
+            <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="../images/book.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Infinite book</h5>
+                      <h6 class="card-title">Evangelion Girls</h6>
+                      <h6 class="card-title">TIDBIS21M</h6>
+                      <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
+                      <div class="rate">
+                        <input type="radio" id="star6" name="rate" value="3" />
+                        <label for="star6" title="text">3 stars</label>
+                        <input type="radio" id="star5" name="rate" value="2" />
+                        <label for="star5" title="text">2 stars</label>
+                        <input type="radio" id="star4" name="rate" value="1" />
+                        <label for="star4" title="text">1 star</label>
+                      </div>
+                      <a href="./homeViewMore.html" class="btn btn-happy">View more</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <br>
+            <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="../images/book.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Infinite book</h5>
+                      <h6 class="card-title">Evangelion Girls</h6>
+                      <h6 class="card-title">TIDBIS21M</h6>
+                      <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
+                      <div class="rate">
+                        <input type="radio" id="star9" name="rate" value="3" />
+                        <label for="star9" title="text">3 stars</label>
+                        <input type="radio" id="star8" name="rate" value="2" />
+                        <label for="star8" title="text">2 stars</label>
+                        <input type="radio" id="star7" name="rate" value="1" />
+                        <label for="star7" title="text">1 star</label>
+                      </div>
+                      <a href="./homeViewMore.html" class="btn btn-happy">View more</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              -->
+              
+
           </div>
-          <form action="../teacherPages/tHomeViewMore.php">
-            <button class="btn btn-happy" name="view-more-btn-value"  value="<?php echo $row['id_project']; ?>">View More</button>
-          </form>
-          
         </div>
       </div>
-    </div>
-  </div><?php
-  endwhile;?>
-      <br>
+    
+      <div class="prior-footer sticky-bottom">
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+       </div>
+    
 
 <!--Connections-->
     <!-- JavaScript Bundle with Popper -->

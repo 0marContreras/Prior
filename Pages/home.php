@@ -181,10 +181,40 @@ if (isset($_SESSION['email'])) {
                         <input type="radio" id="star" name="rate" value="1" />
                         <label for="star3" title="text">star</label>
                       </div>
-                      <form action="../Pages/homeViewMore.php">
-                        <button class="btn btn-happy" name="view-more-btn-value"  value="<?php echo $row['id_project']; ?>">View More</button>
-                      </form>
+                      <div>
+                        <button class="btn btn-happy" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">View More</button>
+                    </div>
                       
+                      <div class="collapse" id="collapseExample">
+                        <br>
+                          
+                        <form action=""> <!--Aqui va el script php-->
+                        <div class="card bg-dark text-light">
+                            <h5 class="card-header"><label name="project-comment-title">Comment:</label></h5>
+                            <div class="card-body">
+
+                                <div class="form-floating text-dark">
+                                    <textarea class="form-control" placeholder="Leave a comment here" name="new-idea-com" id="new-idea-com"></textarea>
+                                    <label for="new-idea-com">Comment</label>
+                                  </div>
+                                  <br>
+                                  
+                            <button class="btn btn-happy" type="submit">Publish</button>    
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                      <!--Esta card se va a loopear con los comments-->
+                    <div class="card bg-dark text-light">
+                        <h5 class="card-header"><label name="project-comment-title">TIDBIS31M</label></h5>
+                        <div class="card-body">
+                          <h5 class="card-title"><label name="project-comment-name">Javier tokyo</label></h5>
+                          <p class="card-text"><label name="project-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quia fugit molestias placeat consequuntur amet deleniti, mollitia cumque sequi inventore consequatur ullam ad nesciunt! Neque mollitia cum iusto obcaecati eius..</label></p>
+                        </div>
+                      </div>
+
+                      </div>
+
                     </div>
                   </div>
                 </div>

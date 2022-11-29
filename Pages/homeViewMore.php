@@ -48,6 +48,7 @@ if (isset($_SESSION['email'])) {
             ?>
 
 <?php 
+
                     while ($row = $query_show_all_project_ex->fetch()):?>
               <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
                 <div class="row g-0">

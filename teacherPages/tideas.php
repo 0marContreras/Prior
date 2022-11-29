@@ -24,7 +24,9 @@ if (isset($_SESSION['email'])) {
 </head>
 <body>
 
-<div class="container-sm text-center sticky-top">
+
+    
+  <div class="container-sm text-center sticky-top">
     <div class="row">
       <div class="col-12">
 
@@ -65,7 +67,7 @@ if (isset($_SESSION['email'])) {
 
       </div>
     </div>
-
+  </div>
     
       <div class="container">
         <div class="row">
@@ -97,7 +99,7 @@ if (isset($_SESSION['email'])) {
               <br> 
 
               <div class="d-grid gap-2 col-6 mx-auto">
-                <a class="btn btn-dark text-warning" href="../Pages/createidea.php" type="button">I have an idea!</a>
+                <a class="btn btn-dark text-warning" href="../teacherPages/tCreateidea.php" type="button">I have an idea!</a>
                 
               </div>
 
@@ -176,9 +178,40 @@ if (isset($_SESSION['email'])) {
                       <div class="rate">
                         <label for="star" title="text">star</label>
                       </div>
-                      <form action="../Pages/ideaViewMore.php">
-                        <button class="btn btn-warning">View More</button>
-                      </form>
+                      
+                      <div>
+                        <button class="btn btn-warning" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">View More</button>
+                    </div>
+                      
+                      <div class="collapse" id="collapseExample">
+                        <br>
+                          
+                        <form action=""> <!--Aqui va el script php-->
+                        <div class="card bg-dark text-light">
+                            <h5 class="card-header"><label name="project-comment-title">Comment:</label></h5>
+                            <div class="card-body">
+
+                                <div class="form-floating text-dark">
+                                    <textarea class="form-control" placeholder="Leave a comment here" name="new-idea-com" id="new-idea-com"></textarea>
+                                    <label for="new-idea-com">Comment</label>
+                                  </div>
+                                  <br>
+                                  
+                            <button class="btn btn-warning" type="submit">Publish</button>    
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                      <!--Esta card se va a loopear con los comments-->
+                    <div class="card bg-dark text-light">
+                        <h5 class="card-header"><label name="project-comment-title">TIDBIS31M</label></h5>
+                        <div class="card-body">
+                          <h5 class="card-title"><label name="project-comment-name">Javier tokyo</label></h5>
+                          <p class="card-text"><label name="project-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quia fugit molestias placeat consequuntur amet deleniti, mollitia cumque sequi inventore consequatur ullam ad nesciunt! Neque mollitia cum iusto obcaecati eius..</label></p>
+                        </div>
+                      </div>
+                      </div>
+                        
                     </div>
                   </div>
                 </div>

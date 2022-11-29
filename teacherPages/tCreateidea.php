@@ -26,70 +26,73 @@ if (isset($_SESSION['email'])) {
 <body>
 
 
-    <div class="container-sm text-center sticky-top">
-        <div class="row">
-          <div class="col-12">
-    
-            <div class="notch-container">
-                <div class="notch">
-                    <ul>
-                        
-    
-                        <li class="notch-list">
-                            <a href="../teacherPages/tideas.php">
-                                <span class="notch-icon notch-ideas"><ion-icon name="rainy-outline"></ion-icon></ion-icon></span>
-                                <span class="notch-text notch-ideas-text">Ideas</span>
-                            </a>
-                        </li>
-                        <li class="notch-list">
-                            <a href="../teacherPages/tHome.php">
-                                <span class="notch-icon notch-home"><ion-icon name="home-outline"></ion-icon></span>
-                                <span class="notch-text notch-home-text">Home</span>
-                            </a>
-                        </li>
-                        <li class="notch-list">
-                            <a href="../teacherPages/evaluation.php">
-                                <span class="notch-icon notch-evaluation"><ion-icon name="checkmark-circle-outline"></ion-icon></span>
-                                <span class="notch-text notch-evaluation-text">Evaluation</span>
-                            </a>
-                        </li>
-                       
-                        <li class="notch-list">
-                          <a href="../teacherPages/tMyuser.phpz">
-                              <span class="notch-icon notch-myuser"><ion-icon name="person-circle-outline"></ion-icon></span>
-                              <span class="notch-text notch-myuser-text">My user</span>
-                          </a>
-                      </li>
-    
-                    </ul>
-                </div>
+<div class="container-sm text-center sticky-top">
+    <div class="row">
+      <div class="col-12">
+
+        <div class="notch-container">
+            <div class="notch">
+                <ul>
+                    
+
+                    <li class="notch-list">
+                        <a href="../teacherPages/tideas.php">
+                            <span class="notch-icon notch-ideas"><ion-icon name="rainy-outline"></ion-icon></ion-icon></span>
+                            <span class="notch-text notch-ideas-text">Ideas</span>
+                        </a>
+                    </li>
+                    <li class="notch-list">
+                        <a href="../teacherPages/tHome.php">
+                            <span class="notch-icon notch-home"><ion-icon name="home-outline"></ion-icon></span>
+                            <span class="notch-text notch-home-text">Home</span>
+                        </a>
+                    </li>
+                    <li class="notch-list">
+                        <a href="../teacherPages/evaluation.php">
+                            <span class="notch-icon notch-evaluation"><ion-icon name="checkmark-circle-outline"></ion-icon></span>
+                            <span class="notch-text notch-evaluation-text">Evaluation</span>
+                        </a>
+                    </li>
+                   
+                    <li class="notch-list">
+                      <a href="../teacherPages/tMyuser.php">
+                          <span class="notch-icon notch-myuser"><ion-icon name="person-circle-outline"></ion-icon></span>
+                          <span class="notch-text notch-myuser-text">My user</span>
+                      </a>
+                  </li>
+
+                </ul>
             </div>
-    
-          </div>
         </div>
+
       </div>
+    </div>
+  </div>
    
     <br><br>
 
 
 
-      
-    <div class="container ">
+
+
+    <div class="container col-5 ">
         <div class="card mb-3 bg-black text-light">
             <form class="" action="../Pages/ideas.html">
-                <div class="form-group mb-3">
+                <div class="form-group mb-5  col-10">
                     <label for="idea-title" class="form-label"><h3>Title</h3></label>
                     <input type="text" class="form-control" name="idea-title" id="idea-title" placeholder="">
                 </div>
-                <div class="form-group mb-3">
+                <div class="form-group mb-5 col-10">
                     <label for="idea-description" class="form-label"><h3>Description</h3></label>
                     <textarea class="form-control" name="idea-description" id="idea-description" rows="3"></textarea>
                     <br>
-                    <input class="btn btn-warning w-100" type="submit" value="Publish idea">
+                    <input class="btn btn-warning col-6" type="submit" value="Publish idea">
                 </div>
             </form>    
     </div>
-    </div>  
+    </div> 
+
+    
 
 
     <div class="prior-footer sticky-bottom">
