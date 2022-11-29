@@ -3,7 +3,21 @@
 
 session_start();
 
+
+
 if (isset($_SESSION['email'])) {
+    
+    $email=$_SESSION['email'];
+    
+    //Get IdTeam Pa comparar
+    $query_getIdTeam="SELECT id_team FROM users WHERE user_email='$email'";
+    $query_getIdTeam_ex=$conn->query($query_getIdTeam);
+    $query_getIdTeam_ex->setFetchMode(PDO::FETCH_ASSOC);
+    while ($row = $query_getIdTeam_ex->fetch()):
+        $id_team=$row['id_team'];
+    endwhile; 
+
+    if (7 == $id_team) {
 
  ?>
 
@@ -129,7 +143,10 @@ if (isset($_SESSION['email'])) {
 </html>
 <!--Si no esta logueado pa atrás papa-->
 <?php 
+    }else{
 
+        header("Location: ../Pages/myteam.php");
+    }
 }else{
 
      header("Location: ../Pages/login.php");
