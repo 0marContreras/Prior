@@ -36,7 +36,7 @@ if (isset($_SESSION['email'])) {
 
     <div class="container mt-5">
 
-        <form action=""> <!--Aqui va el php-->
+        <form method="POST" action="../back-end/evaluationRub.php"> <!--Aqui va el php-->
             <div class="table-responsive-sm">
                 <!--Este es el titulo de las columans [no lleva back pa]-->
                     <table class="table table-dark">
@@ -44,7 +44,7 @@ if (isset($_SESSION['email'])) {
                             <tr>
                                 <th scope="col">Aspect</th>
                                 <th scope="col">Value</th>
-                                <th scope="col">Check</th>
+                                <th scope="•••••col">Check</th>
                             </tr>
                         </thead>
                         <tbody>
