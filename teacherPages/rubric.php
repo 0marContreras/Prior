@@ -24,6 +24,15 @@ if (isset($_SESSION['email'])) {
 </head>
 <body>
 
+<?php
+            
+            include('../back-end/PDO.php');
+            include('../teacherPages/evaluation.php');
+
+            $selected_project=$_POST["toEvaluate"];
+            
+            
+            ?>
 
     <div class="container mt-5">
 
@@ -113,7 +122,7 @@ if (isset($_SESSION['email'])) {
 
                             <tr class="">
                                 <td></td>   
-                                <td><button scope="row" class="btn btn-orange text-light" type="submit">Submit score</button></td> 
+                                <td><button scope="row" name="willEvaluate" vlue="<?php $selected_project ?>" class="btn btn-orange text-light" type="submit">Submit score</button></td> 
                                 <td></td>
                             </tr>
 
