@@ -41,7 +41,7 @@ if (isset($_SESSION['email'])) {
             ON project.id_Team=team.id_Team
             JOIN groups
             ON groups.id_group=project.id_group
-            WHERE project.id_project = $pid;";
+            WHERE project.id_project = '$pid'";
             $query_show_all_project_ex=$conn->query($query_show_all_project);
             $query_show_all_project_ex->setFetchMode(PDO::FETCH_ASSOC);
 
