@@ -179,7 +179,7 @@ if (isset($_SESSION['email'])) {
                       <div class="rate">
                         <label for="star" title="text">star</label>
                       </div>
-                      <form action="../Pages/ideaViewMore">
+                      <form action="../Pages/ideaViewMore.php">
                         <button class="btn btn-warning">View More</button>
                       </form>
                     </div>
