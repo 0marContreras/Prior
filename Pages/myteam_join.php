@@ -1,5 +1,6 @@
 <!--Checa si el usuario esta logueado o no-->
 <?php 
+include('../back-end/PDO.php');
 
 session_start();
 
@@ -17,7 +18,7 @@ if (isset($_SESSION['email'])) {
         $id_team=$row['id_team'];
     endwhile; 
 
-    if (7 == $id_team) {
+    if ($id_team == 7) {
 
  ?>
 
