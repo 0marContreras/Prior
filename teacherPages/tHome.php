@@ -172,7 +172,7 @@ $query_get_team_ex->setFetchMode(PDO::FETCH_ASSOC);
             <input type="radio" id="star" name="rate" value="1" />
             <label for="star3" title="text">star</label>
           </div>
-          <form action="../Pages/homeViewMore.php">
+          <form action="../teacherPages/tHomeViewMore.php">
             <button class="btn btn-happy" name="view-more-btn-value"  value="<?php echo $row['id_project']; ?>">View More</button>
           </form>
           

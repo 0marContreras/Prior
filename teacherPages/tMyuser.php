@@ -2,8 +2,10 @@
 <?php 
 
 session_start();
+$email=$_SESSION['email'];
 
 if (isset($_SESSION['email'])) {
+
 
  ?>
 
@@ -69,15 +71,19 @@ if (isset($_SESSION['email'])) {
       </div>
     
       
-      <div class="container">
+      <div class="container-sm text-center sticky-top">
 
         <div class="row">
           <div class="col-3">
-          </div></div><?php
+          </div>
+         
+<div class="col-8 text-start">
+    <br> 
+<?php
             
             include('../back-end/PDO.php');
 
-            $query_show_all_project="SELECT users.Username,
+            $query_show_all_project ="SELECT users.Username,
             groups.group_name,
             team.name_team,
             users.descriptions
@@ -92,10 +98,7 @@ if (isset($_SESSION['email'])) {
 
             while ($row=$query_show_all_project_ex->fetch()):
             
-        ?>
-<div class="col-8 text-start">
-    <br> 
-    
+        ?>    
 <div class="card mb-3 bg-black" style="max-width: 600px;">
     <div class="card mb-8 bg-black text-light" style="max-width: 600px;">
         <div class="row g-0">
@@ -112,11 +115,12 @@ if (isset($_SESSION['email'])) {
              
 
                 <h5 class="card-title"><?php echo $row['Username']; ?></h5>
+                <p class="card-text">Biography:</p>
                 <p class="card-text"><?php echo $row['descriptions']; ?></p>
                 <a class="edit-button fw-bold" href="../Pages/myprfileEdit.php">
                     <ion-icon name="create-outline"></ion-icon> Edit profile
-                </a> <?php endwhile; ?>
-                        </div>
+                </a> 
+                        </div><?php endwhile; ?>
                        </div>
                        <div class="row">
                          <div class="col-3">
@@ -134,7 +138,8 @@ if (isset($_SESSION['email'])) {
                      </div>
                     </div>
                     </div>
-            </div>   
+            </div>  
+           
           
             <div class="prior-footer sticky-bottom">
                 <div class="wave"></div>

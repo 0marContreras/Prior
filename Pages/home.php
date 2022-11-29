@@ -153,9 +153,9 @@ if (isset($_SESSION['email'])) {
               <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <?php
-                    echo'<img src="data:image/jpeg;base64,'.base64_encode($row['project_name']->load()) .'" class="img-fluid rounded-start" alt="...">'
-                    ?>
+                    
+                    <img src="../images/not-found.jpg" class="img-fluid rounded-start" alt="...">
+                    
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
