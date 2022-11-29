@@ -70,10 +70,44 @@ if (isset($_SESSION['email'])) {
 
 
       <!--Aqui van los proyectos de los maestros que van a evaluar, en el backend se comprobara que carrear es y con un if/switch mostrara solo los proyectos de la carrera-->
+
+      <?php
+            
+            include('../back-end/PDO.php');
+            
+            $query_show_all_project="SELECT project.id_project,
+              project.project_name, 
+              project.Description, 
+              project.Logotipos,
+              team.name_team,
+              groups.group_name
+            FROM project
+            JOIN team
+            ON project.id_Team=team.id_Team
+            JOIN groups
+            ON groups.id_group=project.id_group;";
+            $query_show_all_project_ex=$conn->query($query_show_all_project);
+            $query_show_all_project_ex->setFetchMode(PDO::FETCH_ASSOC);
+            /*while ($row = $query_show_all_project_ex->fetch()):
+              $id_team=$row['id_Team'];
+            endwhile;
+
+            $query_get_team="SELECT name_team FROM team WHERE id_Team='$id_team'";
+            $query_get_team_ex=$conn->query($query_get_team);
+            $query_get_team_ex->setFetchMode(PDO::FETCH_ASSOC);
+            */
+            ?>
+
+
+
+
       <div class="container text-center mt-5">
+
         <div class="row row-cols-3">
 
-            <div class="col">
+        <?php while ($row = $query_show_all_project_ex->fetch()):?>
+
+          <div class="col">
                 
                 
             <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
@@ -85,20 +119,19 @@ if (isset($_SESSION['email'])) {
                     <div class="card-body">
 
                       <!--Contiene el id y name del titulo-->
-                      <h5 class="card-title" name="project-card-title" id="project-card-title">Prior</h5>
+                      <h5 class="card-title" name="project-card-title" id="project-card-title"><?php echo $row['project_name']; ?></h5>
 
                       <!--Contiene el id y name del equipo-->
-                      <h6 class="card-title" name="project-card-team"  id="project-card-team">Prior team</h6>
+                      <h6 class="card-title" name="project-card-team"  id="project-card-team"><?php echo $row['name_team'];?></h6>
 
                       <!--Contiene el id y name del grupo-->
-                      <h6 class="card-title" name="project-card-group" id="project-card-group">TIDBIS21M</h6>
+                      <h6 class="card-title" name="project-card-group" id="project-card-group"><?php echo $row['group_name'];?></h6>
 
                       <!--Contiene el id y name de la descripcion-->
-                      <p class="card-text"   name="project-card-desc"  id="project-card-desc">Prior is a platform where the students can upluoad their integrative projects, get feedback
-                    from other students and teachers and also be evaluated in real time by the major judges.</p>
+                      <p class="card-text"   name="project-card-desc"  id="project-card-desc"><?php echo $row['Description']; ?></p>
                       
                       <form action="../teacherPages/rubric.php">
-                        <button type="submit" id="toEavluate" name="toEvaluate" class="btn btn-orange">Evaluate</button>
+                        <button type="submit" id="toEavluate" value="<?php echo $row['id_project']; ?>" name="toEvaluate" class="btn btn-orange">Evaluate</button>
                       </form>
                     </div>
                   </div>
@@ -108,179 +141,10 @@ if (isset($_SESSION['email'])) {
 
             </div>
 
-
-<!--------------------------A partir de aqui solo se reusa el ejemplo, pero se debe resperar la estructura de columnas---------------->
-            <div class="col">
-                
-              <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="../images/book.jpg" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-
-                      <!--Contiene el id y name del titulo-->
-                      <h5 class="card-title" name="project-card-title" id="project-card-title">Please save me!</h5>
-
-                      <!--Contiene el id y name del equipo-->
-                      <h6 class="card-title" name="project-card-team"  id="project-card-team">Evangelion Girls</h6>
-
-                      <!--Contiene el id y name del grupo-->
-                      <h6 class="card-title" name="project-card-group" id="project-card-group">TIDBIS21M</h6>
-
-                      <!--Contiene el id y name de la descripcion-->
-                      <p class="card-text"   name="project-card-desc"  id="project-card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
-                      
-                      <form action="">
-                        <button type="submit" id="toEavluate" name="toEvaluate" class="btn btn-orange">Evaluate</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--------------------------------------------Db selects---------------------------------------------->
-
-            </div>
-
-            <div class="col">
-                
-              <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="../images/book.jpg" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-
-                      <!--Contiene el id y name del titulo-->
-                      <h5 class="card-title" name="project-card-title" id="project-card-title">Infinite book</h5>
-
-                      <!--Contiene el id y name del equipo-->
-                      <h6 class="card-title" name="project-card-team"  id="project-card-team">Evangelion Girls</h6>
-
-                      <!--Contiene el id y name del grupo-->
-                      <h6 class="card-title" name="project-card-group" id="project-card-group">TIDBIS21M</h6>
-
-                      <!--Contiene el id y name de la descripcion-->
-                      <p class="card-text"   name="project-card-desc"  id="project-card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
-                      
-                      <form action="../techerPages/rubric.php">
-                        <button type="submit" id="toEavluate" name="toEvaluate" class="btn btn-orange">Evaluate</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--------------------------------------------Db selects---------------------------------------------->
-                
+            <?php endwhile;?>
 
 
 
-            </div>
-
-            <div class="col">
-                
-              <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="../images/book.jpg" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-
-                      <!--Contiene el id y name del titulo-->
-                      <h5 class="card-title" name="project-card-title" id="project-card-title">Infinite book</h5>
-
-                      <!--Contiene el id y name del equipo-->
-                      <h6 class="card-title" name="project-card-team"  id="project-card-team">Evangelion Girls</h6>
-
-                      <!--Contiene el id y name del grupo-->
-                      <h6 class="card-title" name="project-card-group" id="project-card-group">TIDBIS21M</h6>
-
-                      <!--Contiene el id y name de la descripcion-->
-                      <p class="card-text"   name="project-card-desc"  id="project-card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
-                      
-                      <form action="../techerPages/rubric.php">
-                        <button type="submit" id="toEavluate" name="toEvaluate" class="btn btn-orange">Evaluate</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--------------------------------------------Db selects---------------------------------------------->
-
-            </div>
-
-            <div class="col">
-                
-              <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="../images/book.jpg" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-
-                      <!--Contiene el id y name del titulo-->
-                      <h5 class="card-title" name="project-card-title" id="project-card-title">Infinite book</h5>
-
-                      <!--Contiene el id y name del equipo-->
-                      <h6 class="card-title" name="project-card-team"  id="project-card-team">Evangelion Girls</h6>
-
-                      <!--Contiene el id y name del grupo-->
-                      <h6 class="card-title" name="project-card-group" id="project-card-group">TIDBIS21M</h6>
-
-                      <!--Contiene el id y name de la descripcion-->
-                      <p class="card-text"   name="project-card-desc"  id="project-card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
-                      
-                      <form action="../techerPages/rubric.php">
-                        <button type="submit" id="toEavluate" name="toEvaluate" class="btn btn-orange">Evaluate</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--------------------------------------------Db selects---------------------------------------------->
-
-            </div>
-
-            <div class="col">
-                
-              <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="../images/book.jpg" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-
-                      <!--Contiene el id y name del titulo-->
-                      <h5 class="card-title" name="project-card-title" id="project-card-title">Infinite book</h5>
-
-                      <!--Contiene el id y name del equipo-->
-                      <h6 class="card-title" name="project-card-team"  id="project-card-team">Evangelion Girls</h6>
-
-                      <!--Contiene el id y name del grupo-->
-                      <h6 class="card-title" name="project-card-group" id="project-card-group">TIDBIS21M</h6>
-
-                      <!--Contiene el id y name de la descripcion-->
-                      <p class="card-text"   name="project-card-desc"  id="project-card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
-                      
-                      <form action="../techerPages/rubric.php">
-                        <button type="submit" id="toEavluate" name="toEvaluate" class="btn btn-orange">Evaluate</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--------------------------------------------Db selects---------------------------------------------->
-
-            </div>
-          
-        </div>
-      </div>
-<!--Aqui van los proyectos de los maestros que van a evaluar, en el backend se comprobara que carrear es y con un if/switch mostrara solo los proyectos de la carrera-->
 
 
     <div class="prior-footer sticky-bottom">
