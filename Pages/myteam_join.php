@@ -9,7 +9,7 @@ if (isset($_SESSION['email'])) {
     
     $email=$_SESSION['email'];
     
-    //Get IdTeam Pa comparar
+    //Get IdTeam Pa comparar fhofehoese
     $query_getIdTeam="SELECT id_team FROM users WHERE user_email='$email'";
     $query_getIdTeam_ex=$conn->query($query_getIdTeam);
     $query_getIdTeam_ex->setFetchMode(PDO::FETCH_ASSOC);
