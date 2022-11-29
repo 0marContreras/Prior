@@ -73,27 +73,49 @@ if (isset($_SESSION['email'])) {
 
         <div class="row">
           <div class="col-3">
+          </div></div><?php
+            
+            include('../back-end/PDO.php');
+
+            $query_show_all_project="SELECT users.Username,
+            groups.group_name,
+            team.name_team,
+            users.descriptions
+            FROM users
+            JOIN groups
+            ON groups.id_group=users.id_group
+            JOIN team
+            ON team.id_Team=users.id_team
+            WHERE users.user_email='$email'";
+            $query_show_all_project_ex=$conn->query($query_show_all_project);
+            $query_show_all_project_ex->setFetchMode(PDO::FETCH_ASSOC);
+
+            while ($row=$query_show_all_project_ex->fetch()):
+            
+        ?>
+<div class="col-8 text-start">
+    <br> 
+    
+<div class="card mb-3 bg-black" style="max-width: 600px;">
+    <div class="card mb-8 bg-black text-light" style="max-width: 600px;">
+        <div class="row g-0">
+
+          <div class="col-md-4">
+            <img src="../images/not-found.jpg" class="img-fluid rounded-start" alt="...">
+            <br><br>
+            
           </div>
-          <div class="col-8">
-                <br> 
-            <div class="card mb-3 bg-black" style="max-width: 600px;">
-                <div class="card mb-8 bg-black text-light" style="max-width: 600px;">
-                    <div class="row g-0">
+          
+          <div class="col-md-8">
 
-                      <div class="col-md-4">
-                        <img src="../images/pic.png" class="img-fluid rounded-start" alt="...">
-                        <br> <br>
-                      </div>
+            <div class="card-body">
+             
 
-                      <div class="col-md-8">
-
-                        <div class="card-body">
-                          <h5 class="card-title">Dafnis Cain Villagran</h5>
-                          <h6 class="fw-bold">Teacher: </h6> 
-                          <h6>TI</h6>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <a class="edit-button fw-bold" href="../teacherPages/myprofileEditT.php"><ion-icon name="create-outline"></ion-icon> Edit profile</a>
-                        
+                <h5 class="card-title"><?php echo $row['Username']; ?></h5>
+                <p class="card-text"><?php echo $row['descriptions']; ?></p>
+                <a class="edit-button fw-bold" href="../Pages/myprfileEdit.php">
+                    <ion-icon name="create-outline"></ion-icon> Edit profile
+                </a> <?php endwhile; ?>
                         </div>
                        </div>
                        <div class="row">
@@ -111,8 +133,9 @@ if (isset($_SESSION['email'])) {
                       
                      </div>
                     </div>
+                    </div>
             </div>   
-            
+          
             <div class="prior-footer sticky-bottom">
                 <div class="wave"></div>
                 <div class="wave"></div>
