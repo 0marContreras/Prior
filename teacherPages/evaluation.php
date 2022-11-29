@@ -85,16 +85,17 @@ if (isset($_SESSION['email'])) {
                     <div class="card-body">
 
                       <!--Contiene el id y name del titulo-->
-                      <h5 class="card-title" name="project-card-title" id="project-card-title">Infinite book</h5>
+                      <h5 class="card-title" name="project-card-title" id="project-card-title">Prior</h5>
 
                       <!--Contiene el id y name del equipo-->
-                      <h6 class="card-title" name="project-card-team"  id="project-card-team">Evangelion Girls</h6>
+                      <h6 class="card-title" name="project-card-team"  id="project-card-team">Prior team</h6>
 
                       <!--Contiene el id y name del grupo-->
                       <h6 class="card-title" name="project-card-group" id="project-card-group">TIDBIS21M</h6>
 
                       <!--Contiene el id y name de la descripcion-->
-                      <p class="card-text"   name="project-card-desc"  id="project-card-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
+                      <p class="card-text"   name="project-card-desc"  id="project-card-desc">Prior is a platform where the students can upluoad their integrative projects, get feedback
+                    from other students and teachers and also be evaluated in real time by the major judges.</p>
                       
                       <form action="../teacherPages/rubric.php">
                         <button type="submit" id="toEavluate" name="toEvaluate" class="btn btn-orange">Evaluate</button>
@@ -120,7 +121,7 @@ if (isset($_SESSION['email'])) {
                     <div class="card-body">
 
                       <!--Contiene el id y name del titulo-->
-                      <h5 class="card-title" name="project-card-title" id="project-card-title">Infinite book</h5>
+                      <h5 class="card-title" name="project-card-title" id="project-card-title">Please save me!</h5>
 
                       <!--Contiene el id y name del equipo-->
                       <h6 class="card-title" name="project-card-team"  id="project-card-team">Evangelion Girls</h6>

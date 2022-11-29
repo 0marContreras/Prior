@@ -124,11 +124,12 @@ if (isset($_SESSION['email'])) {
             
             include('../back-end/PDO.php');
             
-            $query_show_all_project="SELECT project.project_name, 
-            project.Description, 
-            project.Logotipos,
-            team.name_team,
-            groups.group_name
+            $query_show_all_project="SELECT project.id_project,
+              project.project_name, 
+              project.Description, 
+              project.Logotipos,
+              team.name_team,
+              groups.group_name
             FROM project
             JOIN team
             ON project.id_Team=team.id_Team
@@ -177,7 +178,7 @@ if (isset($_SESSION['email'])) {
                         <label for="star3" title="text">star</label>
                       </div>
                       <form action="../Pages/homeViewMore.php">
-                        <button class="btn btn-happy">View More</button>
+                        <button class="btn btn-happy"  value="<?php echo $row['id_project']; ?>">View More</button>
                       </form>
                       
                     </div>
