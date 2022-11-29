@@ -178,7 +178,7 @@ if (isset($_SESSION['email'])) {
                         <label for="star3" title="text">star</label>
                       </div>
                       <form action="../Pages/homeViewMore.php">
-                        <button class="btn btn-happy"  value="<?php echo $row['id_project']; ?>">View More</button>
+                        <button class="btn btn-happy" name="view-more-btn-value"  value="<?php echo $row['id_project']; ?>">View More</button>
                       </form>
                       
                     </div>
