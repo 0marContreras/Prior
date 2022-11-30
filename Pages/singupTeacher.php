@@ -22,27 +22,27 @@
             <!--nombre del usuario-->
             <div class="form-group">
                 <label class="form-label" for="fullname">Full name</label>
-                <input class="form-control" type="text" name="fullname-teacher" id="fullname-teacher" value="Almanza" required> <!--retorna el nombre del usuario-->
+                <input class="form-control" type="text" name="fullname-teacher" id="fullname-teacher" required> <!--retorna el nombre del usuario-->
             </div>  
 
             <!--correo del usuario-->
             <div class="form-group was-validated">
                 <label class="form-label" for="email">Email</label>
-                <input class="form-control" type="email" name="new-email-teacher" id="new-email-teacher" value="Almanza@cisco.com" required> <!--retorna el correo del usuario-->
+                <input class="form-control" type="email" name="new-email-teacher" id="new-email-teacher"  required> <!--retorna el correo del usuario-->
                 <div class="invalid-feedback">Please insert an email</div>
             </div>  
             
             <!--contraseña del usuario-->
             <div class="form-group was-validated">
                 <label class="form-label" for="password">Password</label>
-                <input class="form-control" type="password" name="new-password-teacher" id="new-password-teacher" value="Cisco" required> <!--confirma contraseña del usuario-->  
+                <input class="form-control" type="password" name="new-password-teacher" id="new-password-teacher"  required> <!--confirma contraseña del usuario-->  
                 <div class="invalid-feedback">Please insert your password</div>
             </div>    
 
             <!--confirma contraseña del usuario//////////Comparar con if si coincide con la de arriba-->
             <div class="form-group was-validated">
                 <label class="form-label" for="password">Confirm password</label>
-                <input class="form-control" type="password" name="new-password-confirm-teacher" id="new-password-confirm-teacher" value="Cisco" required>
+                <input class="form-control" type="password" name="new-password-confirm-teacher" id="new-password-confirm-teacher" required>
                 <div class="invalid-feedback">Check your password</div>
             </div>  
 
