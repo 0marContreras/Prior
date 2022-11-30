@@ -106,7 +106,7 @@ if (isset($_SESSION['email'])) {
         <div class="row row-cols-3">
 
         <?php while ($row = $query_show_all_project_ex->fetch()):
-           $id_project = $row['id_project']; ?>
+           ?>
 
           <div class="col">
                 
@@ -132,7 +132,7 @@ if (isset($_SESSION['email'])) {
                       <p class="card-text"   name="project-card-desc"  id="project-card-desc"><?php echo $row['Description']; ?></p>
                       
                       <form method="POST" action="../teacherPages/rubric.php">
-                        <button type="submit" id="toEvaluate" value=$id_project name="toEvaluate" class="btn btn-orange">Evaluate</button>
+                        <button type="submit" id="toEvaluate" value='.$row['project_name'];.'  name="toEvaluate" class="btn btn-orange">Evaluate</button>
                       </form>
                     </div>
                   </div>
