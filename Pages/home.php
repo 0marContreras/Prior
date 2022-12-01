@@ -151,7 +151,9 @@ if (isset($_SESSION['email'])) {
 
             <br>
             <?php 
-                    while ($row = $query_show_all_project_ex->fetch()):?>
+                    while ($row = $query_show_all_project_ex->fetch()):
+                    
+                    $id_project=$row['id_project'];?>
               <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col-md-4">
@@ -188,7 +190,7 @@ if (isset($_SESSION['email'])) {
                       <div class="collapse" id="collapseExample">
                         <br>
                           
-                        <form action=""> <!--Aqui va el script php-->
+                        <form action="../back-end/addComment.php" method="POST"> <!--Aqui va el script php-->
                         <div class="card bg-dark text-light">
                             <h5 class="card-header"><label name="project-comment-title">Comment:</label></h5>
                             <div class="card-body">
