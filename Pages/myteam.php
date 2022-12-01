@@ -68,29 +68,57 @@ if (isset($_SESSION['email'])) {
 
           </div>
         </div>
-      </div>
     
       
       <br><br>
-    </div>
-  </div>
+
   <div class="container">
     <div class="row">
         <div class="col-sm-6">
+            <?php 
+            include('../back-end/PDO.php');
+            $email=$_SESSION['email'];
+
+            $query_get_idteam="SELECT id_team FROM users WHERE user_email='$email'";
+            $query_get_idteam_ex=$conn->query($query_get_idteam);
+            $query_get_idteam_ex->setFetchMode(PDO::FETCH_ASSOC);
+            while ($row = $query_get_idteam_ex->fetch()):
+                $id_team=$row['id_team'];
+            endwhile;
+
+            $query_show_teammembers="SELECT users.Username, users.id_team, groups.group_name
+            FROM users
+            JOIN groups
+            ON users.id_team = groups.id_group
+            WHERE users.id_team = '$id_team'";
+            $query_show_teammembers_ex=$conn->query($query_show_teammembers);
+            $query_show_teammembers_ex->setFetchMode(PDO::FETCH_ASSOC);
+
+                ?>
         <div class="card bg-black">
             <div class="card-body">
             <h4 class="card-title text-white">Members</h4>
             <br>
+            <?php while ($row1 = $query_show_teammembers_ex->fetch()): ?>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><h5>Omar Contreras</h5>TIDBIS31M</li>
-                <li class="list-group-item"><h5>Javier Acosta</h5>TIDBIS31M</li>
-                <li class="list-group-item"><h5>Derek Torres</h5>TIDBIS31M</li>
-                <li class="list-group-item"><h5>Samuel Moo</h5>TIDBIS31M</li>
+                <li class="list-group-item"><h5><?php echo $row1['Username']; ?></h5><?php echo $row1['group_name']; ?></li>
               </ul>
-              
+            <?php endwhile;?>
             </div>
         </div>
         </div>
+        <?php 
+        $query_show_team="SELECT team.name_team,
+        carreers.career,
+        team.description_team
+        FROM team 
+        JOIN carreers
+        ON carreers.id_career = team.id_Career
+        WHERE team.id_Team = '$id_team'";
+        $query_show_team_ex=$conn->query($query_show_team);
+        $query_show_team_ex->setFetchMode(PDO::FETCH_ASSOC);
+        while ($row2=$query_show_team_ex->fetch()):
+        ?>
         <div class="col-sm-6">
         <div class="card bg-black text-light">
             <div class="card-body">
@@ -99,16 +127,17 @@ if (isset($_SESSION['email'])) {
             <h4 class="card-title">My team</h4>
             
             <br>
-            <h5 class="card-text">Mosquera Soft.</h5>
-            <p class="card_text">TIDBIS31M</p>
+            <h5 class="card-text"><?php echo $row2['name_team']; ?></h5>
+            <p class="card_text"><?php echo $row2['career']; ?></p>
             
               <h5 class="card-text">Description</h5>
-            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita reprehenderit ipsa cumque repellat maiores sed, molestias saepe nulla sapiente. Eaque id illo cum ipsam magni blanditiis ratione reprehenderit vel sequi.</p><br><br></p>
+            <p class="card-text"><?php echo $row1['description_team']; ?></p><br><br></p>
             </div>
         </div>
+        <?php endwhile; ?>
         </div>
     </div>  
-</div>
+
 
     
 <div class="prior-footer sticky-bottom">
