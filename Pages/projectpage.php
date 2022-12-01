@@ -5,6 +5,13 @@ session_start();
 
 if (isset($_SESSION['email'])) {
 
+    $query_get_idteam="SELECT id_team FROM users WHERE user_email='$email'";
+    $query_get_idteam_ex=$conn->query($query_get_idteam);
+    $query_get_idteam_ex->setFetchMode(PDO::FETCH_ASSOC);
+    while ($row = $query_get_idteam_ex->fetch()):
+        $id_team=$row['id_team'];
+    endwhile;
+
  ?>
 
 <!DOCTYPE html>
