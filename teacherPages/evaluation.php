@@ -132,11 +132,7 @@ if (isset($_SESSION['email'])) {
                       <p class="card-text"   name="project-card-desc"  id="project-card-desc"><?php echo $row['Description']; ?></p>
                       
                       <form method="POST" action="../teacherPages/rubric.php">
-<<<<<<< HEAD
-                        <button type="submit" id="toEvaluate" value="4"  name="toEvaluate" class="btn btn-orange">Evaluate</button>
-=======
                         <button type="submit" id="toEvaluate" value=$id_project name="toEvaluate" class="btn btn-orange">Evaluate</button>
->>>>>>> f0e3120415b895b595063bd745782e2f2ddae391
                       </form>
                     </div>
                   </div>
