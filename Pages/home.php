@@ -139,14 +139,6 @@ if (isset($_SESSION['email'])) {
             $query_show_all_project_ex->setFetchMode(PDO::FETCH_ASSOC);
 
             
-            /*while ($row = $query_show_all_project_ex->fetch()):
-              $id_team=$row['id_Team'];
-            endwhile;
-
-            $query_get_team="SELECT name_team FROM team WHERE id_Team='$id_team'";
-            $query_get_team_ex=$conn->query($query_get_team);
-            $query_get_team_ex->setFetchMode(PDO::FETCH_ASSOC);
-            */
             ?>
 
             <br>
@@ -225,58 +217,7 @@ if (isset($_SESSION['email'])) {
               <br>
               <!--------------------------------------------Db selects---------------------------------------------->
 
-              <!--
-            <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="../images/book.jpg" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Infinite book</h5>
-                      <h6 class="card-title">Evangelion Girls</h6>
-                      <h6 class="card-title">TIDBIS21M</h6>
-                      <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
-                      <div class="rate">
-                        <input type="radio" id="star6" name="rate" value="3" />
-                        <label for="star6" title="text">3 stars</label>
-                        <input type="radio" id="star5" name="rate" value="2" />
-                        <label for="star5" title="text">2 stars</label>
-                        <input type="radio" id="star4" name="rate" value="1" />
-                        <label for="star4" title="text">1 star</label>
-                      </div>
-                      <a href="./homeViewMore.html" class="btn btn-happy">View more</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <br>
-            <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="../images/book.jpg" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Infinite book</h5>
-                      <h6 class="card-title">Evangelion Girls</h6>
-                      <h6 class="card-title">TIDBIS21M</h6>
-                      <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia quaerat itaque laborum! Est rerum exercitationem pariatur beatae soluta omnis, quam laborum dolorum amet ipsam corporis? Dolor asperiores quas voluptas exercitationem..</p>
-                      <div class="rate">
-                        <input type="radio" id="star9" name="rate" value="3" />
-                        <label for="star9" title="text">3 stars</label>
-                        <input type="radio" id="star8" name="rate" value="2" />
-                        <label for="star8" title="text">2 stars</label>
-                        <input type="radio" id="star7" name="rate" value="1" />
-                        <label for="star7" title="text">1 star</label>
-                      </div>
-                      <a href="./homeViewMore.html" class="btn btn-happy">View more</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              -->
+            
               
 
           </div>
