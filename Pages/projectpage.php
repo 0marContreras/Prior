@@ -1,16 +1,14 @@
 <!--Checa si el usuario esta logueado o no-->
 <?php 
 
+include('../back-end/PDO.php');
+
 session_start();
 
-if (isset($_SESSION['email'])) {
+$email=$_SESSION['email'];
 
-    $query_get_idteam="SELECT id_team FROM users WHERE user_email='$email'";
-    $query_get_idteam_ex=$conn->query($query_get_idteam);
-    $query_get_idteam_ex->setFetchMode(PDO::FETCH_ASSOC);
-    while ($row = $query_get_idteam_ex->fetch()):
-        $id_team=$row['id_team'];
-    endwhile;
+
+if (isset($_SESSION['email'])) {
 
  ?>
 
@@ -74,10 +72,16 @@ if (isset($_SESSION['email'])) {
 
           </div>
         </div>
-      </div>
    
     <br><br>
-
+    <?php 
+    $query_get_project="SELECT project.project_name,
+    team.name_team,
+    project.Description
+    FROM project
+    JOIN team
+    ON project.id_Team = team.id_Team;"
+    ?>
     <div class="container">
       <div class="card mb-3 bg-black text-light">
         <img class="project-logo bg-light"  src="../images/TLogo.png" class="card-img-top" alt="...">
@@ -118,7 +122,7 @@ if (isset($_SESSION['email'])) {
 
 <!--Si no esta logueado pa atrás papa-->
 <?php 
-
+    
 }else{
 
      header("Location: ../Pages/login.php");

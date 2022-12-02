@@ -1,9 +1,29 @@
 <!--Checa si el usuario esta logueado o no-->
 <?php 
-
+include('../back-end/PDO.php');
 session_start();
+$email=$_SESSION['email'];
 
 if (isset($_SESSION['email'])) {
+
+    $query_get_idteam="SELECT id_team FROM users WHERE user_email='$email'";
+    $query_get_idteam_ex=$conn->query($query_get_idteam);
+    $query_get_idteam_ex->setFetchMode(PDO::FETCH_ASSOC);
+    while ($row = $query_get_idteam_ex->fetch()):
+        $id_team=$row['id_team'];
+    endwhile;
+
+    $query_get_project="SELECT id_project FROM project WHERE id_Team = '$id_team'";
+    $query_get_project_ex=$conn->query($query_get_project);
+    $query_get_project_ex->setFetchMode(PDO::FETCH_ASSOC);
+    while ($row1 = $query_get_project_ex->fetch()):
+        $id_project=$row1['id_project'];
+    endwhile;
+
+    if($id_project!=0){
+        header("Location: ../Pages/projectpage.php");
+    }
+    else{
 
  ?>
 
@@ -67,7 +87,7 @@ if (isset($_SESSION['email'])) {
 
           </div>
         </div>
-      </div>
+
     <br><br>
       <div class="container">
         <div class="row">
@@ -109,7 +129,7 @@ if (isset($_SESSION['email'])) {
 
 <!--Si no esta logueado pa atrás papa-->
 <?php 
-
+    }
 }else{
 
      header("Location: ../Pages/login.php");
