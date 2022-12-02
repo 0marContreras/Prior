@@ -80,6 +80,7 @@ if (isset($_SESSION['email'])) {
                         include('../back-end/PDO.php');
             
                         $query_show_all_project="SELECT users.Username,
+                        users.pictures,
                         groups.group_name,
                         team.name_team,
                         users.descriptions
@@ -103,7 +104,7 @@ if (isset($_SESSION['email'])) {
                     <div class="row g-0">
 
                       <div class="col-md-4">
-                        <img src="../images/not-found.jpg" class="img-fluid rounded-start" alt="...">
+                      <img src="data:image/jpeg;base64,<?php  echo base64_encode($row['pictures']);?>" width="180" height="180"/>
                         <br><br>
                         
                       </div>

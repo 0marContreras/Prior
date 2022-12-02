@@ -52,7 +52,7 @@ if (isset($_SESSION['email'])) {
                                 
                                 <td scope="row">Dominio del tema</td>
                                 <td>40%</td>
-                                <td><input name="rubricOne" id="rubricOne" type="checkbox" value="40"></td>
+                                <td><input name="rubricOne" id="rubricOne" type="checkbox" value="4"></td>
                                 <!--Retorna la ponderacion de la primera evaluacion en el name-->
                             </tr>
 
@@ -61,7 +61,7 @@ if (isset($_SESSION['email'])) {
                                 
                                 <td scope="row">Secuencia y organización</td>
                                 <td>10%</td>
-                                <td><input name="rubricTwo" id="rubricTwo" type="checkbox" value="10"></td>
+                                <td><input name="rubricTwo" id="rubricTwo" type="checkbox" value="1"></td>
                                 <!--Retorna la ponderacion de la segunda evaluacion en el name-->
 
                             </tr>
@@ -72,7 +72,7 @@ if (isset($_SESSION['email'])) {
                                 
                                 <td scope="row">Uso del tiempo</td>
                                 <td>10%</td>
-                                <td><input name="rubricThree" id="rubricThree" type="checkbox" value="10"></td>
+                                <td><input name="rubricThree" id="rubricThree" type="checkbox" value="1"></td>
                                 <!--Retorna la ponderacion de la tercera evaluacion en el name-->
                                 
                             </tr>
@@ -82,7 +82,7 @@ if (isset($_SESSION['email'])) {
                                 
                                 <td scope="row">Recursos Visuales</td>
                                 <td>10%</td>
-                                <td><input name="rubricFour" id="rubricFour" type="checkbox" value="10"></td>
+                                <td><input name="rubricFour" id="rubricFour" type="checkbox" value="1"></td>
                                 <!--Retorna la ponderacion de la cuarta evaluacion en el name-->
                                 
                             </tr>
@@ -92,7 +92,7 @@ if (isset($_SESSION['email'])) {
                                 
                                 <td scope="row">Postura y contacto visual</td>
                                 <td>10%</td>
-                                <td><input name="rubricFive" id="rubricFive" type="checkbox" value="10"></td>
+                                <td><input name="rubricFive" id="rubricFive" type="checkbox" value="1"></td>
                                 <!--Retorna la ponderacion de la quinta evaluacion en el name-->
                                 
                             </tr>
@@ -102,7 +102,7 @@ if (isset($_SESSION['email'])) {
                                 
                                 <td scope="row">Trabajo en equipo</td>
                                 <td>10%</td>
-                                <td><input name="rubricSix" id="rubricSix" type="checkbox" value="10"></td>
+                                <td><input name="rubricSix" id="rubricSix" type="checkbox" value="1"></td>
                                 <!--Retorna la ponderacion de la sexta evaluacion en el name-->
                                 
                             </tr>
@@ -112,7 +112,7 @@ if (isset($_SESSION['email'])) {
                                 
                                 <td scope="row">Presentación personal (vestimenta)</td>
                                 <td>10%</td>
-                                <td><input name="rubricSeven" id="rubricSeven" type="checkbox" value="10"></td>
+                                <td><input name="rubricSeven" id="rubricSeven" type="checkbox" value="1"></td>
                                 <!--Retorna la ponderacion de la septima evaluacion en el name-->
                                 
                             </tr>

@@ -150,7 +150,7 @@ if (isset($_SESSION['email'])) {
                 <div class="row g-0">
                   <div class="col-md-4">
                     
-                    <img src="../images/not-found.jpg" class="img-fluid rounded-start" alt="...">
+                  <img src="data:image/jpeg;base64,<?php  echo base64_encode($row['Logotipos']);?>" width="180" height="180"/>
                     
                   </div>
                   <div class="col-md-8">

@@ -84,6 +84,7 @@ if (isset($_SESSION['email'])) {
             include('../back-end/PDO.php');
 
             $query_show_all_project ="SELECT users.Username,
+            users.pictures,
             groups.group_name,
             team.name_team,
             users.descriptions
@@ -104,7 +105,7 @@ if (isset($_SESSION['email'])) {
         <div class="row g-0">
 
           <div class="col-md-4">
-            <img src="../images/not-found.jpg" class="img-fluid rounded-start" alt="...">
+          <img src="data:image/jpeg;base64,<?php  echo base64_encode($row['pictures']);?>" width="180" height="180"/>
             <br><br>
             
           </div>
@@ -117,7 +118,7 @@ if (isset($_SESSION['email'])) {
                 <h5 class="card-title"><?php echo $row['Username']; ?></h5>
                 <p class="card-text">Biography:</p>
                 <p class="card-text"><?php echo $row['descriptions']; ?></p>
-                <a class="edit-button fw-bold" href="../Pages/myprfileEdit.php">
+                <a class="edit-button fw-bold" href="../teacherPages/myprofileEditT.php">
                     <ion-icon name="create-outline"></ion-icon> Edit profile
                 </a> 
                         </div><?php endwhile; ?>
@@ -125,7 +126,7 @@ if (isset($_SESSION['email'])) {
                        <div class="row">
                          <div class="col-3">
                                 <!--Boton de logout, nos manda a logout.php-->
-                                <form class="needs-validation" method="POST" action="../back-end/logout.php">
+                                <form class="needs-validation" method="POST" action="../back-end/logoutT.php">
                                     <input class="col-12 mb-3 btn btn-danger" type="submit" value="Log out">
                                     <!--<button type="button" class=" col-12 mb-3 btn btn-danger ">Log out</button>-->
                                 </form>
