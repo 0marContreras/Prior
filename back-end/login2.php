@@ -36,15 +36,6 @@
     //contamos cuantas columnas nos da el query
     $count=$query_result->fetchColumn();
 
-    /*
-    $get_password=$conn->prepare("SELECT * FROM users WHERE user_email=?");
-    $get_password->bindParam(1, $email_login, PDO::PARAM_STR, 255);
-    $row = $count->fetch(PDO::FETCH_ASSOC);
-*/
-    /*
-    $query_password="SELECT user_password FROM users WHERE user_email='$email_login'";
-    $query_password_result=$conn->query($query_password);
-    $row=mysql_fetch_row($query_password_result);*/
 
     //Si nos regresa una row pa adelante caminante, si no pa atrás papa de regreso al login 
     if ($count === 1) {
