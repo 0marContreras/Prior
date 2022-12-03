@@ -153,6 +153,7 @@ if (isset($_SESSION['email'])) {
                                 $query_show_all_projec="SELECT project.project_name, 
                                 project.Description, 
                                 project.Logotipos,
+                                project.score,
                                 team.name_team,
                                 groups.group_name
                                 FROM project
@@ -167,12 +168,12 @@ if (isset($_SESSION['email'])) {
                                 while ($row1=$query_show_all_projec_ex->fetch()):
                             ?>
                           <div class="col-md-4">
-                            <img src="../images/not-found.jpg" class="img-fluid rounded-start" alt="...">
+                           <img src="data:image/jpeg;base64,<?php  echo base64_encode($row1['Logotipos']);?>" width="130" height="130"/>
                             <br>
                             <br>
                             <div class="row text-dark">
                             <h6 class="fw-bold">Final Grade: </h6>
-                            <h2>AU</h2>
+                            <h2><?php echo $row1['score']; ?></h2>
                             </div>
                             </div>
                             <div class="col-md-8 text-dark">

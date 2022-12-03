@@ -43,7 +43,7 @@ try{
     //Datos
     $query->bindParam(1,$project_name,PDO::PARAM_STR,255);
     $query->bindParam(2,$description,PDO::PARAM_STR,255);
-    $query->bindParam(3,$logotipos, PDO::PARAM_STR,255);
+    $query->bindParam(3,$logotipos, PDO::PARAM_LOB);
     $query->bindParam(4,$id_team,PDO::PARAM_INT);
     $query->bindParam(5,$score,PDO::PARAM_STR, 255);
     $query->bindParam(6,$num_score,PDO::PARAM_INT);
