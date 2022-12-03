@@ -25,16 +25,6 @@
 
         $query_insert_prepare->execute([$description, $picture, $email]);
 
-        //$query_insert->bindParam(1,$description,PDO::PARAM_STR,255);
-        //$query_insert->bindParam(2,$picture,PDO::PARAM_STR,255);
-
-        //$query_insert->execute();
-
-        /*
-        echo $description;
-        echo $picture;
-        echo $_SESSION["email"];
-        echo "Felicidades Shinji";*/
 
         header("location: ../teacherPages/tMyuser.php");
 

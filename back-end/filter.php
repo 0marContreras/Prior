@@ -36,7 +36,7 @@ try{
     $conn=null;
 
     //confirmar a usuario
-    //echo "Felicidades shinji";
+    
 }
 catch(PDOException $err){
     //mandar error

@@ -88,14 +88,6 @@ if (isset($_SESSION['email'])) {
             ON groups.id_group=project.id_group;";
             $query_show_all_project_ex=$conn->query($query_show_all_project);
             $query_show_all_project_ex->setFetchMode(PDO::FETCH_ASSOC);
-            /*while ($row = $query_show_all_project_ex->fetch()):
-              $id_team=$row['id_Team'];
-            endwhile;
-
-            $query_get_team="SELECT name_team FROM team WHERE id_Team='$id_team'";
-            $query_get_team_ex=$conn->query($query_get_team);
-            $query_get_team_ex->setFetchMode(PDO::FETCH_ASSOC);
-            */
             ?>
 
 
