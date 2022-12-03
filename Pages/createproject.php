@@ -30,7 +30,7 @@ if (isset($_SESSION['email'])) {
         <h1 class="text-center">Create project</h1>
 
       <!--Input del nombre del proycto-->
-        <form method="POST" action="../back-end/addProject.php"> <!--Aqui va el scripr PHP (pi eich pi)-->
+        <form method="POST" action="../back-end/addProject.php" enctype='multipart/form-data'> <!--Aqui va el scripr PHP (pi eich pi)-->
             <div class="form-group">
                 <label class="form-label" for="project-name">Project name</label>
                 <input class="form-control" name="project-name" type="text" id="project-name" required > <!--devuelve string con el nombre del proyecto-->

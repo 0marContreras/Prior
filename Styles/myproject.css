@@ -112,16 +112,14 @@ body{
     margin-top: 15px;
 
 }
-.form-a-tag{
-    text-decoration: none;
-    color: rgb(5, 150, 29);
-    font-size: 15px;
-}
-.form-a-tag:hover{
-    color: rgb(0, 119, 255);
-}
+
 
 .project-logo{
     width: 650px;
     height: 300px;
+}
+
+.edit-butt{
+    text-decoration: none !important;
+    color: rgb(145, 59, 224) !important;
 }

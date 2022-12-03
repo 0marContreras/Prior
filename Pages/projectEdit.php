@@ -13,40 +13,49 @@ if (isset($_SESSION['email'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit profile</title>
+    <title>My team - Prior</title>
+
     <!--Connections-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../Styles/centered-body.css">
-    <link rel="stylesheet" href="../Styles/myuser.css">
-
+    <link rel="stylesheet" href="../Styles/myproject.css">
 
 </head>
 <body>
-    
+
     <div class="creation bg-black text-light">
 
-        <h1 class="text-center">Edit profile</h1>
+        <h1 class="text-center">Edit Project</h1>
 
-        <form class="bg-black text-light" method="POST" action="../back-end/editProfile.php" enctype='multipart/form-data'> <!--Aqui va el script php-->
+        <form class="bg-black text-light" method="POST" action="../back-end/projectEdition.php"  enctype='multipart/form-data'> <!--Aqui va el script php-->
 
 
-              <!--ingresa la nueva descripcion del usuario-->
+          <!--ingresa el nombre del equipo-->
+            <div class="form-group">
+                <label class="form-label" for="new-project-name">Project name</label>
+                <input class="form-control" name="new-project-name" type="text" id="new-project-name" required > <!--retorna el nombre del equipo-->
+            </div>  
+            
+
+              <br> <!--br-->
+
+              <!--ingresa la descripcion del equipo-->
               <div class="form-group mb-3">
-                <label for="user-description" class="form-label">Description</label>
-                <textarea class="form-control" name="user-description" id="user-description" rows="3" ></textarea> <!--retorna la descripcion del usuario-->
+                <label for="team-description" class="form-label">Description</label>
+                <textarea class="form-control" name="new-project-description" id="new-project-description" rows="3" required></textarea> <!--retorna la descripcion del equipo-->
               </div>
 
               <br>
 
-              <!--ingresa la foto del usuario-->
+              <!--ingresa el logo del equipo-->
               <div class="form-group mb-3">
-                <label for="picUser" class="form-label">Picture</label>
-                <input class="form-control form-control-sm" name="userpic" id="userpic" type="file" > <!--retorna la foto del usuario-->
+                <label for="formFileSm" class="form-label">Logo</label>
+                <input class="form-control form-control-sm" name="new-project-logo" id="new-project-logo" type="file"> <!--retorna el logo del equipo-->
               </div>
 
               <br><br>
             
-            <input class="btn btn-rosa text-light w-100" type="submit" value="Update changes">
+            <input class="btn btn-purple w-100" type="submit" value="Confirm">
 
         </form>
     </div>
@@ -58,8 +67,7 @@ if (isset($_SESSION['email'])) {
    </div>
 
 
-
-   <!--Connections-->
+<!--Connections-->
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>    
     <!--Icons-->

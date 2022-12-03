@@ -16,7 +16,7 @@
         session_start();
         //Variables 
         $description=$_POST['user-description'];
-        $picture=$_POST['user-pic'];
+        $picture=file_get_contents($_FILES['userpic']['tmp_name'], 'rb');
         $email=$_SESSION["email"];
 
         $query_insert="UPDATE users SET descriptions=?, pictures=? WHERE user_email=?";

@@ -90,15 +90,13 @@ if (isset($_SESSION['email'])) {
           <h5 class="card-title">Mosquera Studios</h5>
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident odit atque vero officiis animi distinctio cumque iste eveniet nam, consequuntur labore rerum ipsa iusto rem quas laboriosam laborum nobis?
           Reiciendis perferendis maiores enim doloribus facere veniam asperiores accusamus, tempore nam reprehenderit sed sunt sint dolorem quis libero, incidunt dolor labore officiis culpa, itaque possimus maxime necessitatibus? Eum, quia ea?
-          Neque optio natus, explicabo temporibus suscipit amet! Eius quisquam ipsa consequuntur pariatur facere quod deserunt, fugiat nostrum? Velit illum consequatur quibusdam! Tempore voluptates voluptatem aliquam architecto consequatur? Modi, et iste.
-          Maiores, quis? Accusantium tempora ab est consequuntur, nam doloremque itaque voluptatibus modi ullam sequi corrupti voluptate iste et laudantium illo minima animi saepe, voluptatum fugiat dignissimos voluptas commodi molestiae. Illo?
-          Quam tempora autem repellat repellendus quo expedita corrupti tempore voluptate ea, itaque assumenda voluptates praesentium sunt eius inventore quis quos maxime ex laudantium laboriosam aliquam? Eligendi ex repellat vero harum?
-          Odio fugit nostrum ipsa. Cumque, dolorum, voluptatibus mollitia consectetur similique odit accusamus libero harum iusto impedit earum, nam tempore fugiat dolorem iste! Odio esse architecto perferendis libero numquam unde eaque?
-          Accusamus impedit magni vero molestiae saepe, eveniet nisi perferendis nulla doloribus eum nam cumque. Dolores, dignissimos ratione commodi fugit, consequuntur quam aspernatur a rerum tenetur delectus eaque ipsum maxime in.
-          Eligendi animi minus doloribus illo tenetur, qui neque quibusdam at deserunt quidem aliquam temporibus optio id eius vel nemo impedit voluptatibus, rem soluta rerum! Nam nihil consectetur id natus corrupti.
-          Ducimus perspiciatis provident vel, dignissimos quod repellat tempore saepe, rerum fuga nihil tenetur fugit eos corrupti at quibusdam aliquid eligendi assumenda culpa distinctio illum id quis cumque? Fugit, odit ipsum?
+          Neque optio natus, explicabo temporibus susc tempore voluptate ea, itaque assumenda voluptates praesentium sunt eius inventore quis quos maxime ex laudantium laboriosam aliquam? Eligendi ex repellat vero harum?
+          Odio fugit nostrum ipsa. Cumque, dolorum, voluptatibus moihil tenetur fugit eos corrupti at quibusdam aliquid eligendi assumenda culpa distinctio illum id quis cumque? Fugit, odit ipsum?
           Sunt fuga sit earum nisi, minima, quis a nam quod iste quidem maxime accusamus non eos voluptatem voluptatum animi consequatur alias amet perferendis id odit obcaecati illo numquam sapiente. Nemo?.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          
+          <a class="edit-butt fw-bold" href="../Pages/projectEdit.php">
+                    <ion-icon name="create-outline"></ion-icon> Edit project
+                </a>
         </div>
       </div>
     </div>

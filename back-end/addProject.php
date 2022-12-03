@@ -28,7 +28,7 @@ try{
 
     $project_name=$_POST['project-name'];
     $description=$_POST['project-description'];
-    $logotipos=$_POST['project-logo'];
+    $logotipos=file_get_contents($_FILES['project-logo']['tmp_name'], 'rb');
     $score='not set yet';
     $num_score=0;
     $stars=0;
