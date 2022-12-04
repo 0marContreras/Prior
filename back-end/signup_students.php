@@ -27,36 +27,44 @@
         $description="Not set yet";
         $pictures="Not set yet";
 
+       try{
+            //Insert en la tabla
+            $query=$conn->prepare("INSERT INTO users(Username, user_email, user_password, id_type_user, id_group, id_team, active, created_at, updated_at, descriptions, pictures) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+            
+            //Datos
+            $query->bindParam(1,$name,PDO::PARAM_STR,255);
+            $query->bindParam(2,$email,PDO::PARAM_STR,255);
+            $query->bindParam(3,$pass_sign_student, PDO::PARAM_STR,255);
+            $query->bindParam(4,$type_user,PDO::PARAM_INT);
+            $query->bindParam(5,$group,PDO::PARAM_INT);
+            $query->bindParam(6,$id_team,PDO::PARAM_INT);
+            $query->bindParam(7,$active,PDO::PARAM_INT);
+            $query->bindParam(8, $created_at, PDO::PARAM_STR, 255);
+            $query->bindParam(9, $updated_at, PDO::PARAM_STR, 255);
+            $query->bindParam(10, $description, PDO::PARAM_STR, 255);
+            $query->bindParam(11, $pictures, PDO::PARAM_STR, 255);
+            
+        
+            //ejecutar
+            $query->execute();
 
-        
-        //Insert en la tabla
-        $query=$conn->prepare("INSERT INTO users(Username, user_email, user_password, id_type_user, id_group, id_team, active, created_at, updated_at, descriptions, pictures) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-        
-        //Datos
-        $query->bindParam(1,$name,PDO::PARAM_STR,255);
-        $query->bindParam(2,$email,PDO::PARAM_STR,255);
-        $query->bindParam(3,$pass_sign_student, PDO::PARAM_STR,255);
-        $query->bindParam(4,$type_user,PDO::PARAM_INT);
-        $query->bindParam(5,$group,PDO::PARAM_INT);
-        $query->bindParam(6,$id_team,PDO::PARAM_INT);
-        $query->bindParam(7,$active,PDO::PARAM_INT);
-        $query->bindParam(8, $created_at, PDO::PARAM_STR, 255);
-        $query->bindParam(9, $updated_at, PDO::PARAM_STR, 255);
-        $query->bindParam(10, $description, PDO::PARAM_STR, 255);
-        $query->bindParam(11, $pictures, PDO::PARAM_STR, 255);
-        
+            //cerrar conexion
+            $conn=null;
+
+            //confirmar a usuario
+            echo "Felicidades shinji";
+
+            //redireccion
+            header('location:../Pages/login.php'); 
+
+        }catch(PDOException){
+
+            include("../Pages/singup.php");
     
-        //ejecutar
-        $query->execute();
-
-        //cerrar conexion
-        $conn=null;
-
-        //confirmar a usuario
-        echo "Felicidades shinji";
-
-        //redireccion
-        header('location:../Pages/login.php'); 
+            echo'<script type="text/javascript">';
+            echo'alert("This email is already in use")';
+            echo'</script>';
+        } 
 
     }
     catch(PDOException $err){

@@ -94,8 +94,9 @@ if (isset($_SESSION['email'])) {
 
 
 
-      <div class="container text-center mt-5">
+      <div class="container mt-5">
 
+      
         <div class="row row-cols-3">
 
         <?php while ($row = $query_show_all_project_ex->fetch()):
@@ -104,13 +105,14 @@ if (isset($_SESSION['email'])) {
           <div class="col">
                 
                 
-            <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
+            <div class="card mb-3 bg-black text-light " style="max-width: 540px;">
                 <div class="row g-0">
-                  <div class="col-md-4">
-                  <img src="data:image/jpeg;base64,<?php  echo base64_encode($row['Logotipos']);?>" width="180" height="180"/>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
+                  <div class="col-md-5">
+                  <img class="card-img" src="data:image/jpeg;base64,<?php  echo base64_encode($row['Logotipos']);?>" width="180" height="180"/>
+                  
+                </div>
+                  <div class="col-md-7">
+                    <div class="card-body text-start">
 
                       <!--Contiene el id y name del titulo-->
                       <h5 class="card-title" name="project-card-title" id="project-card-title"><?php echo $row['project_name']; ?></h5>
