@@ -96,7 +96,7 @@ if (isset($_SESSION['email'])) {
 
                 ?>
         <div class="card bg-black">
-            <div class="card-body">
+            <div class="card-body text-start">
             <h4 class="card-title text-white">Members</h4>
             <br>
             <?php while ($row1 = $query_show_teammembers_ex->fetch()): ?>
@@ -109,6 +109,7 @@ if (isset($_SESSION['email'])) {
         </div>
         <?php 
         $query_show_team="SELECT team.name_team,
+        team.logo,
         carreers.career,
         team.description_team
         FROM team 
@@ -120,10 +121,10 @@ if (isset($_SESSION['email'])) {
         while ($row2=$query_show_team_ex->fetch()):
         ?>
         <div class="col-sm-6">
-        <div class="card bg-black text-light">
+        <div class="card bg-black text-start text-light">
             <div class="card-body">
-                <img src="../images/moscas.png" class="img-fluid rounded float-end" alt="..." width="200" 
-            height="200">
+            <img src="data:image/jpeg;base64,<?php  echo base64_encode($row2['logo']);?>" width="170" height="170"/>
+            <br><br>
             <h4 class="card-title">My team</h4>
             
             <br>
@@ -131,7 +132,9 @@ if (isset($_SESSION['email'])) {
             <p class="card_text"><?php echo $row2['career']; ?></p>
             
               <h5 class="card-text">Description</h5>
-            <p class="card-text"><?php echo $row1['description_team']; ?></p><br><br></p>
+            <p class="card-text"><?php echo $row2['description_team']; ?><br><br>
+            <a class="text-decoration-none fw-bold" href="../Pages/teamEdit.php"><ion-icon name="create-outline"></ion-icon> Edit team</a>
+                            
             </div>
         </div>
         <?php endwhile; ?>
