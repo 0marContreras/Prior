@@ -85,7 +85,8 @@ if (isset($_SESSION['email'])) {
             JOIN team
             ON project.id_Team=team.id_Team
             JOIN groups
-            ON groups.id_group=project.id_group;";
+            ON groups.id_group=project.id_group
+            WHERE project.score = 'Not graded';";
             $query_show_all_project_ex=$conn->query($query_show_all_project);
             $query_show_all_project_ex->setFetchMode(PDO::FETCH_ASSOC);
             ?>
@@ -106,7 +107,7 @@ if (isset($_SESSION['email'])) {
             <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="../images/book.jpg" class="img-fluid rounded-start" alt="...">
+                  <img src="data:image/jpeg;base64,<?php  echo base64_encode($row['Logotipos']);?>" width="180" height="180"/>
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">

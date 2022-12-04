@@ -29,7 +29,7 @@ try{
     $project_name=$_POST['project-name'];
     $description=$_POST['project-description'];
     $logotipos=file_get_contents($_FILES['project-logo']['tmp_name'], 'rb');
-    $score='not set yet';
+    $score='Not graded';
     $num_score=0;
     $stars=0;
     $created_at=date("Y-m-d");
