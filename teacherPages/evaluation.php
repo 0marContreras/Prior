@@ -102,8 +102,8 @@ if (isset($_SESSION['email'])) {
         <?php while ($row = $query_show_all_project_ex->fetch()):
            ?>
 
+          <?php $valueID = $row['id_project']; ?>
           <div class="col">
-                
                 
             <div class="card mb-3 bg-black text-light " style="max-width: 540px;">
                 <div class="row g-0">
@@ -117,6 +117,7 @@ if (isset($_SESSION['email'])) {
                       <!--Contiene el id y name del titulo-->
                       <h5 class="card-title" name="project-card-title" id="project-card-title"><?php echo $row['project_name']; ?></h5>
 
+                      
                       <!--Contiene el id y name del equipo-->
                       <h6 class="card-title" name="project-card-team"  id="project-card-team"><?php echo $row['name_team'];?></h6>
 
@@ -127,7 +128,8 @@ if (isset($_SESSION['email'])) {
                       <p class="card-text"   name="project-card-desc"  id="project-card-desc"><?php echo $row['Description']; ?></p>
                       
                       <form method="POST" action="../teacherPages/rubric.php">
-                        <button type="submit" id="toEvaluate" value=$id_project name="toEvaluate" class="btn btn-orange">Evaluate</button>
+                        <input name="valueID" id="valueID" type="hidden" value='<?php  echo $valueID?>'>
+                        <button type="submit" id="toEvaluate"  name="toEvaluate" class="btn btn-orange">Evaluate</button>
                       </form>
                     </div>
                   </div>

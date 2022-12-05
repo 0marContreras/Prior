@@ -27,8 +27,7 @@ if (isset($_SESSION['email'])) {
 <?php
             
             include('../back-end/PDO.php');
-            
-            $project_id = $_POST["toEvaluate"];
+            $project_id = $_POST['valueID'];
             ?>
 
     <div class="container mt-5">
@@ -117,9 +116,10 @@ if (isset($_SESSION['email'])) {
                                 
                             </tr>
 
+                             <input name="eva" id="eva" value='<?php echo $project_id; ?>' type="hidden">           
                             <tr class="">
                                 <td></td>   
-                                <td><button scope="row" name="willEvaluate" value='.$project_id.' class="btn btn-orange text-light" type="submit">Submit score</button></td> 
+                                <td><button scope="row" name="willEvaluate" class="btn btn-orange text-light" type="submit">Submit score</button></td> 
                                 <td></td>
                             </tr>
 
