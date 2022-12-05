@@ -170,25 +170,34 @@ if (isset($_SESSION['email'])) {
                       <!--Contiene el id y name de la descripcion-->
                       <p class="card-text"   name="project-card-desc"  id="project-card-desc"><?php echo $row['Description']; ?></p>
                       
+                      <!--ID-->
+                      <input name="getid" id="getid" value='<?php $row['id_project']; ?>' type="hidden">
                       <div class="rate">
                         <!--Estrellas y values-->
                         <input type="radio" id="star" name="rate" value="1" />
                         <label for="star3" title="text">star</label>
                       </div>
                       <div>
-                        <button class="btn btn-happy" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">View More</button>
+                        <button class="btn btn-happy" data-bs-toggle="collapse" data-bs-target='<?php echo '#'.$row['project_name']; ?>' aria-expanded="false" aria-controls='<?php echo $row['project_name']; ?>'>View More</button>
                     </div>
                       
-                      <div class="collapse" id="collapseExample">
+                      <?php 
+                        $query_com = "SELECT * FROM project_comment JOIN users ON project_comment.id_user = users.id_user WHERE project_comment.id_project = $id_project;";
+                        $query_com_ex=$conn->query($query_com);
+                        $query_com_ex->setFetchMode(PDO::FETCH_ASSOC);
+                      ?>
+
+                      <div class="collapse" id='<?php echo $row['project_name']; ?>'>
                         <br>
                           
                         <form action="../back-end/addComment.php" method="POST"> <!--Aqui va el script php-->
+                        <input name="getid" id="getid" value='<?php $row['id_project']; ?>' type="hidden">
                         <div class="card bg-dark text-light">
                             <h5 class="card-header"><label name="project-comment-title">Comment:</label></h5>
                             <div class="card-body">
 
                                 <div class="form-floating text-dark">
-                                    <textarea class="form-control" placeholder="Leave a comment here" name="new-idea-com" id="new-idea-com"></textarea>
+                                    <textarea class="form-control" placeholder="Leave a comment here" name="new-project-com" id="new-idea-com"></textarea>
                                     <label for="new-idea-com">Comment</label>
                                   </div>
                                   <br>
@@ -197,18 +206,21 @@ if (isset($_SESSION['email'])) {
                             </div>
                         </div>
                     </form>
+
+                    <?php 
+                    while ($row = $query_com_ex->fetch()): ?>
+
                     <br>
                       <!--Esta card se va a loopear con los comments-->
                     <div class="card bg-dark text-light">
-                        <h5 class="card-header"><label name="project-comment-title">TIDBIS31M</label></h5>
+                        
                         <div class="card-body">
-                          <h5 class="card-title"><label name="project-comment-name">Javier tokyo</label></h5>
+                          <h5 class="card-title"><label name="project-comment-name"><?php echo $row['Username'];?></label></h5>
                           <p class="card-text"><label name="project-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quia fugit molestias placeat consequuntur amet deleniti, mollitia cumque sequi inventore consequatur ullam ad nesciunt! Neque mollitia cum iusto obcaecati eius..</label></p>
                         </div>
                       </div>
-
+                      <?php endwhile;?>
                       </div>
-
                     </div>
                   </div>
                 </div>
