@@ -119,7 +119,7 @@ if (isset($_SESSION['email'])) {
                              <input name="eva" id="eva" value='<?php echo $project_id; ?>' type="hidden">           
                             <tr class="">
                                 <td></td>   
-                                <td><button scope="row" name="willEvaluate" class="btn btn-orange text-light" type="submit">Submit score</button></td> 
+                                <td><button onClick='return confirmSubmit()' scope="row" name="willEvaluate" class="btn btn-orange text-light" type="submit">Submit score</button></td> 
                                 <td></td>
                             </tr>
 
@@ -128,6 +128,19 @@ if (isset($_SESSION['email'])) {
                 </div>
         </form>
      </div>
+
+     <script LANGUAGE="JavaScript">
+
+        function confirmSubmit()
+        {
+        var agree=confirm("Are you sure you wish to confirm the evaluation? You can not change the grade");
+        if (agree)
+        return true ;
+        else
+        return false ;
+        }
+
+        </script>
 
      
     <div class="prior-footer sticky-bottom">
