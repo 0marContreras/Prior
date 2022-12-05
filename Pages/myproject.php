@@ -18,9 +18,9 @@ if (isset($_SESSION['email'])) {
     $query_get_project_ex->setFetchMode(PDO::FETCH_ASSOC);
     while ($row1 = $query_get_project_ex->fetch()):
         $id_project=$row['id_project'];
-    endwhile;
+    endwhile; 
 
-    if($id_project != 0){
+    if($id_project != 0){ 
         header("Location: ../Pages/projectpage.php");
     }
     else{
