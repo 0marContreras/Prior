@@ -25,7 +25,7 @@ try{
     $query_getIdTeam_ex->setFetchMode(PDO::FETCH_ASSOC);
     while ($row = $query_getIdTeam_ex->fetch()):
         $id_team_=$row['id_Team'];
-    endwhile; 
+    endwhile;
 
 
     //Join team 
