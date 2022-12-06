@@ -91,6 +91,7 @@ if (isset($_SESSION['email'])) {
     endwhile; 
 
     $query_get_project="SELECT project.project_name,
+    project.Logotipos,
     team.name_team,
     project.Description
     FROM project
@@ -102,20 +103,23 @@ if (isset($_SESSION['email'])) {
 
     while ($row2 = $query_get_project_ex->fetch()):
     ?>
-      <div class="card mb-3 bg-black text-light">
-        <img class="project-logo bg-light"  src="../images/TLogo.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h4 class="card-title"><?php echo $row2['project_name'];?></h4>
-          <h5 class="card-title"><?php echo $row2['name_team'];?></h5>
+    
+    <center>
+      <div class="card mb-3 bg-black text-light text-start col-7">
+      <img class="bg-light" src="data:image/jpeg;base64,<?php  echo base64_encode($row2['Logotipos']);?>" width="740" height="400"/>
+        <div class="card-body ">
+          <h3 class="card-title"><?php echo $row2['project_name'];?></h3>
+          <h4 class="card-title"><?php echo $row2['name_team'];?></h4>
           <p class="card-text"><?php echo $row2['Description'];?></p>
           
           <a class="edit-butt fw-bold" href="../Pages/projectEdit.php">
                     <ion-icon name="create-outline"></ion-icon> Edit project
                 </a>
         </div>
-      </div><?php endwhile; ?>
+      </div>
     </div>
-    
+    </center>
+    <?php endwhile; ?>
     <br><br>
 
     <div class="prior-footer sticky-bottom">
