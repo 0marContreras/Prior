@@ -133,7 +133,7 @@ if (isset($_SESSION['email'])) {
 
         function confirmSubmit()
         {
-        var agree=confirm("Are you sure you wish to confirm the evaluation? You can not change the grade");
+        var agree=confirm("Confirm evaluation?");
         if (agree)
         return true ;
         else

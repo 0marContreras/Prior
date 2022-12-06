@@ -86,7 +86,7 @@ if (isset($_SESSION['email'])) {
             ON project.id_Team=team.id_Team
             JOIN groups
             ON groups.id_group=project.id_group
-            WHERE project.score = 'Not graded';";
+            WHERE project.score <> 'Not graded';";
             $query_show_all_project_ex=$conn->query($query_show_all_project);
             $query_show_all_project_ex->setFetchMode(PDO::FETCH_ASSOC);
             ?>
@@ -129,7 +129,7 @@ if (isset($_SESSION['email'])) {
                       
                       <form method="POST" action="../teacherPages/rubric.php">
                         <input name="valueID" id="valueID" type="hidden" value='<?php  echo $valueID?>'>
-                        <button type="submit" id="toEvaluate"  name="toEvaluate" class="btn btn-orange">Evaluate</button>
+                        <button type="submit" id="toEvaluate"  name="toEvaluate" class="btn btn-orange">Edit grade</button>
                       </form>
                     </div>
                   </div>
@@ -137,14 +137,15 @@ if (isset($_SESSION['email'])) {
               </div>
               <!--------------------------------------------Db selects---------------------------------------------->
 
+              
             </div><?php endwhile;?>
 
-          
             <div class="col-12">
-                <form action="../teacherPages/evaluated.php">
-                  <button class="btn btn-dark" type="submit">View evaluated projects</button>
+                <form action="../teacherPages/evaluation.php">
+                  <button class="btn btn-dark" type="submit">Back to projects</button>
                 </form>
               </div>
+
 
           </div>
           </div>
