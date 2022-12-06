@@ -213,7 +213,7 @@ if (isset($_SESSION['email'])) {
                     <br>
                       <!--Esta card se va a loopear con los comments-->
                     <div class="card bg-dark text-light">
-                        <input name="getid" id="getid" value='<?php $row1['id_project']; ?>' type="hidden">
+                        <input name="getid" id="getid" value='<?php echo $id_project ?>' type="hidden">
                         <div class="card-body">
                           <h5 class="card-title"><label name="project-comment-name"><?php echo $row1['Username'];?></label></h5>
                           <p class="card-text"><label name="project-comment"><?php echo $row1['Comment'];?></label></p>
