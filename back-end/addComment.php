@@ -31,6 +31,7 @@ $updated_at=date("Y-m-d H:i:s");
     $query_insert_comment->bindParam(6,$updated_at,PDO::PARAM_STR);
 
     $query_insert_comment->execute();
+    //Si
     header("location:../Pages/home.php");
 
 
