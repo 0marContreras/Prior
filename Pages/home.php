@@ -216,7 +216,7 @@ if (isset($_SESSION['email'])) {
                         
                         <div class="card-body">
                           <h5 class="card-title"><label name="project-comment-name"><?php echo $row['Username'];?></label></h5>
-                          <p class="card-text"><label name="project-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quia fugit molestias placeat consequuntur amet deleniti, mollitia cumque sequi inventore consequatur ullam ad nesciunt! Neque mollitia cum iusto obcaecati eius..</label></p>
+                          <p class="card-text"><label name="project-comment"><?php echo $row['Comment'];?></label></p>
                         </div>
                       </div>
                       <?php endwhile;?>
