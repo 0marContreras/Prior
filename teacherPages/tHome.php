@@ -137,7 +137,9 @@ if (isset($_SESSION['email'])) {
 
             <br>
             <?php 
-                    while ($row = $query_show_all_project_ex->fetch()):?>
+                    while ($row = $query_show_all_project_ex->fetch()):
+                    
+                    $id_project=$row['id_project'];?>
               <div class="card mb-3 bg-black text-light" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col-md-4">
@@ -162,25 +164,34 @@ if (isset($_SESSION['email'])) {
                       <!--Contiene el id y name de la descripcion-->
                       <p class="card-text"   name="project-card-desc"  id="project-card-desc"><?php echo $row['Description']; ?></p>
                       
+                      <!--ID-->
+                      <input name="getid" id="getid" value='<?php echo $row['id_project']; ?>' type="hidden">
                       <div class="rate">
                         <!--Estrellas y values-->
                         <input type="radio" id="star" name="rate" value="1" />
                         <label for="star3" title="text">star</label>
                       </div>
                       <div>
-                        <button class="btn btn-happy" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">View More</button>
+                        <button class="btn btn-happy" data-bs-toggle="collapse" data-bs-target='<?php echo '#'.$row['project_name']; ?>' aria-expanded="false" aria-controls='<?php echo $row['project_name']; ?>'>View More</button>
                     </div>
                       
-                      <div class="collapse" id="collapseExample">
+                      <?php 
+                        $query_com = "SELECT project_comment.Comment, users.Username, project.id_project FROM project_comment JOIN users ON project_comment.id_user = users.id_user JOIN project ON project.id_Team = users.id_team WHERE project_comment.id_project = $id_project;";
+                        $query_com_ex=$conn->query($query_com);
+                        $query_com_ex->setFetchMode(PDO::FETCH_ASSOC);
+                      ?>
+
+                      <div class="collapse" id='<?php echo $row['project_name']; ?>'>
                         <br>
                           
-                        <form action=""> <!--Aqui va el script php-->
+                        <form action="../back-end/addCommentT.php" method="POST"> <!--Aqui va el script php-->
+                        <input name="getid" id="getid" value='<?php echo $row['id_project'] ?>' type="hidden">
                         <div class="card bg-dark text-light">
                             <h5 class="card-header"><label name="project-comment-title">Comment:</label></h5>
                             <div class="card-body">
 
                                 <div class="form-floating text-dark">
-                                    <textarea class="form-control" placeholder="Leave a comment here" name="new-idea-com" id="new-idea-com"></textarea>
+                                    <textarea class="form-control" placeholder="Leave a comment here" name="new-project-com" id="new-idea-com"></textarea>
                                     <label for="new-idea-com">Comment</label>
                                   </div>
                                   <br>
@@ -189,18 +200,22 @@ if (isset($_SESSION['email'])) {
                             </div>
                         </div>
                     </form>
+
+                    <?php 
+                    while ($row1 = $query_com_ex->fetch()): ?>
+
                     <br>
                       <!--Esta card se va a loopear con los comments-->
                     <div class="card bg-dark text-light">
-                        <h5 class="card-header"><label name="project-comment-title">TIDBIS31M</label></h5>
+                        <input name="getid" id="getid" value='<?php echo $id_project ?>' type="hidden">
                         <div class="card-body">
-                          <h5 class="card-title"><label name="project-comment-name">Javier tokyo</label></h5>
-                          <p class="card-text"><label name="project-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quia fugit molestias placeat consequuntur amet deleniti, mollitia cumque sequi inventore consequatur ullam ad nesciunt! Neque mollitia cum iusto obcaecati eius..</label></p>
+                          <h5 class="card-title"><label name="project-comment-name"><?php echo $row1['Username'];?></label></h5>
+                          <p class="card-text"><label name="project-comment"><?php echo $row1['Comment'];?></label></p>
                         </div>
                       </div>
-
+                    </form>
+                      <?php endwhile;?>
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -209,6 +224,7 @@ if (isset($_SESSION['email'])) {
               <br>
               <!--------------------------------------------Db selects---------------------------------------------->
 
+            
               
 
           </div>
