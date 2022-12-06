@@ -74,33 +74,48 @@ if (isset($_SESSION['email'])) {
         </div>
    
     <br><br>
-    <?php 
+    
+    <div class="container"><?php
+    $query_get_idteam="SELECT id_team FROM users WHERE user_email='$email'";
+    $query_get_idteam_ex=$conn->query($query_get_idteam);
+    $query_get_idteam_ex->setFetchMode(PDO::FETCH_ASSOC);
+    while ($row = $query_get_idteam_ex->fetch()):
+        $id_team=$row['id_team'];
+    endwhile;
+
+    $query_get_project="SELECT id_project FROM project WHERE id_Team = '$id_team'";
+    $query_get_project_ex=$conn->query($query_get_project);
+    $query_get_project_ex->setFetchMode(PDO::FETCH_ASSOC);
+    while ($row1 = $query_get_project_ex->fetch()):
+        $id_project=$row1['id_project'];
+    endwhile; 
+
     $query_get_project="SELECT project.project_name,
     team.name_team,
     project.Description
     FROM project
     JOIN team
-    ON project.id_Team = team.id_Team;"
+    ON project.id_Team = team.id_Team
+    WHERE project.id_project = '$id_project'";
+    $query_get_project_ex=$conn->query($query_get_project);
+    $query_get_project_ex->setFetchMode(PDO::FETCH_ASSOC);
+
+    while ($row2 = $query_get_project_ex->fetch()):
     ?>
-    <div class="container">
       <div class="card mb-3 bg-black text-light">
         <img class="project-logo bg-light"  src="../images/TLogo.png" class="card-img-top" alt="...">
         <div class="card-body">
-          <h4 class="card-title">TL Notes</h4>
-          <h5 class="card-title">Mosquera Studios</h5>
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt provident odit atque vero officiis animi distinctio cumque iste eveniet nam, consequuntur labore rerum ipsa iusto rem quas laboriosam laborum nobis?
-          Reiciendis perferendis maiores enim doloribus facere veniam asperiores accusamus, tempore nam reprehenderit sed sunt sint dolorem quis libero, incidunt dolor labore officiis culpa, itaque possimus maxime necessitatibus? Eum, quia ea?
-          Neque optio natus, explicabo temporibus susc tempore voluptate ea, itaque assumenda voluptates praesentium sunt eius inventore quis quos maxime ex laudantium laboriosam aliquam? Eligendi ex repellat vero harum?
-          Odio fugit nostrum ipsa. Cumque, dolorum, voluptatibus moihil tenetur fugit eos corrupti at quibusdam aliquid eligendi assumenda culpa distinctio illum id quis cumque? Fugit, odit ipsum?
-          Sunt fuga sit earum nisi, minima, quis a nam quod iste quidem maxime accusamus non eos voluptatem voluptatum animi consequatur alias amet perferendis id odit obcaecati illo numquam sapiente. Nemo?.</p>
+          <h4 class="card-title"><?php echo $row2['project_name'];?></h4>
+          <h5 class="card-title"><?php echo $row2['name_team'];?></h5>
+          <p class="card-text"><?php echo $row2['Description'];?></p>
           
           <a class="edit-butt fw-bold" href="../Pages/projectEdit.php">
                     <ion-icon name="create-outline"></ion-icon> Edit project
                 </a>
         </div>
-      </div>
+      </div><?php endwhile; ?>
     </div>
-
+    
     <br><br>
 
     <div class="prior-footer sticky-bottom">
