@@ -102,6 +102,7 @@ if (isset($_SESSION['email'])) {
     $query_get_project_ex->setFetchMode(PDO::FETCH_ASSOC);
 
     while ($row2 = $query_get_project_ex->fetch()):
+        
     ?>
     
     <center>
@@ -115,9 +116,39 @@ if (isset($_SESSION['email'])) {
           <a class="edit-butt fw-bold" href="../Pages/projectEdit.php">
                     <ion-icon name="create-outline"></ion-icon> Edit project
                 </a>
+                <br><br>
+        <button class="btn btn-purple" data-bs-toggle="collapse" data-bs-target='#collProject' aria-expanded="false" aria-controls='collProject'>View comments</button> 
+
+        <?php 
+        $query_com = "SELECT * FROM project_comment JOIN users ON project_comment.id_user = users.id_user WHERE project_comment.id_project = $id_project;";
+        $query_com_ex=$conn->query($query_com);
+        $query_com_ex->setFetchMode(PDO::FETCH_ASSOC);
+    ?>            
+    
+        <div class="collapse bg-black" id="collProject">
+        <?php 
+                    while ($row = $query_com_ex->fetch()): ?>
+
+                    <br>
+                      <!--Esta card se va a loopear con los comments-->
+                    <div class="card bg-dark text-light">
+                        
+                        <div class="card-body text-start">
+                          <h5 class="card-title"><label name="project-comment-name"><?php echo $row['Username'];?></label></h5>
+                          <p class="card-text"><label name="project-comment"><?php echo $row['Comment'];?></label></p>
+                        </div>
+                      </div>
+                      <?php endwhile;?>
+                      <br><br>
+        </div>
+
+    </div>
+
         </div>
       </div>
     </div>
+    
+    
     </center>
     <?php endwhile; ?>
     <br><br>
