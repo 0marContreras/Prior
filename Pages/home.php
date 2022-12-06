@@ -171,7 +171,7 @@ if (isset($_SESSION['email'])) {
                       <p class="card-text"   name="project-card-desc"  id="project-card-desc"><?php echo $row['Description']; ?></p>
                       
                       <!--ID-->
-                      <input name="getid" id="getid" value='<?php $row['id_project']; ?>' type="hidden">
+                      <input name="getid" id="getid" value='<?php echo $row['id_project']; ?>' type="hidden">
                       <div class="rate">
                         <!--Estrellas y values-->
                         <input type="radio" id="star" name="rate" value="1" />
@@ -182,7 +182,7 @@ if (isset($_SESSION['email'])) {
                     </div>
                       
                       <?php 
-                        $query_com = "SELECT * FROM project_comment JOIN users ON project_comment.id_user = users.id_user WHERE project_comment.id_project = $id_project;";
+                        $query_com = "SELECT project_comment.Comment, users.Username, project.id_project FROM project_comment JOIN users ON project_comment.id_user = users.id_user JOIN project ON project.id_Team = users.id_team WHERE project_comment.id_project = $id_project;";
                         $query_com_ex=$conn->query($query_com);
                         $query_com_ex->setFetchMode(PDO::FETCH_ASSOC);
                       ?>
@@ -191,7 +191,7 @@ if (isset($_SESSION['email'])) {
                         <br>
                           
                         <form action="../back-end/addComment.php" method="POST"> <!--Aqui va el script php-->
-                        <input name="getid" id="getid" value='<?php $row['id_project']; ?>' type="hidden">
+                        
                         <div class="card bg-dark text-light">
                             <h5 class="card-header"><label name="project-comment-title">Comment:</label></h5>
                             <div class="card-body">
@@ -205,20 +205,21 @@ if (isset($_SESSION['email'])) {
                             <button class="btn btn-happy" type="submit">Publish</button>    
                             </div>
                         </div>
-                    </form>
+                    
 
                     <?php 
-                    while ($row = $query_com_ex->fetch()): ?>
+                    while ($row1 = $query_com_ex->fetch()): ?>
 
                     <br>
                       <!--Esta card se va a loopear con los comments-->
                     <div class="card bg-dark text-light">
-                        
+                        <input name="getid" id="getid" value='<?php $row1['id_project']; ?>' type="hidden">
                         <div class="card-body">
-                          <h5 class="card-title"><label name="project-comment-name"><?php echo $row['Username'];?></label></h5>
-                          <p class="card-text"><label name="project-comment"><?php echo $row['Comment'];?></label></p>
+                          <h5 class="card-title"><label name="project-comment-name"><?php echo $row1['Username'];?></label></h5>
+                          <p class="card-text"><label name="project-comment"><?php echo $row1['Comment'];?></label></p>
                         </div>
                       </div>
+                    </form>
                       <?php endwhile;?>
                       </div>
                     </div>
