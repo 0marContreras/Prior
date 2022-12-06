@@ -27,7 +27,7 @@ if (isset($_SESSION['email'])) {
 
         <h1 class="text-center">Edit Team</h1>
 
-        <form class="bg-black text-light" method="POST" action="../back-end/editTeam.php"> <!--Aqui va el script php-->
+        <form class="bg-black text-light" method="POST" action="../back-end/editTeam.php" enctype='multipart/form-data'> <!--Aqui va el script php-->
 
 
           <!--ingresa el nombre del equipo-->
